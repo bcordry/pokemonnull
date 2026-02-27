@@ -1,0 +1,471 @@
+/* CSS Reset and base styles */
+* {
+    margin: 0; /* Remove default margin from all elements */
+    padding: 0; /* Remove default padding from all elements */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+/* Root CSS variables for Type: Null color scheme */
+:root {
+    /* Primary colors based on Type: Null */
+    --primary-gray: #2a2a2a; /* Dark gray for main backgrounds */
+    --secondary-gray: #404040; /* Medium gray for secondary elements */
+    --light-gray: #6a6a6a; /* Light gray for text and borders */
+    --silver: #c0c0c0; /* Silver for highlights and accents */
+    --accent-red: #dc3545; /* Red for important elements and hover states */
+    --black: #1a1a1a; /* Deep black for text and strong contrasts */
+    --white: #ffff; /* Pure white for text on dark backgrounds */
+
+    /* Neutral colors */
+    --bg-dark: #1e1e1e; /* Very dark background */
+    --bg-light: #f8f9fa; /* Light background for contrast */
+    --text-primary: #ffff; /* Primary text color */
+    --text-secondary: #c0c0c0; /* Secondary text color */
+    --text-muted: #6a6a6a; /* Muted text color */
+
+    /* Typography */
+    --font-heading: 'Bebas Neue', cursive; /* Font for headings */
+    --font-body: 'Manrope', sans-serif; /* Font for body text */
+
+    /* Spacing and sizing */
+    --container-max-width: 1200px; /* Maximum width for content containers */
+    --header-height: 80px; /* Fixed height for header */
+    --footer-height: 200px; /* Approximate height for footer */
+    --border-radius: 8px; /* Standard border radius */
+    --transition: all 0.3s ease; /* Standard transition for smooth animations */
+}
+
+/* Custom Scrollbar Styling */
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+/* Handle (the part you click and drag) */
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-gray);
+    border-radius: 5px;
+    border: 2px solid var(--black); /* Creates a padding effect */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-red); /* Glow red when interacting */
+}
+
+
+/* Base body styling */
+body {
+    font-family: var(--font-body); /* Set default font family */
+    background-color: var(--bg-dark); /* Dark background */
+    color: var(--text-primary); /* White text */
+    line-height: 1.6; /* Comfortable line height for readability */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+}
+
+/* Container for centering content with max width */
+.container {
+    max-width: var(--container-max-width); /* Limit maximum width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+
+/* =========================================================
+   GLOBAL LINK STYLING (NON-BUTTON LINKS)
+   Goal: Stop default blue/purple links from clashing with the dark theme.
+   IMPORTANT: We explicitly exclude button-like and nav links so their existing
+   color behavior (ex: .btn-primary download buttons) stays intact.
+   ========================================================= */
+
+/* Base link styling for normal content links (articles, FAQ answers, etc.) */
+a:link {
+    color: var(--white); /* Unvisited links are bright white (high contrast on dark bg) */
+    text-decoration: underline; /* Keep underline so links still look like links (not normal body text) */
+    text-underline-offset: 3px; /* Push underline slightly away from the letters for readability */
+    text-decoration-thickness: 1px; /* Keep underline thin so it feels modern, not heavy */
+}
+
+/* Visited link styling (replaces browser-default purple) */
+a:visited {
+    color: #888888; /* Medium grey: clearly "already clicked" but still readable on dark bg */
+}
+
+/* Hover styling: uses your accent color to feel "on theme" */
+a:hover {
+    color: var(--accent-red); /* Red hover makes it obvious it's interactive */
+}
+
+/* Keyboard focus styling (accessibility): shows a clear outline when tabbing */
+a:focus-visible {
+    outline: 2px solid var(--accent-red); /* High-contrast outline for keyboard users */
+    outline-offset: 3px; /* Move outline away from text so it doesn't overlap letters */
+}
+
+/* =========================================================
+   EXCLUSIONS: DO NOT let the global link rules override "links that behave like buttons".
+   We restate their text-decoration and colors so they keep the exact behavior you already designed.
+   ========================================================= */
+
+/* Nav links already have their own color/hover rules; remove underline for a clean menu look */
+.nav-link:link,
+.nav-link:visited,
+.nav-link:hover,
+.nav-link:focus-visible {
+    text-decoration: none; /* Nav items should look like UI buttons, not inline links */
+}
+
+/* Logo link: the "Pokémon Null" heading in the top-left should never show an underline */
+/* It's a heading styled as a brand mark, not a content link */
+.logo-link:link,
+.logo-link:visited,
+.logo-link:hover,
+.logo-link:focus-visible {
+    text-decoration: none; /* Remove underline from the main site logo at all times */
+    color: inherit; /* Keep the silver color defined on .logo — don't let link states override it */
+}
+
+/* Button links must keep their designed button colors (especially .btn-primary Download) */
+.btn:link,
+.btn:visited {
+    text-decoration: none; /* Buttons should not show an underline */
+    color: inherit; /* Use the color defined by .btn-primary / .btn-secondary */
+}
+
+/* Button hover states are defined in their own classes; keep text color inherited */
+.btn:hover {
+    color: inherit; /* Prevent the global a:hover red from changing button text */
+}
+
+/* Footer links have their own system (grey -> red on hover); keep them untouched */
+.footer-links a:link,
+.footer-links a:visited {
+    color: var(--text-secondary); /* Keep footer links consistent with your footer theme */
+    text-decoration: none; /* Footer links look cleaner without underlines */
+}
+
+.footer-links a:hover {
+    color: var(--accent-red); /* Your existing footer hover behavior */
+}
+
+/* HEADER STYLES */
+.header {
+    background: linear-gradient(135deg, var(--primary-gray) 0%, var(--secondary-gray) 100%); /* Gradient background */
+    border-bottom: 2px solid var(--accent-red); /* Red bottom border */
+    position: sticky; /* Stick to top when scrolling */
+    top: 0; /* Position at top */
+    z-index: 1000; /* Ensure header stays above other content */
+    height: var(--header-height); /* Fixed height */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items apart */
+    padding: 0 20px; /* Add horizontal padding */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+/* Header brand/logo area */
+.header-brand {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack logo and tagline vertically */
+    align-items: flex-start; /* Align to left */
+}
+
+/* Main logo styling */
+.logo {
+    font-family: var(--font-heading); /* Use heading font */
+    font-size: 2.6rem; /* Large font size */
+    color: var(--silver); /* Silver color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+    letter-spacing: 2px; /* Add letter spacing */
+    margin: 0; /* Remove default margin */
+    padding-top: 6px; /* Nudge the logo slightly downward so it sits lower in the header */
+}
+
+/* Add to your styles.css or header section */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+.logo-link:focus, .logo-link:hover {
+    text-decoration: none; /* or none, if you want no effect */
+}
+
+/* Tagline under logo */
+.tagline {
+    font-size: 0.9rem; /* Smaller font size */
+    color: var(--accent-red); /* Red color */
+    font-weight: 600; /* Semi-bold weight */
+    text-transform: uppercase; /* Make uppercase */
+    letter-spacing: 1px; /* Add letter spacing */
+    margin-top: -10px; /* Pull the tagline up closer to the logo — more negative = higher */
+}
+
+/* Navigation container */
+.nav {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center vertically */
+}
+
+/* Navigation menu list */
+.nav-menu {
+    display: flex; /* Display items horizontally */
+    list-style: none; /* Remove bullet points */
+    gap: 5px; /* Space between menu items */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Individual navigation links */
+.nav-link {
+    font-family: "Bebas Neue", cursive; /* Use Bebas Neue font */
+    font-weight: 700; /* Bebas Neue is bold by default, but this helps if you use variable weights */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary); /* Light gray color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Medium font weight */
+    font-size: 1rem; /* Standard font size */
+    padding: 10px 15px; /* Add padding for click area */
+    border-radius: var(--border-radius); /* Rounded corners */
+    transition: var(--transition); /* Smooth transition */
+    position: relative; /* For pseudo-element positioning */
+}
+
+/* Navigation link hover effect */
+.nav-link:hover {
+    color: var(--white); /* Change to white on hover */
+    background-color: rgba(192, 192, 192, 0.1); /* Light background on hover */
+}
+
+/* Active navigation link styling */
+.nav-link.active {
+    color: var(--accent-red); /* Red color for active link */
+    background-color: rgba(220, 53, 69, 0.1); /* Light red background */
+}
+
+/* Mobile navigation toggle button */
+.nav-toggle {
+    display: none; /* Hidden by default (desktop) */
+    flex-direction: column; /* Stack hamburger lines vertically */
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    padding: 5px; /* Small padding */
+}
+
+/* Hamburger menu lines */
+.nav-toggle span {
+    width: 25px; /* Line width */
+    height: 3px; /* Line thickness */
+    background-color: var(--silver); /* Silver color */
+    margin: 3px 0; /* Vertical spacing */
+    transition: var(--transition); /* Smooth transition for animation */
+    border-radius: 2px; /* Slightly rounded ends */
+}
+
+/* MAIN CONTENT STYLES */
+.main {
+    flex: 1; /* Take up remaining space between header and footer */
+    padding-top: 0; /* No top padding (hero handles its own spacing) */
+}
+
+/* Section title styling */
+.section-title {
+    font-family: var(--font-heading); /* Use heading font */
+    font-size: 3rem; /* Large font size */
+    color: var(--silver); /* Silver color */
+    text-align: center; /* Center align */
+    margin-bottom: 3rem; /* Space below title */
+    letter-spacing: 2px; /* Add letter spacing */
+    text-transform: uppercase; /* Make uppercase */
+}
+
+/* Button base styles */
+.btn {
+    display: inline-block; /* Inline block for proper spacing */
+    padding: 15px 30px; /* Comfortable padding */
+    font-family: var(--font-body); /* Use body font */
+    font-size: 1.1rem; /* Slightly larger font */
+    font-weight: 600; /* Semi-bold */
+    text-decoration: none; /* Remove underline */
+    border-radius: var(--border-radius); /* Rounded corners */
+    transition: var(--transition); /* Smooth transition */
+    cursor: pointer; /* Pointer cursor */
+    border: 2px solid transparent; /* Transparent border for consistency */
+    text-align: center; /* Center text */
+    text-transform: uppercase; /* Make uppercase */
+    letter-spacing: 1px; /* Add letter spacing */
+}
+
+/* Primary button styling */
+.btn-primary {
+    background-color: var(--accent-red); /* Red background */
+    color: var(--white); /* White text */
+    border-color: var(--accent-red); /* Red border */
+}
+
+/* Primary button hover effect */
+.btn-primary:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #c82333; /* Darker red border */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3); /* Red glow shadow */
+}
+
+/* Secondary button styling */
+.btn-secondary {
+    background-color: transparent; /* Transparent background */
+    color: var(--silver); /* Silver text */
+    border-color: var(--silver); /* Silver border */
+}
+
+/* Secondary button hover effect */
+.btn-secondary:hover {
+    background-color: var(--silver); /* Silver background on hover */
+    color: var(--black); /* Black text on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 15px rgba(192, 192, 192, 0.2); /* Silver glow shadow */
+}
+
+/* FOOTER STYLES */
+.footer {
+    background: linear-gradient(135deg, var(--black) 0%, var(--primary-gray) 100%); /* Gradient background */
+    border-top: 2px solid var(--accent-red); /* Red top border */
+    margin-top: auto; /* Push to bottom */
+    padding: 40px 0 20px; /* Vertical padding */
+}
+
+/* Footer content grid */
+.footer-content {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 30px; /* Space between columns */
+    margin-bottom: 30px; /* Space before bottom section */
+}
+
+/* Footer section styling */
+.footer-section h4 {
+    font-family: var(--font-heading); /* Use heading font */
+    font-size: 1.5rem; /* Medium font size */
+    color: var(--silver); /* Silver color */
+    margin-bottom: 15px; /* Space below heading */
+    letter-spacing: 1px; /* Add letter spacing */
+}
+
+/* Footer section paragraph text */
+.footer-section p {
+    color: var(--text-muted); /* Muted text color */
+    line-height: 1.6; /* Comfortable line height */
+}
+
+/* Footer links list */
+.footer-links {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+/* Footer link items */
+.footer-links li {
+    margin-bottom: 8px; /* Space between links */
+}
+
+/* Footer link styling */
+.footer-links a {
+    color: var(--text-secondary); /* Light gray color */
+    text-decoration: none; /* Remove underline */
+    transition: var(--transition); /* Smooth transition */
+}
+
+/* Footer link hover effect */
+.footer-links a:hover {
+    color: var(--accent-red); /* Red color on hover */
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    border-top: 1px solid var(--secondary-gray); /* Top border */
+    padding-top: 20px; /* Top padding */
+    text-align: center; /* Center align text */
+}
+
+/* Footer bottom text */
+.footer-bottom p {
+    color: var(--text-muted); /* Muted text color */
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+/* RESPONSIVE DESIGN */
+/* Tablet styles */
+@media (max-width: 920px) {
+    /* Hide desktop navigation menu */
+    .nav-menu {
+        display: none; /* Hidden by default on mobile */
+        position: absolute; /* Position absolutely */
+        top: 100%; /* Below header */
+        left: 0; /* Align to left */
+        right: 0; /* Align to right */
+        background-color: var(--primary-gray); /* Dark background */
+        flex-direction: column; /* Stack vertically */
+        padding: 20px; /* Add padding */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+        gap: 10px; /* Reduce gap between items */
+    }
+
+    /* Show mobile navigation toggle */
+    .nav-toggle {
+        display: flex; /* Show hamburger menu */
+    }
+
+    /* Show navigation menu when active */
+    .nav-menu.active {
+        display: flex; /* Show menu when toggled */
+    }
+
+    /* Adjust logo size for mobile */
+    .logo {
+        font-size: 2rem; /* Smaller font size */
+    }
+
+    /* Adjust section title for mobile */
+    .section-title {
+        font-size: 2.5rem; /* Smaller font size */
+    }
+
+    /* Adjust container padding for mobile */
+    .container {
+        padding: 0 15px; /* Reduce horizontal padding */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    /* Further reduce logo size */
+    .logo {
+        font-size: 1.8rem; /* Even smaller font size */
+    }
+
+    /* Further reduce section title size */
+    .section-title {
+        font-size: 2rem; /* Even smaller font size */
+    }
+
+    /* Adjust button padding for mobile */
+    .btn {
+        padding: 12px 24px; /* Smaller padding */
+        font-size: 1rem; /* Standard font size */
+    }
+
+    /* Stack footer content on mobile */
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px; /* Reduce gap */
+    }
+}

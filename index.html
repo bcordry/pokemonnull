@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set character encoding and viewport for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- =====================================================
+     FAVICON
+     rel="icon" = the small icon shown in the browser tab
+     rel="apple-touch-icon" = icon used when saving to iPhone/iPad home screen
+     type="image/png" = tells the browser what kind of file it is
+     ===================================================== -->
+<link rel="icon" type="image/png" href="assets/images/logos/nfaviconEMPTY.png">
+<link rel="apple-touch-icon" href="assets/images/logos/nfaviconEMPTY.png">
+
+<!-- =====================================================
+     SEO META TAGS
+     description = the text Google shows under your link in search results
+     theme-color = tints the browser bar on Android/Chrome to match your brand
+     ===================================================== -->
+<meta name="description" content="Pokémon Null is a Nuzlocke-focused ROM hack of Pokémon Emerald featuring 275+ hand-crafted trainer battles, Pokémon from Generations 1–9, new Mega Evolutions, and brutal difficulty.">
+<meta name="theme-color" content="#dc3545">
+
+<!-- =====================================================
+     CANONICAL URL
+     Tells Google which URL is the "official" version of this page.
+     Prevents duplicate content penalties if the page is ever accessed
+     from multiple URLs (e.g. with/without www, http vs https).
+     ===================================================== -->
+<link rel="canonical" href="http://pokemonnull.com/index.html">
+
+<!-- =====================================================
+     OPEN GRAPH TAGS (og:)
+     These control how your link looks when shared on Discord, Reddit,
+     Facebook, and most other platforms.
+     og:title    = bold title shown in the link preview
+     og:description = subtitle text shown under the title
+     og:image    = the big preview image (your background gif)
+     og:url      = the canonical URL of this specific page
+     og:type     = "website" for normal pages (vs "article" for blog posts)
+     og:site_name = the name of your overall site
+     ===================================================== -->
+<meta property="og:title" content="Pokémon Null — A Nuzlocke ROM Hack">
+<meta property="og:description" content="275+ hand-crafted battles. Generations 1–9. New Mega Evolutions. The hardest Nuzlocke ROM hack ever made.">
+<meta property="og:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+<meta property="og:url" content="http://pokemonnull.com/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pokémon Null">
+
+<!-- =====================================================
+     TWITTER CARD TAGS
+     These specifically control how your link looks on Twitter/X.
+     twitter:card    = "summary_large_image" shows a big image preview
+     twitter:title   = bold title in the tweet card
+     twitter:description = subtitle text in the tweet card
+     twitter:image   = the preview image (same as og:image)
+     ===================================================== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pokémon Null — A Nuzlocke ROM Hack">
+<meta name="twitter:description" content="275+ hand-crafted battles. Generations 1–9. New Mega Evolutions. The hardest Nuzlocke ROM hack ever made.">
+<meta name="twitter:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+
+
+    <!-- Google Fonts: Bebas Neue for headers, Manrope for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- Main and page-specific CSS (update paths as per your structure) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Sticky header with logo and navigation -->
+    <header class="header">
+        <div class="header-brand">
+            <!-- Main site logo/title -->
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">Pokémon Null
+                </h1>
+            </a>
+            <!-- Tagline, themed for Type: Null -->
+            <span class="tagline">Null Protocol Activated</span>
+        </div>
+        <!-- Navigation bar -->
+        <nav class="nav">
+            <!-- Hamburger menu for mobile -->
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Navigation links to all main pages -->
+            <ul class="nav-menu">
+                <!-- Standard nav links -->
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+
+                <!-- LAUNCH RACE nav item — links to about.html but styled as the event button -->
+                <!-- nav-item-launch-event gives it position:relative so the tooltip can anchor to it -->
+                <!-- nav-link-event applies the gold color and hover styles -->
+                <li class="nav-item-launch-event">
+                    <a href="launch-race.html" class="nav-link nav-link-event">
+                        Launch Event
+                        <span class="nav-event-tooltip" id="launch-event-tooltip">
+                            Loading countdown...
+                        </span>
+                    </a>
+                </li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                <!-- <li><a href="news.html" class="nav-link">News</a></li> -->
+                <li><a href="patch-applier.html" class="nav-link">Patch</a></li>
+
+                <!-- TEMPORARILY UNAVAILABLE nav items (struck out) -->
+                <!-- class="nav-link-unavailable" disables the link and shows a tooltip on hover -->
+                <li class="nav-item-unavailable">
+                    <!-- href="#" prevents navigation; JS/CSS will block clicks visually -->
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Pokédex</s>
+                        <!-- Tooltip shown on hover explaining why this is unavailable -->
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Tracker is not yet available, strikethrough for now-->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Tracker</s>
+                        <!-- Tooltip shown on hover explaining why this is unavailable -->
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Trainer Docs</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Damage Calc</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main">
+        <!-- Hero section: big intro banner -->
+        <section class="hero">
+            <!-- Hero content container with title, subtitle, and buttons -->
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to Pokémon Null</h2>
+                <p class="hero-subtitle">Experience the evolution of difficulty in this enhanced Pokémon adventure. 
+                    Pokémon Null features Pokemon from Generations 1-9, including the newest Mega Evolutions. 
+                    It focuses on a Nuzlocke experience, consisting of 275+ hand-crafted, thoughtful and challenging fights.</p>
+                <div class="hero-buttons">
+                    <a href="patch-applier.html" class="btn btn-primary">Download & Play</a>
+                    <a href="about.html" class="btn btn-secondary">New Features</a>
+                </div>
+            </div>
+            
+            <!-- Decorative background for hero section -->
+            <div class="hero-bg"></div>
+            
+            <!-- BACKGROUND SLIDESHOW - Faded trainer and pokemon images -->
+            <!-- This container holds the rotating trainer and pokemon images that appear behind all other content -->
+            <div class="hero-slideshow" aria-hidden="true">
+                <!-- Trainer portrait that will fade in/out every 6 seconds -->
+                <!-- Initial placeholder image - JavaScript will handle the rotation -->
+                <img class="trainer-image"
+                     src="images/trainers/trainer1.png"
+                     alt=""
+                />
+                
+                <!-- Pokemon that will change independently every 2-3 seconds -->
+                <!-- Shows a random pokemon from the current trainer's team -->
+                <img class="pokemon-image"
+                     src="images/pokemon/pokemon1-1.png"
+                     alt=""
+                />
+            </div>
+            <!-- END BACKGROUND SLIDESHOW -->
+        </section>
+
+        <!-- Trailer section replacing features -->
+        <section class="trailer">
+            <div class="container">
+                <h3 class="section-title">Watch the Trailer</h3>
+                <div class="trailer-video-wrapper">
+                    <!-- Responsive YouTube embed -->
+                    <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/JaZY6cr6rug?si=e3nI9fh1aeVn1Ve1" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- News/updates preview section -->
+        <section class="news-preview">
+            <div class="container">
+                <h3 class="section-title">Latest Updates</h3>
+                <div class="news-cards">
+                    <article class="news-card">
+                        <div class="news-date">2026-02-27</div>
+                        <h4>Three Days until Launch Event!</h4>
+                        <p>We're happy to announce the Launch event for Pokémon Null, featuring your favorite streamers playing a single split of the game!</p>
+                        <a href="launch-race.html" class="news-link">Read More</a>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-date">2026-02-25</div>
+                        <h4>Terra official announcement stream!</h4>
+                        <p>Check out the official announcement stream for Pokémon Null <a href="https://www.twitch.tv/videos/2707464305" target="_blank">here!</a> Features a Q&A and a review of the trailer!</p>
+                        <a href="https://www.twitch.tv/videos/2707464305" class="news-link">Livestream</a>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-date">2026-02-25</div>
+                        <h4>Release Date Announced!</h4>
+                        <p>The release date for Pokémon Null has been announced! The game will be available on March 2nd, 2026.</p>
+                        <a href="patch-applier.html" class="news-link">Apply Patch</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <!-- Shared footer across all pages -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Project description column -->
+                <div class="footer-section">
+                    <h4>Pokémon Null</h4>
+                    <p>A Nuzlocke-focused Pokémon ROM hack that redefines difficulty with a re-imagined story in Hoenn. Carefully crafted by Terra.</p>
+                </div>
+                <!-- Quick links column -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="patch-applier.html">Download</a></li>
+                        <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
+                        <li><a href="about.html">Game Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Community links column -->
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.gg/DqxxC5KQ6r">Discord</a></li>
+                        <li><a href="https://www.reddit.com/r/PokemonNull/">Reddit</a></li>
+                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright notice -->
+            <div class="footer-bottom">
+                <p>2025 Pokémon Null Team and Terra. Pokémon is © Nintendo/Game Freak/The Pokémon Company. This is a non-commercial fan project. Website maintained by Brian Cordry.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ===================== END FOOTER ===================== -->
+
+    <!-- Main and page-specific JS (update paths as per your structure) -->
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

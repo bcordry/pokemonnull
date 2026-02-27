@@ -1,0 +1,671 @@
+/* ============================================================
+   LAUNCH-RACE.CSS
+   Page-specific styles for the Launch Event page (launch-race.html).
+   This file only contains styles that are unique to this page.
+   Global styles (header, footer, nav, buttons, etc.) live in
+   styles.css and index.css.
+   ============================================================ */
+
+
+/* ============================================================
+   EVENT HERO SECTION
+   The big banner at the top of the page with the title,
+   description, date/time chips, and countdown timer.
+   ============================================================ */
+
+/* Outer section — full-width dark gradient banner */
+.event-hero {
+    position: relative;          /* Needed so the decorative .event-hero-bg can be positioned inside it */
+    padding: 80px 0 60px;        /* Generous top/bottom breathing room */
+    background: linear-gradient( /* Multi-stop gradient: very dark → dark gray → slightly lighter */
+        135deg,
+        var(--bg-dark) 0%,
+        var(--primary-gray) 60%,
+        var(--secondary-gray) 100%
+    );
+    border-bottom: 2px solid var(--accent-red); /* Red accent line at the bottom, matching the header */
+    overflow: hidden;            /* Clip the decorative background so it doesn't spill out */
+    text-align: center;          /* Centre all child text by default */
+}
+
+/* Decorative radial glow — a subtle red/gold bloom behind the hero content */
+.event-hero-bg {
+    position: absolute;          /* Pulled out of normal flow so it sits behind content */
+    inset: 0;                    /* Shorthand for top:0; right:0; bottom:0; left:0 — fills the parent */
+    background: radial-gradient( /* Soft circular glow centred in the hero */
+        ellipse at 50% 60%,
+        rgba(255, 215, 0, 0.07) 0%,   /* Very faint gold at the centre */
+        rgba(220, 53, 69, 0.05) 40%,  /* Even fainter red further out */
+        transparent 70%               /* Fades to nothing at the edges */
+    );
+    pointer-events: none;        /* Clicks pass straight through this decorative layer */
+    z-index: 0;                  /* Behind everything else in the hero */
+}
+
+/* Content wrapper — sits above the decorative background */
+.event-hero-content {
+    position: relative;          /* Creates a new stacking context above .event-hero-bg */
+    z-index: 1;                  /* Explicitly above z-index:0 of the background */
+}
+
+/* Small gold pill badge above the main title ("🏆 Live Event") */
+.event-badge {
+    display: inline-block;       /* Shrink-wraps to its text content */
+    background: rgba(255, 215, 0, 0.12); /* Very faint gold fill */
+    color: #ffd700;              /* Gold text */
+    border: 1px solid rgba(255, 215, 0, 0.4); /* Semi-transparent gold border */
+    border-radius: 999px;        /* Fully rounded pill shape */
+    padding: 6px 18px;           /* Horizontal padding makes it feel like a chip */
+    font-size: 0.85rem;          /* Slightly smaller than body text */
+    font-family: var(--font-body); /* Manrope — readable at small sizes */
+    font-weight: 700;            /* Bold so it reads clearly */
+    letter-spacing: 1px;         /* Slight tracking for a "label" feel */
+    text-transform: uppercase;   /* All-caps reinforces the badge style */
+    margin-bottom: 20px;         /* Space between badge and the title below */
+}
+
+/* Main hero title — large Bebas Neue heading */
+.event-hero-title {
+    font-family: var(--font-heading); /* Bebas Neue — matches every other page title */
+    font-size: 4.5rem;           /* Bigger than a normal section title for impact */
+    color: var(--silver);        /* Silver — consistent with the rest of the site */
+    letter-spacing: 4px;         /* Wide tracking for the display font */
+    text-transform: uppercase;   /* Bebas Neue is already uppercase, but this is explicit */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Depth shadow so it reads on the gradient */
+    margin-bottom: 20px;         /* Space below before the subtitle */
+    line-height: 1.1;            /* Tight line height for a display heading */
+}
+
+/* Subtitle paragraph below the title */
+.event-hero-subtitle {
+    font-size: 1.2rem;           /* Slightly larger than body text for emphasis */
+    color: var(--text-secondary); /* Light silver-gray — readable but not competing with the title */
+    max-width: 700px;            /* Limit line length for comfortable reading */
+    margin: 0 auto 30px;         /* Centre horizontally; space below before the meta chips */
+    line-height: 1.7;            /* Generous line height for a paragraph */
+    font-weight: 400;            /* Normal weight */
+}
+
+/* Subtitle strong tags — highlight key terms in white */
+.event-hero-subtitle strong {
+    color: var(--white);         /* Pure white so "Norman Split" etc. pop */
+    font-weight: 700;            /* Bold */
+}
+
+
+/* ---- EVENT META CHIPS (date / time / platform) ---- */
+
+/* Row of info chips below the subtitle */
+.event-meta {
+    display: flex;               /* Lay chips out in a horizontal row */
+    justify-content: center;     /* Centre the row */
+    flex-wrap: wrap;             /* Allow wrapping on narrow screens */
+    gap: 16px;                   /* Space between each chip */
+    margin-bottom: 40px;         /* Space below before the countdown */
+}
+
+/* Individual chip */
+.event-meta-item {
+    display: flex;               /* Icon and text side by side */
+    align-items: center;         /* Vertically centre icon with text */
+    gap: 8px;                    /* Space between icon and text */
+    background: rgba(255, 255, 255, 0.05); /* Very subtle white fill */
+    border: 1px solid rgba(192, 192, 192, 0.2); /* Faint silver border */
+    border-radius: 999px;        /* Pill shape */
+    padding: 8px 18px;           /* Internal spacing */
+    font-size: 0.95rem;          /* Slightly smaller than body */
+    color: var(--text-secondary); /* Silver-gray text */
+    font-weight: 500;            /* Medium weight */
+}
+
+/* The emoji icon inside each chip */
+.event-meta-icon {
+    font-size: 1.1rem;           /* Slightly larger than the surrounding text */
+    line-height: 1;              /* Prevent emoji from adding extra height */
+}
+
+/* Twitch link inside the platform chip */
+.event-meta-link {
+    color: #9146ff;              /* Twitch purple — instantly recognisable */
+    text-decoration: none;       /* No underline by default */
+    font-weight: 700;            /* Bold so it stands out */
+    transition: var(--transition); /* Smooth colour change on hover */
+}
+
+/* Hover state for the Twitch link */
+.event-meta-link:hover {
+    color: #b77fff;              /* Lighter purple on hover */
+    text-decoration: underline;  /* Underline appears on hover for clarity */
+}
+
+
+/* ---- COUNTDOWN TIMER ---- */
+
+/* Outer container — centres the four countdown blocks in a row */
+.event-countdown {
+    display: flex;               /* Horizontal row */
+    justify-content: center;     /* Centre the row */
+    align-items: center;         /* Vertically align blocks and separators */
+    gap: 8px;                    /* Space between blocks and separators */
+    flex-wrap: wrap;             /* Wrap on very small screens */
+}
+
+/* Individual block (Days / Hours / Minutes / Seconds) */
+.countdown-block {
+    display: flex;               /* Stack number above label */
+    flex-direction: column;      /* Vertical stack */
+    align-items: center;         /* Centre both number and label */
+    background: rgba(0, 0, 0, 0.35); /* Dark semi-transparent background */
+    border: 1px solid rgba(255, 215, 0, 0.25); /* Faint gold border */
+    border-radius: 10px;         /* Rounded corners */
+    padding: 14px 20px;          /* Internal spacing */
+    min-width: 80px;             /* Minimum width so blocks don't collapse */
+}
+
+/* The large number inside each block */
+.countdown-number {
+    font-family: var(--font-heading); /* Bebas Neue — big and bold */
+    font-size: 3rem;             /* Large enough to read at a glance */
+    color: #ffd700;              /* Gold — matches the event badge and nav button */
+    line-height: 1;              /* No extra line height */
+    letter-spacing: 2px;         /* Slight tracking */
+}
+
+/* The small label below the number ("Days", "Hours", etc.) */
+.countdown-label {
+    font-size: 0.7rem;           /* Small — subordinate to the number */
+    color: var(--text-muted);    /* Muted gray */
+    text-transform: uppercase;   /* All-caps label style */
+    letter-spacing: 2px;         /* Wide tracking for a "label" feel */
+    margin-top: 4px;             /* Small gap between number and label */
+}
+
+/* The colon separators between blocks */
+.countdown-separator {
+    font-family: var(--font-heading); /* Bebas Neue to match the numbers */
+    font-size: 2.5rem;           /* Slightly smaller than the numbers */
+    color: rgba(255, 215, 0, 0.4); /* Faint gold — present but not distracting */
+    line-height: 1;              /* No extra height */
+    padding-bottom: 20px;        /* Nudge up to optically align with the numbers */
+}
+
+/* When the event has passed, JS adds .event-live to the countdown container */
+/* This replaces the timer with a "LIVE NOW" message */
+.event-countdown.event-live .countdown-block {
+    border-color: rgba(220, 53, 69, 0.5); /* Red border when live */
+}
+
+.event-countdown.event-live .countdown-number {
+    color: var(--accent-red);    /* Red numbers when live */
+}
+
+
+/* ============================================================
+   STREAM SECTION
+   The embedded Twitch player.
+   ============================================================ */
+
+.stream-section {
+    padding: 80px 0;             /* Generous vertical padding */
+    background-color: var(--bg-dark); /* Very dark background — makes the player pop */
+}
+
+/* Responsive 16:9 iframe wrapper.
+   The padding-bottom trick: setting padding-bottom to 56.25% (= 9/16)
+   on a height:0 element creates a box whose height is always 56.25% of
+   its width — a perfect 16:9 ratio at any screen size. */
+.stream-wrapper {
+    position: relative;          /* Needed so the absolutely-positioned iframe fills this box */
+    padding-bottom: 56.25%;      /* 16:9 aspect ratio (9 ÷ 16 = 0.5625 = 56.25%) */
+    height: 0;                   /* Collapse the element's own height — padding does the work */
+    overflow: hidden;            /* Clip anything that overflows the rounded corners */
+    border-radius: 12px;         /* Rounded corners matching the trailer embed on the home page */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6); /* Deep shadow for depth */
+    border: 2px solid rgba(145, 70, 255, 0.3); /* Faint Twitch-purple border */
+    max-width: 960px;            /* Cap the width so it doesn't get absurdly wide on large monitors */
+    margin: 0 auto;              /* Centre the wrapper */
+}
+
+/* The actual Twitch iframe — stretched to fill the wrapper */
+.stream-wrapper iframe {
+    position: absolute;          /* Pulled out of flow to fill the padding-bottom box */
+    top: 0;                      /* Align to top of wrapper */
+    left: 0;                     /* Align to left of wrapper */
+    width: 100%;                 /* Fill full width */
+    height: 100%;                /* Fill full height */
+    border: none;                /* Remove default iframe border */
+}
+
+/* Small note below the player with a fallback link */
+.stream-note {
+    text-align: center;          /* Centre the note */
+    margin-top: 16px;            /* Space above */
+    font-size: 0.9rem;           /* Smaller than body text */
+    color: var(--text-muted);    /* Muted gray */
+}
+
+/* The "Watch directly on Twitch →" link inside the note */
+.stream-note a {
+    color: #9146ff;              /* Twitch purple */
+    text-decoration: none;       /* No underline by default */
+    font-weight: 600;            /* Semi-bold */
+    transition: var(--transition); /* Smooth colour change */
+}
+
+.stream-note a:hover {
+    color: #b77fff;              /* Lighter purple on hover */
+    text-decoration: underline;  /* Underline on hover */
+}
+
+
+/* ============================================================
+   FORMAT SECTION
+   Three cards explaining the event rules.
+   ============================================================ */
+
+.format-section {
+    padding: 80px 0;             /* Vertical padding */
+    background-color: var(--primary-gray); /* Slightly lighter than bg-dark — creates visual rhythm */
+}
+
+/* Three-column grid for the format cards */
+.format-grid {
+    display: grid;               /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive: 3 cols on wide, 1 on narrow */
+    gap: 30px;                   /* Space between cards */
+    margin-top: 2rem;            /* Space below the section title */
+}
+
+/* Individual format card */
+.format-card {
+    background: linear-gradient( /* Gradient matching the site's card style */
+        135deg,
+        var(--secondary-gray) 0%,
+        var(--primary-gray) 100%
+    );
+    border: 1px solid var(--light-gray); /* Subtle border */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 35px 25px;          /* Internal spacing */
+    text-align: center;          /* Centre all content */
+    transition: var(--transition); /* Smooth hover animation */
+}
+
+/* Lift and glow on hover */
+.format-card:hover {
+    transform: translateY(-6px); /* Slight upward lift */
+    border-color: var(--accent-red); /* Red border on hover */
+    box-shadow: 0 12px 30px rgba(220, 53, 69, 0.15); /* Soft red glow */
+}
+
+/* Large emoji icon at the top of each card */
+.format-icon {
+    font-size: 3rem;             /* Large enough to be a visual anchor */
+    margin-bottom: 16px;         /* Space below before the heading */
+    display: block;              /* Block so margin works correctly */
+}
+
+/* Card heading */
+.format-card h4 {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: 1.8rem;           /* Large heading */
+    color: var(--silver);        /* Silver */
+    letter-spacing: 1px;         /* Slight tracking */
+    text-transform: uppercase;   /* All-caps */
+    margin-bottom: 12px;         /* Space below heading */
+}
+
+/* Card body text */
+.format-card p {
+    color: var(--text-secondary); /* Light gray */
+    line-height: 1.6;            /* Comfortable reading */
+    font-size: 0.95rem;          /* Slightly smaller than body */
+}
+
+/* Bold text inside card paragraphs — highlight key terms */
+.format-card p strong {
+    color: var(--white);         /* White for emphasis */
+}
+
+
+/* ============================================================
+   RUNNERS SECTION
+   Five runner cards in a responsive grid.
+   ============================================================ */
+
+.runners-section {
+    padding: 80px 0;             /* Vertical padding */
+    background-color: var(--bg-dark); /* Very dark background */
+}
+
+/* Intro paragraph below the section title */
+.runners-intro {
+    text-align: center;          /* Centre the text */
+    color: var(--text-secondary); /* Light gray */
+    font-size: 1.1rem;           /* Slightly larger than body */
+    max-width: 600px;            /* Limit line length */
+    margin: -1.5rem auto 2.5rem; /* Pull up slightly (negative top margin) and centre */
+    line-height: 1.6;            /* Comfortable reading */
+}
+
+/* Five-column grid — collapses to fewer columns on smaller screens */
+.runners-grid {
+    display: grid;               /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 5 cols on wide, fewer on narrow */
+    gap: 24px;                   /* Space between cards */
+}
+
+/* Individual runner card */
+.runner-card {
+    background: linear-gradient( /* Gradient card background */
+        135deg,
+        var(--secondary-gray) 0%,
+        var(--primary-gray) 100%
+    );
+    border: 1px solid var(--light-gray); /* Subtle border */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 28px 20px;          /* Internal spacing */
+    text-align: center;          /* Centre all content */
+    transition: var(--transition); /* Smooth hover */
+    display: flex;               /* Flexbox so we can stack content vertically */
+    flex-direction: column;      /* Stack avatar → name → bio → links */
+    align-items: center;         /* Centre everything horizontally */
+}
+
+/* Lift and glow on hover */
+.runner-card:hover {
+    transform: translateY(-6px); /* Slight lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Shadow */
+    border-color: var(--silver); /* Silver border on hover */
+}
+
+
+/* ---- AVATAR ---- */
+
+/* Wrapper around the avatar image and its coloured ring */
+.runner-avatar-wrap {
+    position: relative;          /* Needed so the ring can be positioned over the image */
+    width: 100px;                /* Fixed size — same for all avatars */
+    height: 100px;               /* Fixed size */
+    margin: 0 auto 16px;         /* Centre horizontally; space below */
+}
+
+/* The avatar image itself */
+.runner-avatar {
+    width: 100%;                 /* Fill the wrapper */
+    height: 100%;                /* Fill the wrapper */
+    border-radius: 50%;          /* Circular crop */
+    object-fit: cover;           /* Cover the circle without distortion */
+    object-position: center;     /* Centre the image within the circle */
+    display: block;              /* Remove inline-block gap */
+    position: relative;          /* Sits above the ring (z-index) */
+    z-index: 1;                  /* Above the ring pseudo-element */
+}
+
+/* Coloured ring that sits around the avatar — colour is set per-runner below */
+.runner-avatar-ring {
+    position: absolute;          /* Positioned relative to .runner-avatar-wrap */
+    inset: -4px;                 /* Extends 4px outside the avatar on all sides */
+    border-radius: 50%;          /* Circular */
+    border: 3px solid transparent; /* Default transparent — overridden per runner */
+    z-index: 0;                  /* Behind the avatar image */
+    transition: var(--transition); /* Smooth glow change on card hover */
+}
+
+/* Glow the ring when the card is hovered */
+.runner-card:hover .runner-avatar-ring,
+.commentator-card:hover .runner-avatar-ring {
+    filter: brightness(1.4);     /* Brighten the ring colour on hover */
+    box-shadow: 0 0 12px currentColor; /* Glow using the ring's own colour */
+}
+
+/* Per-runner ring colours — each runner gets a unique accent */
+.runner-ring-moxi      { border-color: #4fc3f7; } /* Light blue */
+.runner-ring-flygonhg  { border-color: #81c784; } /* Green (Flygon colours) */
+.runner-ring-kya       { border-color: #ff8a65; } /* Orange */
+.runner-ring-drayano   { border-color: #ce93d8; } /* Purple */
+.runner-ring-buhrito   { border-color: #ffd54f; } /* Yellow */
+.runner-ring-terra     { border-color: var(--accent-red); } /* Red — the game's accent colour */
+.runner-ring-pchal     { border-color: #9146ff; } /* Twitch purple */
+
+
+/* ---- RUNNER NAME ---- */
+
+.runner-name {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: 1.6rem;           /* Large enough to be a clear label */
+    color: var(--silver);        /* Silver */
+    letter-spacing: 1px;         /* Slight tracking */
+    text-transform: uppercase;   /* All-caps */
+    margin-bottom: 8px;          /* Space below before the bio */
+}
+
+
+/* ---- RUNNER BIO ---- */
+
+.runner-bio {
+    color: var(--text-secondary); /* Light gray */
+    font-size: 0.88rem;          /* Smaller than body — lots of text in a small card */
+    line-height: 1.6;            /* Comfortable reading */
+    flex: 1;                     /* Grow to fill available space so all cards are the same height */
+    margin-bottom: 16px;         /* Space below before the links */
+}
+
+
+/* ---- RUNNER LINKS ---- */
+
+/* Container for the channel link buttons */
+.runner-links {
+    display: flex;               /* Horizontal row of buttons */
+    gap: 8px;                    /* Space between buttons */
+    justify-content: center;     /* Centre the row */
+    flex-wrap: wrap;             /* Wrap if there are multiple links */
+    margin-top: auto;            /* Push to the bottom of the card */
+}
+
+/* Base style for all runner link buttons */
+.runner-link {
+    display: inline-block;       /* Inline-block for padding to work */
+    padding: 6px 14px;           /* Compact padding */
+    border-radius: 999px;        /* Pill shape */
+    font-size: 0.8rem;           /* Small text */
+    font-weight: 700;            /* Bold */
+    text-decoration: none;       /* No underline */
+    text-transform: uppercase;   /* All-caps */
+    letter-spacing: 0.5px;       /* Slight tracking */
+    transition: var(--transition); /* Smooth hover */
+    border: 1px solid transparent; /* Border placeholder — overridden per platform */
+}
+
+/* Twitch-specific link button — purple */
+.runner-link-twitch {
+    background: rgba(145, 70, 255, 0.15); /* Faint purple fill */
+    color: #9146ff;              /* Twitch purple text */
+    border-color: rgba(145, 70, 255, 0.4); /* Semi-transparent purple border */
+}
+
+.runner-link-twitch:hover {
+    background: rgba(145, 70, 255, 0.3); /* Stronger fill on hover */
+    color: #b77fff;              /* Lighter purple text on hover */
+}
+
+/* YouTube-specific link button — red (for future use) */
+.runner-link-youtube {
+    background: rgba(255, 0, 0, 0.1); /* Faint red fill */
+    color: #ff4444;              /* Red text */
+    border-color: rgba(255, 0, 0, 0.3); /* Semi-transparent red border */
+}
+
+.runner-link-youtube:hover {
+    background: rgba(255, 0, 0, 0.2); /* Stronger fill on hover */
+}
+
+
+/* ============================================================
+   COMMENTATORS SECTION
+   Two wider cards for Terra and pChal.
+   ============================================================ */
+
+.commentators-section {
+    padding: 80px 0;             /* Vertical padding */
+    background-color: var(--primary-gray); /* Slightly lighter than bg-dark */
+}
+
+/* Two-column grid — wider cards than the runner grid */
+.commentators-grid {
+    display: grid;               /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 cols on wide, 1 on narrow */
+    gap: 30px;                   /* Space between cards */
+    max-width: 800px;            /* Cap width so the two cards don't stretch too wide */
+    margin: 0 auto;              /* Centre the grid */
+}
+
+/* Commentator card — same base as runner-card but slightly larger */
+.commentator-card {
+    background: linear-gradient( /* Same gradient as runner cards */
+        135deg,
+        var(--secondary-gray) 0%,
+        var(--primary-gray) 100%
+    );
+    border: 1px solid var(--light-gray); /* Subtle border */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 36px 28px;          /* Slightly more padding than runner cards */
+    text-align: center;          /* Centre content */
+    transition: var(--transition); /* Smooth hover */
+    display: flex;               /* Flexbox vertical stack */
+    flex-direction: column;      /* Stack items */
+    align-items: center;         /* Centre horizontally */
+}
+
+.commentator-card:hover {
+    transform: translateY(-6px); /* Lift on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Shadow */
+    border-color: var(--silver); /* Silver border on hover */
+}
+
+/* Badge below the commentator's name ("🎮 Game Creator" / "📡 Host & Commentator") */
+.commentator-badge {
+    display: inline-block;       /* Shrink-wrap to text */
+    background: rgba(220, 53, 69, 0.15); /* Faint red fill — matches the site's accent */
+    color: var(--accent-red);    /* Red text */
+    border: 1px solid rgba(220, 53, 69, 0.35); /* Semi-transparent red border */
+    border-radius: 999px;        /* Pill shape */
+    padding: 4px 14px;           /* Compact padding */
+    font-size: 0.78rem;          /* Small label text */
+    font-weight: 700;            /* Bold */
+    text-transform: uppercase;   /* All-caps */
+    letter-spacing: 0.5px;       /* Slight tracking */
+    margin-bottom: 12px;         /* Space below before the bio */
+}
+
+/* pChal's badge uses Twitch purple instead of red */
+.commentator-badge-host {
+    background: rgba(145, 70, 255, 0.15); /* Faint purple fill */
+    color: #9146ff;              /* Twitch purple text */
+    border-color: rgba(145, 70, 255, 0.35); /* Semi-transparent purple border */
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   Adjustments for tablet and mobile screen sizes.
+   ============================================================ */
+
+/* ---- Tablet (≤ 768px) ---- */
+@media (max-width: 768px) {
+
+    /* Reduce hero title size */
+    .event-hero-title {
+        font-size: 3rem;         /* Smaller than the 4.5rem desktop size */
+        letter-spacing: 2px;     /* Reduce tracking */
+    }
+
+    /* Reduce hero subtitle size */
+    .event-hero-subtitle {
+        font-size: 1rem;         /* Standard body size */
+    }
+
+    /* Reduce hero padding */
+    .event-hero {
+        padding: 60px 0 40px;    /* Less padding on tablet */
+    }
+
+    /* Reduce countdown number size */
+    .countdown-number {
+        font-size: 2.2rem;       /* Smaller numbers */
+    }
+
+    /* Reduce countdown block padding */
+    .countdown-block {
+        padding: 10px 14px;      /* Tighter padding */
+        min-width: 64px;         /* Slightly narrower */
+    }
+
+    /* Stack format cards to a single column */
+    .format-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+
+    /* Stack runner cards to two columns on tablet */
+    .runners-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+    /* Reduce section padding */
+    .runners-section,
+    .commentators-section,
+    .format-section,
+    .stream-section {
+        padding: 60px 0;         /* Less padding */
+    }
+}
+
+/* ---- Mobile (≤ 480px) ---- */
+@media (max-width: 480px) {
+
+    /* Further reduce hero title */
+    .event-hero-title {
+        font-size: 2.4rem;       /* Even smaller */
+        letter-spacing: 1px;     /* Minimal tracking */
+    }
+
+    /* Reduce hero padding further */
+    .event-hero {
+        padding: 40px 0 30px;    /* Compact */
+    }
+
+    /* Stack runner cards to a single column on mobile */
+    .runners-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+
+    /* Reduce countdown number size further */
+    .countdown-number {
+        font-size: 1.8rem;       /* Compact */
+    }
+
+    /* Reduce countdown block size */
+    .countdown-block {
+        padding: 8px 10px;       /* Very compact */
+        min-width: 54px;         /* Narrow */
+    }
+
+    /* Reduce section padding */
+    .runners-section,
+    .commentators-section,
+    .format-section,
+    .stream-section {
+        padding: 40px 0;         /* Minimal padding */
+    }
+
+    /* Reduce runner card padding */
+    .runner-card,
+    .commentator-card {
+        padding: 20px 16px;      /* Tighter padding */
+    }
+
+    /* Reduce avatar size on mobile */
+    .runner-avatar-wrap {
+        width: 80px;             /* Smaller avatar */
+        height: 80px;            /* Smaller avatar */
+    }
+}

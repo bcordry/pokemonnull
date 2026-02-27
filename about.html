@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title shown in browser tab -->
+    <title>Pokémon Null - Game Info</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/nfaviconEMPTY.png">
+    <link rel="apple-touch-icon" href="assets/images/logos/nfaviconEMPTY.png">
+    <meta name="description" content="Learn what makes Pokémon Null different — 275+ hand-crafted battles, Nuzlocke-first design, Generations 1–9, new Mega Evolutions, and modern quality-of-life features.">
+    <meta name="theme-color" content="#dc3545">
+    <link rel="canonical" href="http://pokemonnull.com/about.html">
+    <meta property="og:title" content="Game Info — Pokémon Null">
+    <meta property="og:description" content="Learn what makes Pokémon Null different — 275+ hand-crafted battles, Nuzlocke-first design, Generations 1–9, and new Mega Evolutions.">
+    <meta property="og:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+    <meta property="og:url" content="http://pokemonnull.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pokémon Null">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Game Info — Pokémon Null">
+    <meta name="twitter:description" content="Learn what makes Pokémon Null different — 275+ hand-crafted battles, Nuzlocke-first design, Generations 1–9, and new Mega Evolutions.">
+    <meta name="twitter:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+
+    <!-- Google Fonts: Bebas Neue for headings, Manrope for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- Global site styles (colors, fonts, header, footer, buttons) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- About page-specific styles -->
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <!-- Sticky top navigation bar, shared across all pages -->
+    <header class="header">
+        <div class="header-brand">
+            <!-- Clicking the logo returns to the home page -->
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">Pokémon Null</h1>
+            </a>
+            <!-- Flavor tagline beneath the logo -->
+            <span class="tagline">Null Protocol Activated</span>
+        </div>
+
+        <nav class="nav">
+            <!-- Hamburger button shown on mobile screens -->
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Main navigation link list -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+
+                <!-- Launch Event link with countdown tooltip -->
+                <li class="nav-item-launch-event">
+                    <a href="launch-race.html" class="nav-link nav-link-event">
+                        Launch Event
+                        <span class="nav-event-tooltip" id="launch-event-tooltip">Loading countdown...</span>
+                    </a>
+                </li>
+
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                <li><a href="patch-applier.html" class="nav-link">Patch</a></li>
+
+                <!-- Pokédex: locked until after launch event -->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Pokédex</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Tracker is not yet available, strikethrough for now-->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Tracker</s>
+                        <!-- Tooltip shown on hover explaining why this is unavailable -->
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Trainer Docs: locked until after launch event -->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Trainer Docs</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Damage Calc: locked until after launch event -->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Damage Calc</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    <!-- ===================== END HEADER ===================== -->
+
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main class="main" id="main-content">
+
+        <!-- ── HERO BANNER ── -->
+        <!-- Full-width intro section with title and short description -->
+        <section class="about-hero">
+            <div class="about-hero-bg" aria-hidden="true"></div>
+            <!-- Decorative animated particles in the background -->
+            <div class="about-hero-particles" aria-hidden="true" id="heroParticles"></div>
+            <div class="container about-hero-content">
+                <!-- Small label above the main title -->
+                <span class="about-hero-label">Game Information</span>
+                <!-- Main page heading -->
+                <h2 class="about-hero-title">What is Pokémon Null?</h2>
+                <!-- Short description paragraph -->
+                <p class="about-hero-desc">
+                    Pokémon Null is a heavily modified ROM hack of Pokémon Emerald built from the ground up
+                    for the Nuzlocke experience. Every trainer has been hand-crafted, every route rebalanced,
+                    and the Pokédex expanded to include Pokémon from Generations 1–9 — including brand-new
+                    Mega Evolutions. Expect no mercy.
+                </p>
+                <!-- Call-to-action buttons -->
+                <div class="about-hero-buttons">
+                    <a href="patch-applier.html" class="btn btn-primary">Download &amp; Play</a>
+                    <a href="faq.html" class="btn btn-secondary">Read the FAQ</a>
+                </div>
+            </div>
+        </section>
+        <!-- ── END HERO BANNER ── -->
+
+
+        <!-- ── HIGHLIGHT ROWS ── -->
+        <!-- Each row alternates: image on left / text on right, then text on left / image on right -->
+        <!-- This mirrors the layout style used on emeraldimperium.info/game-info.html -->
+        <section class="highlights">
+            <div class="container">
+
+                <!-- ── ROW 1: image left, text right ── -->
+                <div class="highlight-row" data-aos="fade-up">
+                    <!-- Screenshot placeholder — replace src with your actual screenshot path -->
+                    <div class="highlight-media">
+                        <div class="highlight-img-frame">
+                            <img
+                                src="assets/images/screenshots/275handcraftedscreenshot.png"
+                                alt="Screenshot showing a custom combat"
+                                class="highlight-img"
+                                loading="lazy"
+                            />
+                            <!-- Decorative corner accents drawn with CSS -->
+                            <span class="img-corner img-corner--tl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--tr" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--bl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--br" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <!-- Text content for this row -->
+                    <div class="highlight-text">
+                        <!-- Small category label -->
+                        <span class="highlight-label">Combat</span>
+                        <h3 class="highlight-title">275 Hand-Crafted Trainer Battles</h3>
+                        <p class="highlight-desc">
+                            <i>Every single trainer</i> in Pokémon Null has been personally designed with a
+                            competitive mindset. Enemies use synergistic held items, teams that work together, and a
+                            custom AI that plays like nothing you've seen in a ROM hack before.
+                            No more free wins.
+                        </p>
+                        <!-- Bullet-point feature list for this topic -->
+                        <ul class="highlight-list">
+                            <li>Competitive movesets and held items on all trainers</li>
+                            <li>Custom AI that works to counter your strategy</li>
+                            <li>Gym leaders with full synergistic 6-Pokémon teams</li>
+                            <li>Super-hard rematches with rivals and bosses</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ── END ROW 1 ── -->
+
+
+                <!-- ── ROW 2: text left, image right (reversed layout) ── -->
+                <div class="highlight-row highlight-row--reverse" data-aos="fade-up">
+                    <div class="highlight-media">
+                        <div class="highlight-img-frame">
+                            <img
+                                src="assets/images/screenshots/builtfornuzlockescreenshot.png"
+                                alt="Screenshot showing Nuzlocke-friendly UI elements"
+                                class="highlight-img"
+                                loading="lazy"
+                            />
+                            <span class="img-corner img-corner--tl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--tr" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--bl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--br" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-text">
+                        <span class="highlight-label">Nuzlocke</span>
+                        <h3 class="highlight-title">Built for the Nuzlocke Challenge</h3>
+                        <p class="highlight-desc">
+                            Pokémon Null was designed from day one with Hardcore Nuzlocke rules in mind.
+                            Every encounter, every item placement, and every trainer fight has been
+                            balanced around the assumption that you might lose a Pokémon — and that
+                            losing one should matter. And you <i>will</i> lose Pokémon. A lot of them.
+                        </p>
+                        <ul class="highlight-list">
+                            <li>Encounter tables tuned for Nuzlocke variety</li>
+                            <li>Resource management to help you tune your team to your liking</li>
+                            <li>No Sleep Clause - protect your Pokémons' status</li>
+                            <li>Meticulously balanced so that no single Pokémon is overpowered and all teams have a chance</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ── END ROW 2 ── -->
+
+
+                <!-- ── ROW 3: image left, text right ── -->
+                <div class="highlight-row" data-aos="fade-up">
+                    <div class="highlight-media">
+                        <div class="highlight-img-frame">
+                            <img
+                                src="assets/images/screenshots/newmegaevolutionsscreenshot.png"
+                                alt="Screenshot showing new Pokémon and Mega Evolutions"
+                                class="highlight-img"
+                                loading="lazy"
+                            />
+                            <span class="img-corner img-corner--tl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--tr" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--bl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--br" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-text">
+                        <span class="highlight-label">Pokédex</span>
+                        <h3 class="highlight-title">Generations 1–9 + New Megas</h3>
+                        <p class="highlight-desc">
+                            The Pokédex has been expanded to include Pokémon from all nine generations,
+                            including the brand-new Mega Evolutions from Z-A. Typing and stats 
+                            remain the same as you remember them, but updated and changed abilities keep the 
+                            experience fresh and unpredictable.
+                        </p>
+                        <ul class="highlight-list">
+                            <li>Pokémon from Generations 1–9 available</li>
+                            <li>New Mega Evolutions for beloved Pokémon</li>
+                            <li>Updated abilities with new functionality</li>
+                            <li>50+ generational lines have simplified evolution methods so you can evolve all your favorites</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ── END ROW 3 ── -->
+
+
+                <!-- ── ROW 4: text left, image right ── -->
+                <div class="highlight-row highlight-row--reverse" data-aos="fade-up">
+                    <div class="highlight-media">
+                        <div class="highlight-img-frame">
+                            <img
+                                src="assets/images/screenshots/qualityoflifescreenshot.png"
+                                alt="Screenshot showing quality of life features"
+                                class="highlight-img"
+                                loading="lazy"
+                            />
+                            <span class="img-corner img-corner--tl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--tr" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--bl" aria-hidden="true"></span>
+                            <span class="img-corner img-corner--br" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-text">
+                        <span class="highlight-label">Quality of Life</span>
+                        <h3 class="highlight-title">Modern Conveniences, Classic Feel</h3>
+                        <p class="highlight-desc">
+                            No grinding, no HM slaves, no frustration (from the menu, at least). 
+                            Pokémon Null ships with a full suite of quality-of-life features so you can focus on what matters:
+                            building your team and surviving the next fight.
+                        </p>
+                        <ul class="highlight-list">
+                            <li>Portable PC, Toggled Repel, Heal party from the menu</li>
+                            <li>Run anywhere, and fly to previously known locations with PokeRider</li>
+                            <li>Easy access to both Mach and Acro bikes without needing to exchange them at the shop</li>
+                            <li>Infinite Rare Candies and Candy Bag to instantly level you to the cap</li>
+                            <li>Pre-damage and Pre-status made easy within the Party menu</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ── END ROW 4 ── -->
+
+            </div>
+        </section>
+        <!-- ── END HIGHLIGHT ROWS ── -->
+
+
+        <!-- ── FEATURE GRID ── -->
+        <!-- Three-column grid of smaller feature cards, similar to the bullet lists on the reference site -->
+        <section class="feature-grid-section">
+            <div class="container">
+                <!-- Section heading -->
+                <h2 class="section-title">The Important Details</h2>
+                <!-- Subtitle under the section heading -->
+                <p class="feature-grid-subtitle">
+                    A quick-reference breakdown of what makes Pokémon Null different.
+                </p>
+
+                <!-- Grid of feature cards — each card has an icon, title, and bullet list -->
+                <div class="feature-grid">
+
+                    <!-- Card 1: Quality of Life -->
+                    <div class="fgrid-card" data-aos="fade-up" data-aos-delay="0">
+                        <!-- Emoji icon for visual interest -->
+                        <div class="fgrid-icon" aria-hidden="true">⚙️</div>
+                        <h4 class="fgrid-title">Quality of Life</h4>
+                        <ul class="fgrid-list">
+                            <li>Porta-PC and Infinite Repel</li>
+                            <li>Candy Bag to quickly level to cap</li>
+                            <li>Pre-damage and Pre-status from Party Menu</li>
+                            <li>Use HMs from overworld without learning them</li>
+                            <li>No Poison damage on the overworld</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Pokémon Changes -->
+                    <div class="fgrid-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="fgrid-icon" aria-hidden="true">🧬</div>
+                        <h4 class="fgrid-title">Pokémon Changes</h4>
+                        <ul class="fgrid-list">
+                            <li>Includes all Megas - mostly accessible to the player</li>
+                            <li>Pokémon from all Generations 1–9</li>
+                            <li>Form-changing items (Rotom, Silvally and more)</li>
+                            <li>Simplified evolution methods</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Difficulty -->
+                    <div class="fgrid-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="fgrid-icon" aria-hidden="true">⚔️</div>
+                        <h4 class="fgrid-title">Difficulty</h4>
+                        <ul class="fgrid-list">
+                            <li>The hardest ROM hack made to date</li>
+                            <li>Competitive teams for all trainers</li>
+                            <li>Devious rematches and tough gym leaders</li>
+                            <li>Never-seen-before battle gimmicks</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4: Routing -->
+                    <div class="fgrid-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="fgrid-icon" aria-hidden="true">🗺️</div>
+                        <h4 class="fgrid-title">New Routing</h4>
+                        <ul class="fgrid-list">
+                            <li>Hoenn gym order has been reshuffled</li>
+                            <li>3 new areas to explore</li>
+                            <li>10 new bosses to defeat</li>
+                            <li>Tons of new characters spice up the Hoenn path</li>
+                            <li>Compete with and against many rivals throughout the story</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 5: Nuzlocke Support -->
+                    <div class="fgrid-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="fgrid-icon" aria-hidden="true">💀</div>
+                        <h4 class="fgrid-title">Nuzlocke Support</h4>
+                        <ul class="fgrid-list">
+                            <li>Designed for Hardcore Nuzlocking</li>
+                            <li>Hard level caps to prevent overleveling</li>
+                            <li>Resource system to change IVs and Natures</li>
+                            <li>Sped-up Surfing and Diving</li>
+                            <li>Guaranteed fishing pulls</li>
+                            <li>Pre-status and Pre-damage from menu to approach battling intentionally</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 6: Community -->
+                    <div class="fgrid-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="fgrid-icon" aria-hidden="true">🌐</div>
+                        <h4 class="fgrid-title">Community</h4>
+                        <ul class="fgrid-list">
+                            <li>Active Discord server</li>
+                            <li>Reddit community</li>
+                            <li>Launch Event on release</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- ── END FEATURE GRID ── -->
+
+            </div>
+        </section>
+        <!-- ── END FEATURE GRID SECTION ── -->
+
+
+        <!-- ── CALL TO ACTION ── -->
+        <!-- Bottom CTA strip encouraging the user to download or join the community -->
+        <section class="about-cta">
+            <div class="container about-cta-inner">
+                <h2 class="about-cta-title">Ready to Begin?</h2>
+                <p class="about-cta-desc">
+                    Download the patch, apply it to a clean Pokémon Emerald ROM, and step into a re-imagined Hoenn.
+                    Prepare for a new era in Nuzlocke challenges.
+                </p>
+                <div class="about-cta-buttons">
+                    <!-- Primary action: download the patch -->
+                    <a href="patch-applier.html" class="btn btn-primary">Download the Patch</a>
+                    <!-- Secondary action: join Discord -->
+                    <a href="https://discord.gg/DqxxC5KQ6r" class="btn btn-secondary" target="_blank" rel="noopener">Join the Discord</a>
+                </div>
+            </div>
+        </section>
+        <!-- ── END CALL TO ACTION ── -->
+
+    </main>
+    <!-- ===================== END MAIN CONTENT ===================== -->
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <!-- Shared footer across all pages -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Project description column -->
+                <div class="footer-section">
+                    <h4>Pokémon Null</h4>
+                    <p>A Nuzlocke-focused Pokémon ROM hack that redefines difficulty with a re-imagined story in Hoenn. Carefully crafted by Terra.</p>
+                </div>
+                <!-- Quick links column -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="patch-applier.html">Download</a></li>
+                        <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
+                        <li><a href="about.html">Game Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Community links column -->
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.gg/DqxxC5KQ6r">Discord</a></li>
+                        <li><a href="https://www.reddit.com/r/PokemonNull/">Reddit</a></li>
+                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright notice -->
+            <div class="footer-bottom">
+                <p>2025 Pokémon Null Team and Terra. Pokémon is © Nintendo/Game Freak/The Pokémon Company. This is a non-commercial fan project. Website maintained by Brian Cordry.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ===================== END FOOTER ===================== -->
+
+
+    <!-- Global JS (handles nav toggle, launch event countdown, etc.) -->
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+    <!-- About page-specific JS -->
+    <script src="js/about.js"></script>
+
+</body>
+</html>

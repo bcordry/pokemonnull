@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Null - Patch Applier</title>
+        <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/nfaviconEMPTY.png">
+    <link rel="apple-touch-icon" href="assets/images/logos/nfaviconEMPTY.png">
+    <meta name="description" content="Download and apply the Pokémon Null patch to a clean Pokémon Emerald ROM. Step-by-step instructions included.">
+    <meta name="theme-color" content="#dc3545">
+    <link rel="canonical" href="http://pokemonnull.com/patch-applier.html">
+    <meta property="og:title" content="Download & Patch — Pokémon Null">
+    <meta property="og:description" content="Apply the Pokémon Null patch to a clean Pokémon Emerald ROM. Step-by-step instructions included.">
+    <meta property="og:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+    <meta property="og:url" content="http://pokemonnull.com/patch-applier.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pokémon Null">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Download & Patch — Pokémon Null">
+    <meta name="twitter:description" content="Apply the Pokémon Null patch to a clean Pokémon Emerald ROM. Step-by-step instructions included.">
+    <meta name="twitter:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+
+    <!-- Google Fonts for headers and body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- Main and page-specific CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/patch-applier.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Sticky header with logo and navigation -->
+    <header class="header">
+        <div class="header-brand">
+            <!-- Main site logo/title -->
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">Pokémon Null</h1>
+            </a>
+            <!-- Tagline, themed for Type: Null -->
+            <span class="tagline">Null Protocol Activated</span>
+        </div>
+        <!-- Navigation bar -->
+        <nav class="nav">
+            <!-- Hamburger menu for mobile -->
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Navigation links to all main pages -->
+            <ul class="nav-menu">
+                <!-- Standard nav links -->
+                <li><a href="index.html" class="nav-link">Home</a></li>
+
+                <!-- LAUNCH RACE nav item — links to about.html but styled as the event button -->
+                <!-- nav-item-launch-event gives it position:relative so the tooltip can anchor to it -->
+                <!-- nav-link-event applies the gold color and hover styles -->
+                <li class="nav-item-launch-event">
+                    <a href="launch-race.html" class="nav-link nav-link-event">
+                        Launch Event
+                        <span class="nav-event-tooltip" id="launch-event-tooltip">
+                            Loading countdown...
+                        </span>
+                    </a>
+                </li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>                
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                <!-- <li><a href="news.html" class="nav-link">News</a></li> -->
+                <li><a href="patch-applier.html" class="nav-link active">Patch</a></li>
+
+                <!-- TEMPORARILY UNAVAILABLE nav items (struck out) -->
+                <!-- class="nav-link-unavailable" disables the link and shows a tooltip on hover -->
+                <li class="nav-item-unavailable">
+                    <!-- href="#" prevents navigation; JS/CSS will block clicks visually -->
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Pokédex</s>
+                        <!-- Tooltip shown on hover explaining why this is unavailable -->
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Tracker is not yet available, strikethrough for now-->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Tracker</s>
+                        <!-- Tooltip shown on hover explaining why this is unavailable -->
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Trainer Docs</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Damage Calc</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main">
+        <section class="patch-hero">
+            <!-- Big patch button at the top -->
+            <a href="https://www.marcrobledo.com/RomPatcher.js/" target="_blank" rel="noopener" class="btn btn-primary patch-btn">
+                Apply Pokémon Null Patch
+            </a>
+            <p class="patch-note">
+                <strong>Note:</strong> You will need a clean Pokémon Emerald ROM (not included) and the Pokémon Null patch file.
+            </p>
+        </section>
+
+        <section class="patch-instructions container">
+            <h2 class="section-title">How to Patch Pokémon Null</h2>
+            <ol class="patch-steps">
+                <li>
+                    <strong>Obtain a clean Pokémon Emerald ROM.</strong>
+                    <br>
+                    <span class="step-detail">We cannot provide ROMs. You must legally obtain your own copy of Pokémon Emerald(U)(TrashMan) in .gba format.</span>
+                </li>
+                <li>
+                    <strong>Download the Pokémon Null patch file.</strong>
+                    <br>
+                    <span class="step-detail">You can get the latest patch from the <a href="https://discord.gg/DqxxC5KQ6r">Pokémon Null Discord server</a>.</span>
+                </li>
+                <li>
+                    <strong>Go to the online patcher.</strong>
+                    <br>
+                    <span class="step-detail">Click the <b>Apply Pokémon Null Patch</b> button above to open the online patcher tool (RomPatcher.js).</span>
+                </li>
+                <li>
+                    <strong>Upload your ROM and the patch file.</strong>
+                    <br>
+                    <span class="step-detail">In the patcher, select your clean Emerald ROM as the <b>ROM file</b> and the Pokémon Null .bps patch as the <b>Patch file</b>.</span>
+                </li>
+                <li>
+                    <strong>Apply the patch.</strong>
+                    <br>
+                    <span class="step-detail">Click <b>Apply patch</b>. When finished, download the new, patched ROM.</span>
+                </li>
+                <li>
+                    <strong>Play Pokémon Null!</strong>
+                    <br>
+                    <span class="step-detail">Load the patched ROM in your favorite GBA emulator and enjoy the adventure.</span>
+                </li>
+            </ol>
+            <div class="patch-warning">
+                <strong>Having trouble?</strong>
+                <ul>
+                    <li>Make sure your ROM is a clean, unmodified Pokémon Emerald (U) (TrashMan) .gba file.</li>
+                    <li>Do not use a randomizer or previously patched ROM.</li>
+                    <li>If you get errors, try a different browser or clear your cache.</li>
+                    <li>For more help, join our <a href="https://discord.gg/DqxxC5KQ6r">Discord</a> community.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <!-- Shared footer across all pages -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Project description column -->
+                <div class="footer-section">
+                    <h4>Pokémon Null</h4>
+                    <p>A Nuzlocke-focused Pokémon ROM hack that redefines difficulty with a re-imagined story in Hoenn. Carefully crafted by Terra.</p>
+                </div>
+                <!-- Quick links column -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="patch-applier.html">Download</a></li>
+                        <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
+                        <li><a href="about.html">Game Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Community links column -->
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.gg/DqxxC5KQ6r">Discord</a></li>
+                        <li><a href="https://www.reddit.com/r/PokemonNull/">Reddit</a></li>
+                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright notice -->
+            <div class="footer-bottom">
+                <p>2025 Pokémon Null Team and Terra. Pokémon is © Nintendo/Game Freak/The Pokémon Company. This is a non-commercial fan project. Website maintained by Brian Cordry.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ===================== END FOOTER ===================== -->
+
+    <!-- Main and page-specific JS (update paths as per your structure) -->
+    <script src="js/main.js"></script>
+    <script src="js/news-data.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/patch-applier.js"></script>
+</body>
+</html>

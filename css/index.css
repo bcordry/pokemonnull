@@ -1,0 +1,458 @@
+/* INDEX PAGE SPECIFIC STYLES */
+
+/* ====
+   LAUNCH EVENT NAV BUTTON + COUNTDOWN TOOLTIP
+   ==== */
+
+
+/* The <li> that wraps the Launch Race link — no special display needed, behaves like any other <li> in the nav */
+.nav-item-launch-event {
+    position: relative; /* Anchors the tooltip to this element */
+}
+
+/* Special styling for the Launch Event nav link — copied EXACTLY from .nav-link in styles.css, only color is changed */
+.nav-link-event {
+    font-family: "Bebas Neue", cursive; /* Same font as every other nav button */
+    font-weight: 700;                   /* Same weight as every other nav button */
+    letter-spacing: 1.5px;             /* Same letter spacing as every other nav button */
+    text-transform: uppercase;          /* Same uppercase as every other nav button */
+    color: #ffd700 !important;          /* ONLY difference: gold instead of silver */
+    text-decoration: none;              /* Same: no underline */
+    font-size: 1rem;                    /* Same font size as every other nav button */
+    padding: 10px 15px;                 /* Same padding as every other nav button */
+    border-radius: var(--border-radius); /* Same rounded corners as every other nav button */
+    transition: var(--transition);      /* Same smooth transition as every other nav button */
+    position: relative;                 /* Needed so the tooltip can be positioned relative to this link */
+    /* NOTE: NO display:flex here — that was the bug. .nav-link has no display set, so it stays inline. */
+}
+
+/* Hover state for the Launch Event link */
+.nav-link-event:hover {
+    color: #ffe44d !important; /* Slightly brighter gold on hover */
+    background-color: rgba(255, 215, 0, 0.1) !important; /* Subtle gold background */
+}
+
+/* The countdown tooltip box — hidden by default */
+.nav-event-tooltip {
+    display: none; /* Hidden until hovered */
+    position: absolute; /* Positioned relative to the nav-link-event */
+    top: calc(100% + 8px); /* 8px below the bottom of the nav link */
+    left: 50%; /* Start at horizontal center */
+    transform: translateX(-50%); /* Shift left by half its own width to truly center */
+    background-color: #1a1a1a; /* Very dark background */
+    color: #ffd700; /* Gold text to match the button */
+    border: 1px solid #ffd700; /* Gold border */
+    border-radius: 6px; /* Rounded corners */
+    padding: 8px 14px; /* Internal spacing */
+    font-size: 0.8rem; /* Smaller text than the nav link */
+    font-family: var(--font-body); /* Use body font (Manrope) for readability */
+    white-space: nowrap; /* Prevent the countdown from wrapping to a new line */
+    z-index: 2000; /* Above everything else including the header */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9); /* Drop shadow for depth */
+    pointer-events: none; /* Tooltip itself shouldn't capture mouse events */
+    text-transform: none; /* Override the uppercase from .nav-link */
+    letter-spacing: 0; /* Override letter-spacing from .nav-link */
+}
+
+/* Show the tooltip when the parent link is hovered */
+.nav-link-event:hover .nav-event-tooltip {
+    display: block; /* Make it visible on hover */
+}
+
+/* Small decorative arrow pointing up from the tooltip toward the nav link */
+.nav-event-tooltip::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position relative to the tooltip box */
+    top: -6px; /* Sit just above the tooltip box */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* True center */
+    border-width: 0 6px 6px 6px; /* Triangle shape: no top, sides, bottom */
+    border-style: solid; /* Required for border trick */
+    border-color: transparent transparent #ffd700 transparent; /* Only bottom border visible = upward arrow */
+}
+
+/* ====
+   UNAVAILABLE NAV ITEMS + TOOLTIP
+   ==== */
+
+/* Container for each unavailable nav item */
+.nav-item-unavailable {
+    position: relative; /* Anchor for the tooltip */
+}
+
+/* Style for the unavailable (struck-out) nav links */
+.nav-link-unavailable {
+    opacity: 0.5; /* Dim the link to signal it's inactive */
+    cursor: not-allowed; /* Show a "no" cursor on hover */
+}
+
+/* Override the normal hover brightening for unavailable links */
+.nav-link-unavailable:hover {
+    color: var(--text-secondary) !important; /* Keep the same muted color */
+    background-color: rgba(0, 0, 0, 0.05) !important; /* Very subtle hover */
+}
+
+/* The "unavailable" tooltip box — styled identically to .nav-event-tooltip, just with silver instead of gold */
+.nav-unavailable-tooltip {
+    display: none; /* Hidden until hovered */
+    position: absolute; /* Positioned relative to the nav item */
+    top: calc(100% + 8px); /* 8px below the nav link — same as launch event tooltip */
+    left: 50%; /* Start at center — same as launch event tooltip */
+    transform: translateX(-50%); /* True center — same as launch event tooltip */
+    background-color: #1a1a1a; /* SOLID very dark background — same as launch event tooltip, no transparency */
+    color: var(--silver); /* Silver text — matches the silver nav button color scheme */
+    border: 1px solid var(--light-gray); /* Silver/gray border — same style as launch event but silver-toned */
+    border-radius: 6px; /* Rounded corners — same as launch event tooltip */
+    padding: 8px 14px; /* Internal spacing — same as launch event tooltip */
+    font-size: 0.8rem; /* Font size — same as launch event tooltip */
+    font-family: var(--font-body); /* Readable body font — same as launch event tooltip */
+    white-space: nowrap; /* No line wrapping — same as launch event tooltip */
+    z-index: 2000; /* Above all other content — same as launch event tooltip */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Drop shadow — same as launch event tooltip */
+    pointer-events: none; /* Don't capture mouse events — same as launch event tooltip */
+    text-transform: none; /* Override uppercase from .nav-link — same as launch event tooltip */
+    letter-spacing: 0; /* Override letter-spacing from .nav-link — same as launch event tooltip */
+}
+
+/* Show the unavailable tooltip on hover */
+.nav-link-unavailable:hover .nav-unavailable-tooltip {
+    display: block; /* Visible on hover */
+}
+
+/* Small upward arrow on the unavailable tooltip — same structure as launch event arrow, silver-toned */
+.nav-unavailable-tooltip::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Relative to tooltip */
+    top: -6px; /* Just above the box — same as launch event */
+    left: 50%; /* Center — same as launch event */
+    transform: translateX(-50%); /* True center — same as launch event */
+    border-width: 0 6px 6px 6px; /* Triangle shape — same as launch event */
+    border-style: solid; /* Required — same as launch event */
+    border-color: transparent transparent var(--light-gray) transparent; /* Silver/gray upward arrow to match border color */
+}
+
+/* Hero section - main banner area */
+.hero {
+    position: relative; /* For absolute positioning of background elements */
+    min-height: 70vh; /* Take up most of viewport height */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Center align text */
+    overflow: hidden; /* Hide overflow for background effects */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-gray) 50%, var(--secondary-gray) 100%); /* Complex gradient background */
+}
+
+/* Hero background decorative element */
+.hero-bg {
+    position: absolute; /* Position absolutely within hero */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    right: 0; /* Align to right */
+    bottom: 0; /* Align to bottom */
+    background: radial-gradient(circle at 30% 70%, rgba(220, 53, 69, 0.1) 0%, transparent 50%); /* Subtle red radial gradient */
+    z-index: 1; /* Behind content but above hero background */
+}
+
+/* Hero content container */
+.hero-content {
+    position: relative; /* Position relative to appear above background */
+    z-index: 4; /* Above background elements */
+    max-width: 800px; /* Limit width for readability */
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+/* Main hero title */
+.hero-title {
+    font-family: var(--font-heading); /* Use heading font */
+    font-size: 4rem; /* Large font size */
+    color: var(--silver); /* Silver color */
+    margin-bottom: 1rem; /* Space below title */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Strong text shadow */
+    letter-spacing: 3px; /* Wide letter spacing */
+    text-transform: uppercase; /* Make uppercase */
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+    font-size: 1.3rem; /* Medium font size */
+    color: var(--text-secondary); /* Light gray color */
+    margin-bottom: 2.5rem; /* Space below subtitle */
+    font-weight: 400; /* Normal font weight */
+    line-height: 1.5; /* Comfortable line height */
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    display: flex; /* Use flexbox */
+    gap: 20px; /* Space between buttons */
+    justify-content: center; /* Center buttons */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+
+.trailer {
+    padding: 80px 0; /* Vertical padding for section */
+    background-color: var(--primary-gray); /* Dark background */
+}
+
+.trailer-video-wrapper {
+    position: relative;
+    padding-bottom: 40%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    max-width: 800px;
+}
+.trailer-video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+}
+
+
+/* News preview section */
+.news-preview {
+    padding: 80px 0; /* Large vertical padding */
+    background-color: var(--bg-dark); /* Very dark background */
+}
+
+/* index.css */
+.news-preview-article {
+  background: #1a2323;
+  border-radius: 8px;
+  margin: 0.7em 0;
+  padding: 1em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+
+.news-preview-title {
+  font-weight: bold;
+  color: #7fd7a7;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.news-preview-title:hover {
+  text-decoration: underline;
+}
+
+.news-preview-date {
+  font-size: 0.9em;
+  color: #a0cfcf;
+  margin-bottom: 0.3em;
+}
+
+.news-preview-summary {
+  font-size: 1em;
+  color: #e0f7e9;
+}
+
+/* News cards container */
+.news-cards {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid columns */
+    gap: 25px; /* Space between cards */
+    margin-top: 2rem; /* Space above cards */
+}
+
+/* Individual news card */
+.news-card {
+    background: linear-gradient(135deg, var(--primary-gray) 0%, var(--secondary-gray) 100%); /* Gradient background */
+    padding: 25px; /* Internal padding */
+    border-radius: var(--border-radius); /* Rounded corners */
+    border: 1px solid var(--light-gray); /* Subtle border */
+    transition: var(--transition); /* Smooth transition */
+    position: relative; /* For pseudo-element effects */
+    overflow: hidden; /* Hide overflow for effects */
+}
+
+/* News card hover effect */
+.news-card:hover {
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    border-color: var(--accent-red); /* Red border on hover */
+}
+
+/* News date styling */
+.news-date {
+    color: var(--accent-red); /* Red color */
+    font-size: 0.9rem; /* Smaller font size */
+    font-weight: 600; /* Semi-bold */
+    margin-bottom: 0.5rem; /* Space below date */
+    text-transform: uppercase; /* Make uppercase */
+    letter-spacing: 1px; /* Add letter spacing */
+}
+
+/* News card title */
+.news-card h4 {
+    font-family: var(--font-heading); /* Use heading font */
+    font-size: 1.3rem; /* Medium font size */
+    color: var(--silver); /* Silver color */
+    margin-bottom: 0.8rem; /* Space below title */
+    letter-spacing: 1px; /* Add letter spacing */
+}
+
+/* News card description */
+.news-card p {
+    color: var(--text-secondary); /* Light gray color */
+    line-height: 1.5; /* Comfortable line height */
+    margin-bottom: 1rem; /* Space below description */
+}
+
+/* News card link */
+.news-link {
+    color: var(--accent-red); /* Red color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Semi-bold */
+    font-size: 0.9rem; /* Smaller font size */
+    text-transform: uppercase; /* Make uppercase */
+    letter-spacing: 1px; /* Add letter spacing */
+    transition: var(--transition); /* Smooth transition */
+}
+
+/* News link hover effect */
+.news-link:hover {
+    color: #c82333; /* Darker red on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* ---- */
+/*  Faded trainer + Pokémon slideshow that sits behind content */
+/* ---- */
+
+/* Wrapper that fills the whole hero area */
+.hero-slideshow {
+    position: absolute;        /*  pulled out of normal flow                */
+    inset: 0;                  /*  shorthand for top/right/bottom/left: 0   */
+    display: flex;             /*  lets us centre the two images together   */
+    align-items: center;       /*  vertical centring within the hero        */
+    justify-content: center;   /*  horizontal centring                    */
+    pointer-events: none;      /*  clicks go “through” the slideshow        */
+    z-index: 2;               /*  Behind embers (=auto) and hero-bg (-1)   */
+    opacity: 0.22;             /*  subtle / “faded” look                    */
+}
+
+/* All slideshow images share these properties */
+.hero-slideshow img {
+    position: absolute;        /*  allows custom placement with transforms  */
+    max-width: none;           /*  we’ll set explicit width via % later     */
+    user-select: none;         /*  no accidental text/icon drag highlight   */
+    transition: opacity 0.2s ease; /* smooth fade in / out                    */
+}
+
+/* Trainer sits slightly left of centre */
+.trainer-image {
+    width: 20vw; /* smaller, responsive to viewport */
+    min-width: 120px;
+    max-width: 240px;
+    left: 13vw; /* push left */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Pokémon sits to the right */
+.pokemon-image {
+    width: 18vw; /* smaller, responsive */
+    min-width: 70px;
+    max-width: 140px;
+    right: 13vw; /* push right */
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* “Visible” class is toggled by JS to fade items in */
+.hero-slideshow img.visible {
+    opacity: 1;               /*  fully shown                    */
+}
+
+/* Hidden state – default when the page first loads */
+.hero-slideshow img:not(.visible) {
+    opacity: 0;               /*  completely transparent                   */
+}
+
+
+
+
+/* RESPONSIVE DESIGN FOR INDEX PAGE */
+/* Tablet styles */
+@media (max-width: 768px) {
+    /* Adjust hero title size */
+    .hero-title {
+        font-size: 3rem; /* Smaller font size */
+        letter-spacing: 2px; /* Reduce letter spacing */
+    }
+    
+    /* Adjust hero subtitle size */
+    .hero-subtitle {
+        font-size: 1.1rem; /* Smaller font size */
+    }
+    
+    /* Stack hero buttons on mobile */
+    .hero-buttons {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center align */
+    }
+    
+    /* Adjust hero buttons width */
+    .hero-buttons .btn {
+        width: 100%; /* Full width */
+        max-width: 300px; /* Maximum width */
+    }
+    
+    /* Reduce section padding */
+    .features,
+    .news-preview {
+        padding: 60px 0; /* Smaller vertical padding */
+    }
+    
+    /* Adjust features grid */
+    .features-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px; /* Reduce gap */
+    }
+    
+    /* Adjust news cards grid */
+    .news-cards {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px; /* Reduce gap */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+    /* Further reduce hero title size */
+    .hero-title {
+        font-size: 2.5rem; /* Even smaller font size */
+        letter-spacing: 1px; /* Further reduce letter spacing */
+    }
+    
+    /* Adjust hero height for mobile */
+    .hero {
+        min-height: 60vh; /* Smaller height */
+    }
+    
+    /* Reduce feature card padding */
+    .feature-card {
+        padding: 20px; /* Smaller padding */
+    }
+    
+    /* Reduce news card padding */
+    .news-card {
+        padding: 20px; /* Smaller padding */
+    }
+    
+    /* Further reduce section padding */
+    .features,
+    .news-preview {
+        padding: 40px 0; /* Even smaller vertical padding */
+    }
+}
+
+
+@media (max-width: 600px) {
+    .trainer-image { width: 28vw; left: 5vw; }
+    .pokemon-image { width: 16vw; right: 5vw; }
+}

@@ -1,0 +1,584 @@
+/* ====
+   ABOUT PAGE — COMPLETE STYLESHEET
+   Replaces the previous about.css entirely.
+   Depends on: css/styles.css (variables, header, footer, buttons)
+   ==== */
+
+
+/* ── HERO BANNER ──── */
+
+/* Outer wrapper for the hero section — full-width, tall, centered */
+.about-hero {
+    position: relative;          /* Needed so child elements can be positioned absolutely inside it */
+    overflow: hidden;            /* Clip anything that bleeds outside the section */
+    padding: 100px 0 80px;       /* Generous top/bottom breathing room */
+    display: flex;               /* Use flexbox so the container can be vertically centered */
+    align-items: center;         /* Center content vertically within the hero */
+    min-height: 420px;           /* Ensure the hero is never too short */
+}
+
+/* Dark gradient background layer — sits behind all hero content */
+.about-hero-bg {
+    position: absolute;          /* Take it out of normal flow so it fills the parent */
+    inset: 0;                    /* Shorthand for top/right/bottom/left: 0 — fills the parent completely */
+    background: linear-gradient(
+        135deg,
+        var(--black) 0%,
+        var(--primary-gray) 50%,
+        var(--secondary-gray) 100%
+    );                    /* Diagonal dark gradient matching the site palette */
+    z-index: 0;                  /* Behind everything else in the hero */
+}
+
+/* Particle canvas layer — sits above the bg but below the text */
+.about-hero-particles {
+    position: absolute;          /* Fills the hero section */
+    inset: 0;                    /* Covers the full hero area */
+    z-index: 1;                  /* Above the bg gradient, below the text */
+    pointer-events: none;        /* Particles should never block mouse clicks */
+}
+
+/* The actual text/button content inside the hero */
+.about-hero-content {
+    position: relative;          /* Sit above the bg and particles layers */
+    z-index: 2;                  /* Highest z-index in the hero so text is always readable */
+    text-align: center;          /* Center all text horizontally */
+}
+
+/* Small uppercase label above the main title (e.g. "Game Information") */
+.about-hero-label {
+    display: inline-block;       /* Allows padding and margin to work correctly */
+    font-family: var(--font-body); /* Use the body font (Manrope) */
+    font-size: 0.85rem;          /* Smaller than body text */
+    font-weight: 700;            /* Bold so it stands out despite being small */
+    text-transform: uppercase;   /* All caps for a label feel */
+    letter-spacing: 3px;         /* Wide spacing reinforces the label style */
+    color: var(--accent-red);    /* Red accent color from the site palette */
+    margin-bottom: 16px;         /* Space between the label and the title below it */
+    border: 1px solid rgba(220, 53, 69, 0.4); /* Subtle red border around the label */
+    padding: 4px 14px;           /* Small horizontal padding inside the border */
+    border-radius: 20px;         /* Pill shape */
+}
+
+/* Main hero heading */
+.about-hero-title {
+    font-family: var(--font-heading); /* Bebas Neue — the site's display font */
+    font-size: clamp(2.8rem, 6vw, 5rem); /* Fluid size: min 2.8rem, scales with viewport, max 5rem */
+    color: var(--silver);        /* Silver matches the site's primary heading color */
+    letter-spacing: 3px;         /* Wide tracking for the display font */
+    text-transform: uppercase;   /* All caps */
+    margin-bottom: 24px;         /* Space below the title */
+    line-height: 1.05;           /* Tight line height for large display text */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth against the bg */
+}
+
+/* Hero description paragraph */
+.about-hero-desc {
+    font-size: clamp(1rem, 2vw, 1.25rem); /* Fluid size between 1rem and 1.25rem */
+    color: var(--text-secondary); /* Light gray — readable but not as bright as headings */
+    max-width: 720px;            /* Limit line length for comfortable reading */
+    margin: 0 auto 36px;         /* Center horizontally; space below before the buttons */
+    line-height: 1.75;           /* Generous line height for body text */
+}
+
+/* Button row inside the hero */
+.about-hero-buttons {
+    display: flex;               /* Lay buttons out side by side */
+    gap: 16px;                   /* Space between the two buttons */
+    justify-content: center;     /* Center the button row */
+    flex-wrap: wrap;             /* Allow buttons to stack on very small screens */
+}
+
+
+/* ── HIGHLIGHT ROWS ──── */
+
+/* Outer section wrapper for all highlight rows */
+.highlights {
+    padding: 80px 0;             /* Vertical breathing room for the whole section */
+    background-color: var(--bg-dark); /* Match the page background */
+}
+
+/* A single highlight row: one screenshot + one text block, side by side */
+.highlight-row {
+    display: grid;               /* CSS Grid for the two-column layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 60px;                   /* Space between the image and the text */
+    align-items: center;         /* Vertically center both columns */
+    margin-bottom: 100px;        /* Space between consecutive rows */
+    opacity: 0;                  /* Start invisible — JS will animate this in */
+    transform: translateY(40px); /* Start slightly below — JS will slide it up */
+    transition: opacity 0.7s ease, transform 0.7s ease; /* Smooth reveal animation */
+}
+
+/* When JS adds .is-visible, the row fades and slides into place */
+.highlight-row.is-visible {
+    opacity: 1;                  /* Fully visible */
+    transform: translateY(0);    /* Back to natural position */
+}
+
+/* Last row doesn't need a bottom margin */
+.highlight-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Reversed row: image goes on the right, text on the left */
+/* CSS Grid order is controlled by reversing the column order */
+.highlight-row--reverse .highlight-media {
+    order: 2;                    /* Push the image to the second (right) column */
+}
+.highlight-row--reverse .highlight-text {
+    order: 1;                    /* Pull the text to the first (left) column */
+}
+
+/* Wrapper around the screenshot image — provides the decorative frame */
+.highlight-img-frame {
+    position: relative;          /* Needed so the corner accents and shimmer are positioned inside */
+    border-radius: var(--border-radius); /* Rounded corners matching the site style */
+    overflow: hidden;            /* Clip the image AND the shimmer to the rounded corners */
+    border: 1px solid var(--secondary-gray); /* Subtle border around the frame */
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5); /* Deep shadow for a floating effect */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+}
+
+/* ── SHIMMER EFFECT ON SCREENSHOT FRAMES ────
+   A diagonal silver highlight sweeps from top-left to bottom-right on hover,
+   BUT only lights up the border region (~10% inset from each edge).
+   The interior of the image is left untouched.
+
+   Technique: the ::before pseudo-element uses a diagonal linear-gradient (135deg).
+   The gradient is built in layers:
+     - The outermost 10% on each side is where the shimmer can appear.
+     - The inner 80% is kept fully transparent so the image shows through unaffected.
+   We animate `left` AND `top` together so the shimmer travels diagonally
+   from the top-left corner to the bottom-right corner. */
+
+/* The shimmer layer — starts off-screen to the top-left */
+.highlight-img-frame::before {
+    content: '';                  /* Required for pseudo-elements to render */
+    position: absolute;           /* Position inside the frame */
+    top: -100%;                   /* Start fully above the frame (off-screen top) */
+    left: -100%;                  /* Start fully to the left of the frame (off-screen left) */
+    width: 100%;                  /* Same width as the frame */
+    height: 100%;                 /* Same height as the frame */
+    background: linear-gradient(
+        135deg,                   /* Diagonal direction: top-left → bottom-right */
+        transparent 0%,           /* Fully transparent at the leading edge */
+        transparent 35%,          /* Stay transparent through the first third — this is the "interior mask" start */
+        rgba(192, 192, 192, 0.22) 45%, /* Silver shimmer begins — this is the top/left border band */
+        rgba(192, 192, 192, 0.22) 55%, /* Silver shimmer ends — this is the bottom/right border band */
+        transparent 65%,          /* Fade back to transparent — interior mask end */
+        transparent 100%          /* Fully transparent at the trailing edge */
+    );                            /* The opaque band (45%–55%) is only 10% wide, so it only lights up the border region */
+    transition: top 0.65s ease, left 0.65s ease; /* Animate both axes simultaneously for a true diagonal sweep */
+    pointer-events: none;         /* Never block mouse clicks on the image */
+    z-index: 2;                   /* Above the image, below the corner accents */
+}
+
+/* When the frame is hovered, sweep the shimmer diagonally to the bottom-right */
+.highlight-img-frame:hover::before {
+    top: 100%;                    /* End position: fully below the frame */
+    left: 100%;                   /* End position: fully to the right of the frame */
+                                  /* Combined, this makes the shimmer travel from top-left to bottom-right */
+}
+
+/* Lift the image frame slightly on hover */
+.highlight-img-frame:hover {
+    transform: translateY(-4px); /* Subtle upward lift */
+    box-shadow: 0 16px 60px rgba(220, 53, 69, 0.2); /* Red-tinted glow on hover */
+}
+
+/* The screenshot image itself */
+.highlight-img {
+    display: block;              /* Remove inline spacing below the image */
+    width: 100%;                 /* Fill the frame horizontally */
+    height: auto;                /* Maintain aspect ratio */
+    object-fit: cover;           /* Cover the frame without distortion */
+    transition: transform 0.4s ease; /* Smooth zoom on hover */
+}
+
+/* Subtle zoom effect when hovering the frame */
+.highlight-img-frame:hover .highlight-img {
+    transform: scale(1.03);      /* Very slight zoom — just enough to feel alive */
+}
+
+/* Decorative corner accents — four small L-shaped brackets at each corner */
+.img-corner {
+    position: absolute;          /* Position relative to the frame */
+    width: 20px;                 /* Width of the bracket arm */
+    height: 20px;                /* Height of the bracket arm */
+    border-color: var(--accent-red); /* Red accent color */
+    border-style: solid;         /* Solid lines */
+    z-index: 2;                  /* Above the image */
+}
+
+/* Top-left corner: show only the top and left borders */
+.img-corner--tl { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+/* Top-right corner: show only the top and right borders */
+.img-corner--tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
+/* Bottom-left corner: show only the bottom and left borders */
+.img-corner--bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
+/* Bottom-right corner: show only the bottom and right borders */
+.img-corner--br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+/* Small uppercase category label above the highlight title */
+.highlight-label {
+    display: inline-block;       /* Allows padding */
+    font-size: 0.75rem;          /* Very small */
+    font-weight: 700;            /* Bold */
+    text-transform: uppercase;   /* All caps */
+    letter-spacing: 3px;         /* Wide tracking */
+    color: var(--accent-red);    /* Red accent */
+    margin-bottom: 12px;         /* Space below before the title */
+}
+
+/* Highlight section heading */
+.highlight-title {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: clamp(1.8rem, 3vw, 2.8rem); /* Fluid size */
+    color: var(--silver);        /* Silver */
+    letter-spacing: 1.5px;       /* Moderate tracking */
+    text-transform: uppercase;   /* All caps */
+    margin-bottom: 16px;         /* Space below */
+    line-height: 1.1;            /* Tight for display text */
+}
+
+/* Highlight description paragraph */
+.highlight-desc {
+    font-size: 1rem;             /* Standard body size */
+    color: var(--text-secondary); /* Light gray */
+    line-height: 1.75;           /* Comfortable reading */
+    margin-bottom: 20px;         /* Space before the bullet list */
+}
+
+/* Bullet list of features within a highlight row */
+.highlight-list {
+    list-style: none;            /* Remove default bullets */
+    padding: 0;                  /* Remove default indent */
+    margin: 0;                   /* Remove default margin */
+    display: flex;               /* Use flexbox for the list */
+    flex-direction: column;      /* Stack items vertically */
+    gap: 10px;                   /* Space between list items */
+}
+
+/* Individual list item */
+.highlight-list li {
+    position: relative;          /* Needed for the custom bullet pseudo-element */
+    padding-left: 22px;          /* Indent text to make room for the custom bullet */
+    color: var(--text-secondary); /* Light gray text */
+    font-size: 0.95rem;          /* Slightly smaller than body */
+    line-height: 1.5;            /* Comfortable */
+}
+
+/* Custom bullet: a small red diamond before each list item */
+.highlight-list li::before {
+    content: '◆';               /* Diamond character as the bullet */
+    position: absolute;          /* Position it to the left of the text */
+    left: 0;                    /* Align to the left edge of the padding area */
+    top: 0;                    /* Align to the top of the line */
+    color: var(--accent-red);    /* Red accent color */
+    font-size: 0.6rem;           /* Smaller than the text */
+    line-height: 1.8;            /* Vertically center the bullet with the text */
+}
+
+
+/* ── FEATURE GRID SECTION ──── */
+
+/* Outer section wrapper */
+.feature-grid-section {
+    padding: 80px 0;             /* Vertical breathing room */
+    background: linear-gradient(
+        180deg,
+        var(--bg-dark) 0%,
+        var(--primary-gray) 100%
+    );                    /* Subtle gradient to visually separate from the rows above */
+}
+
+/* Subtitle paragraph below the section title */
+.feature-grid-subtitle {
+    text-align: center;          /* Center align */
+    color: var(--text-secondary); /* Light gray */
+    font-size: 1.1rem;           /* Slightly larger than body */
+    max-width: 600px;            /* Limit line length */
+    margin: -2rem auto 3rem;     /* Pull up close to the section title; space below */
+    line-height: 1.6;            /* Comfortable */
+}
+
+/* Three-column responsive grid of feature cards */
+.feature-grid {
+    display: grid;               /* CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive: 3 cols on desktop, fewer on mobile */
+    gap: 28px;                   /* Space between cards */
+}
+
+/* Individual feature card */
+.fgrid-card {
+    background: linear-gradient(
+        135deg,
+        var(--secondary-gray) 0%,
+        var(--primary-gray) 100%
+    );                    /* Gradient card background */
+    border: 1px solid transparent; /* Transparent border — becomes visible on hover */
+    border-radius: var(--border-radius); /* Rounded corners */
+    padding: 32px 28px;          /* Internal spacing */
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover */
+    opacity: 0;                  /* Start invisible for scroll animation */
+    transform: translateY(30px); /* Start below for scroll animation */
+    position: relative;   /* Required so ::before is positioned inside the card */
+    overflow: hidden;     /* Clips the shimmer so it doesn't bleed outside the card edges */
+}
+
+/* Reveal animation when JS adds .is-visible */
+.fgrid-card.is-visible {
+    opacity: 1;                  /* Fully visible */
+    transform: translateY(0);    /* Natural position */
+}
+
+/* Hover state for feature cards */
+.fgrid-card:hover {
+    border-color: var(--accent-red); /* Red border appears on hover */
+    transform: translateY(-6px); /* Lift the card */
+    box-shadow: 0 12px 40px rgba(220, 53, 69, 0.15); /* Soft red glow */
+}
+
+/* ── SHIMMER EFFECT ON FEATURE GRID CARDS ────
+   A diagonal highlight sweeps across the card border on hover.
+   Uses a ::before pseudo-element layered on top of the card. */
+
+/* The shimmer layer — starts off-screen to the left */
+.fgrid-card::before {
+    content: '';                  /* Required for pseudo-elements to render */
+    position: absolute;           /* Position inside the card */
+    top: 0;                    /* Align to the top edge */
+    left: -100%;                  /* Start fully off-screen to the left */
+    width: 100%;                  /* Same width as the card */
+    height: 100%;                 /* Same height as the card */
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(192, 192, 192, 0.12) 50%,
+        transparent 100%
+    );                    /* A silver highlight that fades in and out — center is brightest */
+    transition: left 0.55s ease;  /* Smooth left-to-right sweep on hover */
+    pointer-events: none;         /* Never block mouse clicks */
+    z-index: 1;                   /* Above the card background, below the text */
+    border-radius: var(--border-radius); /* Match the card's rounded corners */
+}
+
+/* When the card is hovered, sweep the shimmer across to the right */
+.fgrid-card:hover::before {
+    left: 100%;                   /* End position: fully off-screen to the right */
+}
+
+/* Large emoji icon at the top of each card */
+.fgrid-icon {
+    font-size: 2.5rem;           /* Large enough to be a visual anchor */
+    margin-bottom: 16px;         /* Space below the icon */
+    display: block;              /* Block so margin works correctly */
+    line-height: 1;              /* Prevent extra line height from inflating the space */
+}
+
+/* Card heading */
+.fgrid-title {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: 1.6rem;           /* Medium display size */
+    color: var(--silver);        /* Silver */
+    letter-spacing: 1px;         /* Moderate tracking */
+    text-transform: uppercase;   /* All caps */
+    margin-bottom: 16px;         /* Space below before the list */
+}
+
+/* Bullet list inside each feature card */
+.fgrid-list {
+    list-style: none;            /* Remove default bullets */
+    padding: 0;                  /* Remove default indent */
+    margin: 0;                   /* Remove default margin */
+    display: flex;               /* Flexbox for the list */
+    flex-direction: column;      /* Stack items vertically */
+    gap: 8px;                    /* Space between items */
+}
+
+/* Individual list item */
+.fgrid-list li {
+    position: relative;          /* For the custom bullet */
+    padding-left: 18px;          /* Indent for the bullet */
+    color: var(--text-secondary); /* Light gray */
+    font-size: 0.9rem;           /* Slightly smaller than body */
+    line-height: 1.5;            /* Comfortable */
+}
+
+/* Custom bullet: small red dash */
+.fgrid-list li::before {
+    content: '—';               /* Em dash as bullet */
+    position: absolute;          /* Left of the text */
+    left: 0;                    /* Align to left edge */
+    color: var(--accent-red);    /* Red accent */
+    font-size: 0.75rem;          /* Smaller than text */
+    line-height: 1.7;            /* Vertically center with text */
+}
+
+
+
+
+
+
+
+/* ── CALL TO ACTION ──── */
+
+/* Full-width CTA strip at the bottom of the page */
+.about-cta {
+    padding: 80px 0;             /* Generous vertical padding */
+    background: linear-gradient(
+        135deg,
+        var(--black) 0%,
+        var(--primary-gray) 100%
+    );                    /* Dark gradient background */
+    border-top: 2px solid var(--accent-red); /* Red top border matching the header/footer style */
+    text-align: center;          /* Center all content */
+}
+
+/* Inner wrapper — limits width and centers content */
+.about-cta-inner {
+    max-width: 700px;            /* Narrower than the full container for a focused feel */
+    margin: 0 auto;              /* Center horizontally */
+}
+
+/* CTA heading */
+.about-cta-title {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: clamp(2.2rem, 5vw, 3.5rem); /* Fluid size */
+    color: var(--silver);        /* Silver */
+    letter-spacing: 2px;         /* Wide tracking */
+    text-transform: uppercase;   /* All caps */
+    margin-bottom: 16px;         /* Space below */
+}
+
+/* CTA description paragraph */
+.about-cta-desc {
+    font-size: 1.1rem;           /* Slightly larger than body */
+    color: var(--text-secondary); /* Light gray */
+    line-height: 1.7;            /* Comfortable */
+    margin-bottom: 36px;         /* Space before the buttons */
+}
+
+/* Button row in the CTA */
+.about-cta-buttons {
+    display: flex;               /* Side-by-side buttons */
+    gap: 16px;                   /* Space between buttons */
+    justify-content: center;     /* Center the row */
+    flex-wrap: wrap;             /* Stack on small screens */
+}
+
+
+/* ── SCROLL REVEAL TRANSITION OVERRIDE ──── */
+/* When JS detects the element is in the viewport, it adds .is-visible */
+/* The transition is already defined on each element above; this just documents the pattern */
+.highlight-row,
+.fgrid-card {
+    transition: opacity 0.7s ease, transform 0.7s ease; /* Shared reveal transition */
+}
+
+
+
+
+/* ── RESPONSIVE: TABLET (≤ 900px) ──── */
+@media (max-width: 900px) {
+
+    /* Stack highlight rows vertically on tablet */
+    .highlight-row {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 36px;                  /* Reduce gap */
+        margin-bottom: 60px;        /* Reduce row spacing */
+    }
+
+    /* On reversed rows, reset the order so image always comes first */
+    .highlight-row--reverse .highlight-media,
+    .highlight-row--reverse .highlight-text {
+        order: unset;               /* Remove the desktop order override */
+    }
+
+    /* Reduce hero padding on tablet */
+    .about-hero {
+        padding: 70px 0 60px;
+    }
+
+    /* Reduce highlights section padding */
+    .highlights {
+        padding: 60px 0;
+    }
+
+    /* Reduce feature grid section padding */
+    .feature-grid-section {
+        padding: 60px 0;
+    }
+
+    /* Reduce CTA padding */
+    .about-cta {
+        padding: 60px 0;
+    }
+}
+
+
+/* ── RESPONSIVE: MOBILE (≤ 480px) ──── */
+@media (max-width: 480px) {
+
+    /* Reduce hero padding further */
+    .about-hero {
+        padding: 50px 0 40px;
+    }
+
+    /* Stack hero buttons vertically */
+    .about-hero-buttons {
+        flex-direction: column;     /* Stack buttons */
+        align-items: center;        /* Center them */
+    }
+
+    /* Make buttons full width on mobile */
+    .about-hero-buttons .btn {
+        width: 100%;                /* Full width */
+        max-width: 300px;           /* But not wider than 300px */
+    }
+
+    /* Reduce highlight row spacing */
+    .highlight-row {
+        margin-bottom: 40px;
+        gap: 24px;
+    }
+
+    /* Single column feature grid on mobile */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack CTA buttons vertically */
+    .about-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+/* ── REDUCED MOTION ──── */
+/* Respect the user's OS-level "reduce motion" preference */
+@media (prefers-reduced-motion: reduce) {
+
+    /* Disable all transitions and animations */
+    .highlight-row,
+    .fgrid-card,
+    .highlight-img-frame,
+    .highlight-img {
+        transition: none;           /* No transitions */
+        animation: none;            /* No animations */
+    }
+
+    /* Make everything visible immediately — no scroll reveal */
+    .highlight-row,
+    .fgrid-card {
+        opacity: 1;
+        transform: none;
+    }
+}

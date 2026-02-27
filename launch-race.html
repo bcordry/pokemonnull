@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set character encoding and viewport for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Null - Launch Event</title>
+    <link rel="icon" type="image/png" href="assets/images/logos/nfaviconEMPTY.png">
+    <link rel="apple-touch-icon" href="assets/images/logos/nfaviconEMPTY.png">
+    <meta name="description" content="Watch the Pokémon Null Launch Event live — five elite Nuzlocke streamers compete through the Norman Split. Fewest deaths wins.">
+    <meta name="theme-color" content="#dc3545">
+    <link rel="canonical" href="http://pokemonnull.com/launch-race.html">
+    <meta property="og:title" content="Launch Event — Pokémon Null">
+    <meta property="og:description" content="Five elite Nuzlocke streamers compete through the Norman Split. Fewest deaths wins. Live on March 2nd, 2026.">
+    <meta property="og:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+    <meta property="og:url" content="http://pokemonnull.com/launch-race.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pokémon Null">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Launch Event — Pokémon Null">
+    <meta name="twitter:description" content="Five elite Nuzlocke streamers compete through the Norman Split. Fewest deaths wins. Live on March 2nd, 2026.">
+    <meta name="twitter:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
+
+    <!-- Google Fonts: Bebas Neue for headers, Manrope for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- Global site styles, shared nav/footer styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Shared nav tooltip + unavailable-link styles (reused from index page) -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Launch event page-specific styles -->
+    <link rel="stylesheet" href="css/launch-race.css">
+</head>
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <!-- Sticky header — identical markup to every other page so the nav works correctly -->
+    <header class="header">
+        <div class="header-brand">
+            <!-- Clicking the logo always returns to the home page -->
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">Pokémon Null</h1>
+            </a>
+            <!-- Tagline beneath the logo -->
+            <span class="tagline">Null Protocol Activated</span>
+        </div>
+
+        <nav class="nav">
+            <!-- Hamburger button — shown only on mobile, toggled by main.js -->
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <!-- Home link — not marked active because we're on the Launch Event page -->
+                <li><a href="index.html" class="nav-link">Home</a></li>
+
+                <!-- Launch Event link — marked active because this IS the launch event page -->
+                <!-- nav-item-launch-event gives position:relative so the countdown tooltip anchors here -->
+                <li class="nav-item-launch-event">
+                    <a href="launch-race.html" class="nav-link nav-link-event active">
+                        Launch Event
+                        <!-- Countdown tooltip — populated by main.js -->
+                        <span class="nav-event-tooltip" id="launch-event-tooltip">
+                            Loading countdown...
+                        </span>
+                    </a>
+                </li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                <!-- News is commented out site-wide until ready -->
+                <!-- <li><a href="news.html" class="nav-link">News</a></li> -->
+                <li><a href="patch-applier.html" class="nav-link">Patch</a></li>
+
+                <!-- Pokédex — locked until after the Launch Event -->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Pokédex</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Tracker is not yet available, strikethrough for now-->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Tracker</s>
+                        <!-- Tooltip shown on hover explaining why this is unavailable -->
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Trainer Docs — locked until after the Launch Event -->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Trainer Docs</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+
+                <!-- Damage Calc — locked until after the Launch Event -->
+                <li class="nav-item-unavailable">
+                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
+                        <s>Damage Calc</s>
+                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ===================== END HEADER ===================== -->
+
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main class="main">
+
+        <!-- ---- HERO BANNER ---- -->
+        <!-- Introduces the event with a title, date/time, and a short description -->
+        <section class="event-hero">
+            <div class="event-hero-bg"></div> <!-- Decorative radial gradient overlay -->
+            <div class="container event-hero-content">
+                <!-- Gold "LIVE EVENT" badge above the title -->
+                <span class="event-badge">🏆 Live Event</span>
+
+                <!-- Main page title -->
+                <h2 class="event-hero-title">Null Launch Day Event</h2>
+
+                <!-- Short description of what the event is -->
+                <p class="event-hero-subtitle">
+                    Five of the best Nuzlocke streamers go head-to-head through Pokémon Null's
+                    <strong>Norman Split</strong> — the most interesting section of the game.
+                    Fewest deaths wins. Come watch the best players make the best lines, without regard to time.
+                </p>
+
+                <!-- Date, time, and platform info displayed as a row of "chips" -->
+                <div class="event-meta">
+                    <!-- Calendar icon + date -->
+                    <div class="event-meta-item">
+                        <span class="event-meta-icon">📅</span>
+                        <span>March 2nd, 2026</span>
+                    </div>
+                    <!-- Clock icon + time -->
+                    <div class="event-meta-item">
+                        <span class="event-meta-icon">🕑</span>
+                        <span>2:00 PM EST</span>
+                    </div>
+                    <!-- Twitch icon + platform -->
+                    <div class="event-meta-item">
+                        <span class="event-meta-icon">📺</span>
+                        <!-- Opens pChal's Twitch in a new tab -->
+                        <a href="https://twitch.tv/pchal" target="_blank" rel="noopener" class="event-meta-link">
+                            twitch.tv/pchal
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live countdown timer — updated every second by launch-race.js -->
+                <div class="event-countdown" id="event-countdown">
+                    <!-- Each unit (days/hours/minutes/seconds) gets its own block -->
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="cd-days">--</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="cd-hours">--</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="cd-minutes">--</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="cd-seconds">--</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ---- END HERO BANNER ---- -->
+
+
+        <!-- ---- TWITCH EMBED ---- -->
+        <!-- Embeds pChal's live Twitch stream so viewers can watch without leaving the page -->
+        <section class="stream-section">
+            <div class="container">
+                <h3 class="section-title">Watch Live</h3>
+
+                <!-- Responsive wrapper — padding-bottom trick keeps 16:9 ratio at any width -->
+                <div class="stream-wrapper">
+                    <!--
+                        Twitch embed iframe.
+                        - "channel=pchal"  → which channel to show
+                        - "parent=" must match the domain this page is served from.
+                          Replace "yourdomain.com" with your actual domain before deploying.
+                        - allowfullscreen → lets viewers go fullscreen
+                    -->
+                    <iframe
+                        src="https://player.twitch.tv/?channel=pchal&parent=localhost&parent=pokemonnull.com"
+                        allowfullscreen
+                        title="pChal's Twitch Stream — Pokémon Null Launch Event">
+                    </iframe>
+                </div>
+
+                <!-- Small note reminding visitors they can also watch directly on Twitch -->
+                <p class="stream-note">
+                    Stream not loading?
+                    <a href="https://twitch.tv/pchal" target="_blank" rel="noopener">
+                        Watch directly on Twitch →
+                    </a>
+                </p>
+            </div>
+        </section>
+        <!-- ---- END TWITCH EMBED ---- -->
+
+
+        <!-- ---- FORMAT EXPLAINER ---- -->
+        <!-- Explains the rules of the event in a simple 3-card layout -->
+        <section class="format-section">
+            <div class="container">
+                <h3 class="section-title">Event Format</h3>
+
+                <div class="format-grid">
+                    <!-- Card 1: What the split is -->
+                    <div class="format-card">
+                        <div class="format-icon">🗺️</div>
+                        <h4>Norman Split</h4>
+                        <p>
+                            Each runner starts with a pre-set Box and resources, then fights through
+                            the Norman Split: a specially-curated section of Pokémon Null ending with
+                            <strong>Gym Leader Norman</strong> as the final boss.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: How the winner is decided -->
+                    <div class="format-card">
+                        <div class="format-icon">💀</div>
+                        <h4>Fewest Deaths Wins</h4>
+                        <p>
+                            The winner is whoever defeats Norman with the <strong>fewest Pokémon deaths</strong>.
+                            This is a strategy event, not a speedrun. We're here for the lines, not the clock.
+                            Time is only used as a tiebreaker.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: What they're given -->
+                    <div class="format-card">
+                        <div class="format-icon">📦</div>
+                        <h4>Equal Resources</h4>
+                        <p>
+                            All five runners receive the same Box of Pokémon, the same items,
+                            and the same preparation time. They'll get to choose their own Starter, but
+                            the only variables are skill and decision-making.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ---- END FORMAT EXPLAINER ---- -->
+
+
+        <!-- ---- RUNNERS SECTION ---- -->
+        <!-- One card per runner with avatar, bio, and links -->
+        <section class="runners-section">
+            <div class="container">
+                <h3 class="section-title">The Runners</h3>
+                <p class="runners-intro">
+                    Five elite Nuzlocke streamers. One brutal split. Who will come out on top?
+                </p>
+
+                <div class="runners-grid">
+
+                    <!-- ---- RUNNER CARD: Moxi ---- -->
+                    <article class="runner-card">
+                        <!-- Avatar image — replace src with actual avatar when available -->
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/moxilogo.png"
+                                alt="Moxi's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Moxi'"
+                            />
+                            <!-- Coloured ring around avatar — colour set per-card in CSS -->
+                            <div class="runner-avatar-ring runner-ring-moxi"></div>
+                        </div>
+
+                        <!-- Runner name -->
+                        <h4 class="runner-name">Moxi</h4>
+
+                        <!-- Short bio paragraph -->
+                        <p class="runner-bio">
+                            A seasoned Nuzlocke veteran and voice actor known for clean, methodical play and
+                            deep game knowledge. Moxi's calm under pressure makes him a
+                            svelt choice to win.
+                        </p>
+
+                        <!-- Links to the runner's channels -->
+                        <div class="runner-links">
+                            <a href="https://twitch.tv/moxi" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                Twitch
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END RUNNER CARD: Moxi ---- -->
+
+
+                    <!-- ---- RUNNER CARD: FlygonHG ---- -->
+                    <article class="runner-card">
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/flygonlogo.png"
+                                alt="FlygonHG's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=FlygonHG'"
+                            />
+                            <div class="runner-avatar-ring runner-ring-flygonhg"></div>
+                        </div>
+
+                        <h4 class="runner-name">FlygonHG</h4>
+
+                        <p class="runner-bio">
+                            Ultra-popular challenge Nuzlocke Youtuber FlygonHG brings
+                            encyclopaedic knowledge of Pokémon mechanics and a reputation for
+                            calculated routing that always pays off. Plus he's from Boston!
+                        </p>
+
+                        <div class="runner-links">
+                            <a href="https://twitch.tv/flygonhg" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                Twitch
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END RUNNER CARD: FlygonHG ---- -->
+
+
+                    <!-- ---- RUNNER CARD: KyaColosseum ---- -->
+                    <article class="runner-card">
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/kyalogo.png"
+                                alt="KyaColosseum's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Kya'"
+                            />
+                            <div class="runner-avatar-ring runner-ring-kya"></div>
+                        </div>
+
+                        <h4 class="runner-name">KyaColosseum</h4>
+
+                        <p class="runner-bio">
+                            A queen of yapping while playing, Kya thrives in high-stakes
+                            environments. Her experience with difficult ROM hacks
+                            and previous event victories give her an edge in this competition!
+                        </p>
+
+                        <div class="runner-links">
+                            <a href="https://twitch.tv/kyacolosseum" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                Twitch
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END RUNNER CARD: KyaColosseum ---- -->
+
+
+                    <!-- ---- RUNNER CARD: Drayano ---- -->
+                    <article class="runner-card">
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/drayanologo.png"
+                                alt="Drayano's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Drayano'"
+                            />
+                            <div class="runner-avatar-ring runner-ring-drayano"></div>
+                        </div>
+
+                        <h4 class="runner-name">Drayano</h4>
+
+                        <p class="runner-bio">
+                            A legendary name in the ROM hack community, Drayano has designed
+                            some of the most well-loved hacks ever made. Competing in Pokémon Null
+                            as a player is a rare treat, and expectations are sky-high.
+                        </p>
+
+                        <div class="runner-links">
+                            <a href="https://twitch.tv/drayano" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                Twitch
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END RUNNER CARD: Drayano ---- -->
+
+
+                    <!-- ---- RUNNER CARD: Buhrito ---- -->
+                    <article class="runner-card">
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/buhritologo.png"
+                                alt="Buhrito's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Buhrito'"
+                            />
+                            <div class="runner-avatar-ring runner-ring-buhrito"></div>
+                        </div>
+
+                        <h4 class="runner-name">Buhrito</h4>
+
+                        <p class="runner-bio">
+                            Known for entertaining commentary and sharp play,
+                            Buhrito is the wildcard of the group. He's guaranteed
+                            to make the most entertaining plays, and they might even pay off!
+                        </p>
+
+                        <div class="runner-links">
+                            <a href="https://twitch.tv/buhrito" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                Twitch
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END RUNNER CARD: Buhrito ---- -->
+
+                </div>
+                <!-- ---- END RUNNERS GRID ---- -->
+            </div>
+        </section>
+        <!-- ---- END RUNNERS SECTION ---- -->
+
+
+        <!-- ---- COMMENTATORS SECTION ---- -->
+        <!-- Hosts/commentators get a slightly different, wider card layout -->
+        <section class="commentators-section">
+            <div class="container">
+                <h3 class="section-title">Hosts & Commentators</h3>
+                <p class="runners-intro">
+                    The event is brought to you by the creator of the game and the biggest name
+                    in Nuzlocke streaming.
+                </p>
+
+                <div class="commentators-grid">
+
+                    <!-- ---- COMMENTATOR CARD: Terra ---- -->
+                    <article class="commentator-card">
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/terrralogo.png"
+                                alt="Terra's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/dc3545?text=Terra'"
+                            />
+                            <!-- Red ring for Terra — the game's creator -->
+                            <div class="runner-avatar-ring runner-ring-terra"></div>
+                        </div>
+
+                        <h4 class="runner-name">Terra</h4>
+
+                        <!-- Gold "Creator" badge -->
+                        <span class="commentator-badge">🎮 Game Creator</span>
+
+                        <p class="runner-bio">
+                            Terra is the sole creator of Pokémon Null. Every trainer team,
+                            every encounter table, every mechanic was hand-crafted by him. Nobody knows the game better,
+                            and Terra will be on commentary to explain exactly why each decision
+                            the runners make is right or catastrophically wrong.
+                        </p>
+
+                        <div class="runner-links">
+                            <!-- Add Terra's actual links here when known -->
+                            <a href="https://www.twitch.tv/terrra" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                twitch.tv/terrra
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END COMMENTATOR CARD: Terra ---- -->
+
+
+                    <!-- ---- COMMENTATOR CARD: pChal ---- -->
+                    <article class="commentator-card">
+                        <div class="runner-avatar-wrap">
+                            <img
+                                src="assets/images/logos/pchallogo.png"
+                                alt="pChal's avatar"
+                                class="runner-avatar"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/9146ff?text=pChal'"
+                            />
+                            <!-- Purple ring for pChal — Twitch brand colour -->
+                            <div class="runner-avatar-ring runner-ring-pchal"></div>
+                        </div>
+
+                        <h4 class="runner-name">pChal</h4>
+
+                        <!-- Purple "Host" badge -->
+                        <span class="commentator-badge commentator-badge-host">📡 Host & Commentator</span>
+
+                        <p class="runner-bio">
+                            pChal is the biggest Nuzlocke streamer on Twitch, renowned for
+                            in-depth analysis, hype commentary, and bashing his community that lives and
+                            breathes Pokémon Nuzlocke runs. The event airs on pChal's channel, so be sure to
+                            tune in for the full experience!
+                        </p>
+
+                        <div class="runner-links">
+                            <a href="https://twitch.tv/pchal" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                                twitch.tv/pchal
+                            </a>
+                        </div>
+                    </article>
+                    <!-- ---- END COMMENTATOR CARD: pChal ---- -->
+
+                </div>
+                <!-- ---- END COMMENTATORS GRID ---- -->
+            </div>
+        </section>
+        <!-- ---- END COMMENTATORS SECTION ---- -->
+
+    </main>
+    <!-- ===================== END MAIN CONTENT ===================== -->
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <!-- Shared footer across all pages -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Project description column -->
+                <div class="footer-section">
+                    <h4>Pokémon Null</h4>
+                    <p>A Nuzlocke-focused Pokémon ROM hack that redefines difficulty with a re-imagined story in Hoenn. Carefully crafted by Terra.</p>
+                </div>
+                <!-- Quick links column -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="patch-applier.html">Download</a></li>
+                        <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
+                        <li><a href="about.html">Game Info</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Community links column -->
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://discord.gg/DqxxC5KQ6r">Discord</a></li>
+                        <li><a href="https://www.reddit.com/r/PokemonNull/">Reddit</a></li>
+                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright notice -->
+            <div class="footer-bottom">
+                <p>2025 Pokémon Null Team and Terra. Pokémon is © Nintendo/Game Freak/The Pokémon Company. This is a non-commercial fan project. Website maintained by Brian Cordry.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ===================== END FOOTER ===================== -->
+
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <!-- main.js handles: hamburger nav toggle, countdown tooltip in the header -->
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- news-data.js is required by main.js for the nav countdown logic -->
+    <script src="js/news-data.js"></script>
+
+    <!-- launch-race.js handles: the big on-page countdown timer -->
+    <script src="js/launch-race.js"></script>
+    <!-- ===================== END SCRIPTS ===================== -->
+
+</body>
+</html>

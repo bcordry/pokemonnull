@@ -1,0 +1,85 @@
+/* 404.css - Styles for the custom 404 page */
+
+/* Set the background image to cover the whole viewport */
+body {
+    min-height: 100vh; /* Ensure body fills the viewport */
+    background: url('/assets/images/backgroungs/background1.png') center center no-repeat;
+    background-size: cover; /* Make sure the image covers the whole background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Manrope', sans-serif;
+    color: var(--white, #fff); /* Use site variable if available */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Semi-transparent overlay for better text readability */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 30, 30, 0.7); /* Dark overlay */
+    z-index: 0;
+}
+
+/* Center the notfound content and stack vertically */
+.notfound-container {
+    position: relative;
+    z-index: 1; /* Place above overlay */
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    background: rgba(42, 42, 42, 0.25); /* Slightly transparent card */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+/* Large, bold 404 number */
+.notfound-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5rem;
+    color: var(--accent-red, #dc3545);
+    margin-bottom: 0.4rem;
+    letter-spacing: 4px;
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.5);
+}
+
+/* Subtitle styling */
+.notfound-subtitle {
+    font-size: 1.2rem;
+    color: var(--silver, #c0c0c0);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Home button styling (inherits .btn and .btn-primary from main styles) */
+.notfound-home {
+    font-size: 1.1rem;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(220,53,69,0.15);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.notfound-home:hover {
+    background: var(--silver, #c0c0c0);
+    color: var(--black, #1a1a1a);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    .notfound-title {
+        font-size: 4rem;
+    }
+    .notfound-container {
+        padding: 24px 8px;
+    }
+    .notfound-subtitle {
+        font-size: 1rem;
+    }
+}
