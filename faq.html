@@ -167,18 +167,27 @@
                             <p>This project is designed first and foremost around a balanced, Nuzlocke-oriented experience with naturally scaling difficulty. At very low levels, Pokémon battles suffer from extreme damage variance due to how the damage formula works. Small level differences create disproportionately large power swings.</p>
                             <p>If the player is even slightly overleveled, they gain an overwhelming advantage. Conversely, once the AI catches up, that advantage often flips sharply in the AI's favor to an extent that is rarely perceived as fun. This results in an unhealthy difficulty curve where early trainers are trivial, followed by sudden and severe difficulty spikes. Damage calculations at low levels illustrate this clearly: a difference of just one or two levels can mean the difference between a guaranteed 2HKO and a guaranteed OHKO.</p>
                             <p>At higher levels, damage scales far more smoothly. Level differences still matter, but they do not radically alter outcomes, creating a more stable and predictable battle environment. This is the level range I consider balanced and appropriate for a challenging but fair Nuzlocke experience.</p>
-                            <div class="damage-calc-example">
-                                <strong>Low-Level Variance:</strong><br>
-                                Lvl 4 vs Lvl 5: 12–16 (50–66.6%) — guaranteed 2HKO<br>
-                                Lvl 5 vs Lvl 5: 20–24 (83.3–100%) — 6.3% chance to OHKO<br>
-                                Lvl 6 vs Lvl 5: 24–30 (100–125%) — guaranteed OHKO<br><br>
-                                <strong>High-Level Stability:</strong><br>
-                                Lvl 79 vs Lvl 80: 168–198 (70.5–83.1%) — guaranteed 2HKO<br>
-                                Lvl 80 vs Lvl 80: 176–208 (73.9–87.3%) — guaranteed 2HKO<br>
-                                Lvl 81 vs Lvl 80: 178–210 (74.7–88.2%) — guaranteed 2HKO
-                            </div>
-                            <p>Thematically, the higher level cap also reinforces the idea of a training arc before challenging the first Gym. Gym Leaders are officially employed by the Pokémon League and are among the strongest trainers in the region; a weak first Gym centered around a low-level Geodude would not make narrative sense in this setting.</p>
-                        </div>
+                        <!-- Nested collapsible for the damage calculation example, lives INSIDE the answer -->
+                        <div class="calc-collapsible">
+                        <button class="calc-toggle">
+                    Full Damage Calculation Example
+                    <span class="calc-arrow">▼</span>
+                    </button>
+                    <div class="calc-body">
+                    <div class="damage-calc-example">
+                    <strong>Low-Level Variance:</strong><br>
+                    Lvl 4 31+ Atk Muscle Band Sheer Force <strong>Druddigon</strong> <em>Ice Punch</em> vs. Lvl 5 31 HP / 31 Def <strong>Druddigon</strong>: 12–16 (50–66.6%) — <strong>guaranteed 2HKO</strong><br>
+                    Lvl 5 31+ Atk Muscle Band Sheer Force <strong>Druddigon</strong> <em>Ice Punch</em> vs. Lvl 5 31 HP / 31 Def <strong>Druddigon</strong>: 20–24 (83.3–100%) — <strong>6.3% chance to OHKO</strong><br>
+                    Lvl 6 31+ Atk Muscle Band Sheer Force <strong>Druddigon</strong> <em>Ice Punch</em> vs. Lvl 5 31 HP / 31 Def <strong>Druddigon</strong>: 24–30 (100–125%) — <strong>guaranteed OHKO</strong><br><br>
+                    <strong>High-Level Stability:</strong><br>
+                    Lvl 79 31+ Atk Muscle Band Sheer Force <strong>Druddigon</strong> <em>Ice Punch</em> vs. Lvl 80 31 HP / 31 Def <strong>Druddigon</strong>: 168–198 (70.5–83.1%) — <strong>guaranteed 2HKO</strong><br>
+                    Lvl 80 31+ Atk Muscle Band Sheer Force <strong>Druddigon</strong> <em>Ice Punch</em> vs. Lvl 80 31 HP / 31 Def <strong>Druddigon</strong>: 176–208 (73.9–87.3%) — <strong>guaranteed 2HKO</strong><br>
+                    Lvl 81 31+ Atk Muscle Band Sheer Force <strong>Druddigon</strong> <em>Ice Punch</em> vs. Lvl 80 31 HP / 31 Def <strong>Druddigon</strong>: 178–210 (74.7–88.2%) — <strong>guaranteed 2HKO</strong>
+                    </div>
+                    </div>
+                    </div>
+                    <p>Thematically, the higher level cap also reinforces the idea of a training arc before challenging the first Gym. Gym Leaders are officially employed by the Pokémon League and are among the strongest trainers in the region; a weak first Gym centered around a low-level Geodude would not make narrative sense in this setting.</p>
+                    </div>
                     </div>
 
                     <!-- Status immunity bypass -->
@@ -320,9 +329,9 @@
                 <div class="footer-section">
                     <h4>Community</h4>
                     <ul class="footer-links">
-                        <li><a href="https://discord.gg/DqxxC5KQ6r">Discord</a></li>
-                        <li><a href="https://www.reddit.com/r/PokemonNull/">Reddit</a></li>
-                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T">YouTube</a></li>
+                        <li><a href="https://discord.gg/DqxxC5KQ6r" target="_blank" class="nav-link">Discord</a></li>
+                        <li><a href="https://www.reddit.com/r/PokemonNull/" target="_blank" class="nav-link">Reddit</a></li>
+                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T" target="_blank" class="nav-link">YouTube</a></li>
                     </ul>
                 </div>
             </div>

@@ -277,6 +277,26 @@ a:focus-visible {
     padding-top: 0; /* No top padding (hero handles its own spacing) */
 }
 
+/* ====
+   EXTERNAL LINK ICON
+   Automatically shows a small ↗ arrow after any link that opens in a new tab.
+   The ::after pseudo-element inserts content after the link text without
+   touching the HTML. We only target links inside .main so nav/footer/buttons
+   are not affected.
+   ==== */
+.main a[target="_blank"]::after {
+    content: ' ↗';               /* The arrow character to append */
+    font-size: 0.75em;           /* Slightly smaller than the surrounding text */
+    vertical-align: super;       /* Superscript position so it floats above the baseline */
+    opacity: 0.6;                /* Dimmed so it's visible but not distracting */
+    transition: opacity 0.2s ease; /* Smooth fade on hover */
+}
+
+/* Make the arrow fully visible when the link is hovered */
+.main a[target="_blank"]:hover::after {
+    opacity: 1;
+}
+
 /* Section title styling */
 .section-title {
     font-family: var(--font-heading); /* Use heading font */

@@ -339,3 +339,20 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = fadeCSS;
 document.head.appendChild(styleSheet);
 
+
+/* ====
+   EXTERNAL LINK SAFETY
+   Finds every link on the page that opens in a new tab and adds
+   rel="noopener noreferrer" if it's missing.
+   - noopener: prevents the new tab from accessing window.opener (security)
+   - noreferrer: stops your site URL being sent as a referrer (privacy)
+   We do this in JS as a safety net in case any links were added without it.
+   ==== */
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
+        const rel = link.getAttribute('rel') || '';          // get existing rel value (or empty string)
+        if (!rel.includes('noopener')) {                     // only add if not already present
+            link.setAttribute('rel', 'noopener noreferrer'); // set the safe rel attribute
+        }
+    });
+});
