@@ -230,7 +230,7 @@ const pokemonIdMap = {
     "mudkip":258,"mudbray":749,"muk-alolan":89,"munchlax":446,"murkrow":198,
     "nacli":966,"naclstack":967,"naganadel":804,"natu":177,"nidoran-f":29,
     "nidoran-m":32,"nincada":290,"ninjask":291,"noibat":714,"noivern":715,
-    "nosepass":299,"numel":322,"nuzleaf":274,"nymble":951,"obstagoon":862,
+    "nosepass":299,"numel":322,"nuzleaf":274,"nymble":919,"obstagoon":862,
     "octillery":224,"oddish":43,"omanyte":138,"omastar":139,"onix":95,
     "orbeetle":826,"orthworm":968,"oshawott":501,"overqwil":904,"palafin":964,
     "palpitoad":536,"palossand":770,"pawmi":921,"pawmo":922,"pawmot":923,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
