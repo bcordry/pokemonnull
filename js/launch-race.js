@@ -177,11 +177,11 @@ if (cdDays && cdHours && cdMinutes && cdSeconds && cdWrapper) {
  * deaths:   how many Pokémon this runner has lost so far
  */
 const raceData = {
-    kindle:       { progress: 3, deaths: 0 },
+    kindle:       { progress: 4, deaths: 0 },
     flygonhg:     { progress: 3, deaths: 0 },
-    kyacolosseum: { progress: 3, deaths: 0 },
-    drayano:      { progress: 1, deaths: 0 },
-    buhrito:      { progress: 5, deaths: 0 }
+    kyacolosseum: { progress: 4, deaths: 0 },
+    drayano:      { progress: 3, deaths: 0 },
+    buhrito:      { progress: 6, deaths: 0 }
 };
 
 /**
@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRaceTracker();   // Set all token positions and death counts from raceData
 
 });
+
 
 
 
