@@ -273,7 +273,7 @@ const pokemonIdMap = {
     "toedscruel":1002,"togedemaru":777,"togepi":175,"togekiss":468,"togetic":176,
     "torchic":255,"torkoal":324,"tornadus":641,"torracat":726,"torterra":389,
     "totodile":158,"toxapex":748,"toxel":848,"trapinch":328,"treecko":252,
-    "turtwig":387,"turtonator":776,"tympole":535,"typhlosion":157,
+    "turtwig":387,"turtonator":776,"tympole":535,"tynamo":602,"typhlosion":157,
     "typhlosion-hisuian":157,"tyrogue":236,"tyrunt":696,"unown":201,"unown-e":201,
     "unown-emark":201,"unown-i":201,"unown-l":201,"unown-p":201,"unown-s":201,
     "unown-w":201,"ursaluna":901,"ursaluna-bloodmoon":901,"ursaring":217,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
