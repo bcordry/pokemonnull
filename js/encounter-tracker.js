@@ -211,7 +211,7 @@ const pokemonIdMap = {
     "kecleon":352,"kilowattrel":941,"kingambit":1001,"kingdra":230,"kingler":99,
     "klawf":950,"kleavor":900,"klefki":707,"koffing":109,"krokorok":552,
     "krookodile":553,"lairon":305,"lampent":608,"landorus":645,"lanturn":171,
-    "lapras":131,"latias":380,"latios":381,"leavanny":542,"liepard":510,
+    "lapras":131,"larvitar":246,"latias":380,"latios":381,"leavanny":542,"liepard":510,
     "lileep":345,"lillipup":506,"linoone-galarian":264,"litleo":667,"litten":725,
     "lokix":952,"lombre":271,"lopunny":428,"lotad":270,"lucario":448,
     "ludicolo":272,"lumineon":457,"lunatone":337,"luvdisc":370,"luxio":404,
@@ -1052,5 +1052,6 @@ function restoreUIState() {
     });
 
 }
+
 
 
