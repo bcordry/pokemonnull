@@ -252,7 +252,7 @@ const pokemonIdMap = {
     "scraggy":559,"scream-tail":986,"sceptile":254,"scyther":123,"seadra":117,
     "seismitoad":537,"seel":86,"serperior":497,"sewaddle":540,"sharpedo":319,
     "shaymin":492,"shellder":90,"shellos":422,"shelmet":616,"shieldon":410,
-    "shiinotic":756,"shiftry":275,"shroodle":944,"shroomish":285,"shuckle":213,
+    "shiinotic":756,"shiftry":275,"shinx":403,"shroodle":944,"shroomish":285,"shuckle":213,
     "shuppet":353,"sigilyph":561,"sinistcha":1013,"sinistea":854,"sizzlipede":850,
     "skeledirge":911,"skarmory":227,"skitty":300,"skrelp":690,"skorupi":451,
     "sliggoo-hisuian":705,"slowbro":80,"slowbro-galarian":80,"slowking":199,
@@ -1052,4 +1052,5 @@ function restoreUIState() {
     });
 
 }
+
 
