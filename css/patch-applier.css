@@ -10,27 +10,59 @@
     background: linear-gradient(135deg, var(--primary-gray) 0%, var(--secondary-gray) 100%);
 }
 
-.patch-btn {
-    font-size: 1.5rem;
-    padding: 24px 48px;
-    margin-bottom: 18px;
-    background: var(--accent-red);
-    color: var(--white);
-    border: none;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 24px rgba(220,53,69,0.15);
-    transition: background 0.2s, transform 0.2s;
-    text-transform: uppercase;
-    font-family: var(--font-heading);
-    letter-spacing: 2px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+/* Flex row that holds both hero buttons side by side */
+/* gap adds space between them without needing margins */
+.patch-hero-buttons {
+    display: flex;               /* Lays children (the two buttons) out in a row */
+    flex-direction: row;         /* Explicitly horizontal layout */
+    gap: 20px;                   /* Space between the Download and Apply buttons */
+    justify-content: center;     /* Centers the button pair horizontally */
+    align-items: center;         /* Vertically aligns them if they differ in height */
+    flex-wrap: wrap;             /* On small screens, lets buttons stack vertically */
+    margin-bottom: 18px;         /* Space below the button row before the note text */
 }
 
-.patch-btn:hover {
-    background: #c82333;
-    transform: translateY(-2px) scale(1.04);
+/* Shared base styles for both hero buttons */
+.patch-btn {
+    font-size: 1.4rem;           /* Large readable text for the main CTA buttons */
+    padding: 20px 40px;          /* Generous padding so buttons feel substantial */
+    background: var(--accent-red); /* Default red — overridden per-button below */
+    color: var(--white);         /* White text on both buttons */
+    border: none;                /* No border outline */
+    border-radius: var(--border-radius); /* Rounded corners matching site style */
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18); /* Subtle drop shadow for depth */
+    transition: background 0.2s, transform 0.2s; /* Smooth hover animation */
+    text-transform: uppercase;   /* All-caps text for a bold, game-like feel */
+    font-family: var(--font-heading); /* Uses the site's heading font (Bebas Neue) */
+    letter-spacing: 2px;         /* Slight spacing between letters for readability */
+    cursor: pointer;             /* Shows a hand cursor to signal clickability */
+    text-align: center;          /* Centers text inside the button */
+    text-decoration: none;       /* Removes underline since these are <a> tags */
+    display: inline-block;       /* Needed so padding/sizing works correctly on <a> */
+}
+
+/* Download button: green to signal "get the file" */
+.patch-btn-download {
+    background: linear-gradient(135deg, #2e7d32, #4caf50); /* Dark-to-light green gradient */
+    box-shadow: 0 4px 24px rgba(76,175,80,0.25);            /* Green-tinted shadow */
+}
+
+/* Download button hover: slightly lighter green + lift effect */
+.patch-btn-download:hover {
+    background: linear-gradient(135deg, #388e3c, #66bb6a); /* Lighter green on hover */
+    transform: translateY(-2px) scale(1.04);               /* Lifts and slightly enlarges */
+}
+
+/* Apply button: red to signal "action / launch" */
+.patch-btn-apply {
+    background: var(--accent-red);                          /* Site's standard red */
+    box-shadow: 0 4px 24px rgba(220,53,69,0.20);            /* Red-tinted shadow */
+}
+
+/* Apply button hover: darker red + lift effect */
+.patch-btn-apply:hover {
+    background: #c82333;                                    /* Darker red on hover */
+    transform: translateY(-2px) scale(1.04);               /* Same lift as download */
 }
 
 .patch-note {
@@ -84,12 +116,130 @@
     font-size: 0.98rem;
 }
 
+/* ===== PATCH NOTES SECTION ===== */
+
+/* Outer wrapper for the whole Patch Notes section */
+/* Matches the same max-width and centering as .patch-instructions */
+.patch-notes-section {
+    margin: 28px auto 40px auto;  /* Top gap from instructions, bottom breathing room */
+    max-width: 700px;             /* Same width as the instructions card above */
+}
+
+/* The outer collapsible block — the "Patch Notes" accordion */
+/* <details> is a native HTML element that handles open/close without JS */
+.patch-notes-outer {
+    background: var(--primary-gray);          /* Matches the instructions card background */
+    border-radius: var(--border-radius);      /* Rounded corners matching site style */
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10); /* Same subtle shadow as instructions card */
+    overflow: hidden;                         /* Clips child content to the rounded corners */
+}
+
+/* The clickable header row for the outer "Patch Notes" block */
+/* <summary> is the visible label inside a <details> element */
+.patch-notes-title {
+    font-family: var(--font-heading);   /* Bebas Neue heading font */
+    font-size: 1.6rem;                  /* Large enough to feel like a section header */
+    letter-spacing: 2px;               /* Spaced-out letters for the heading style */
+    text-transform: uppercase;         /* All-caps to match other section titles */
+    color: var(--text-primary);        /* Main white/light text color */
+    padding: 20px 28px;                /* Comfortable click target padding */
+    cursor: pointer;                   /* Hand cursor to show it's clickable */
+    list-style: none;                  /* Removes the default browser triangle marker */
+    display: flex;                     /* Flex so we can add our own arrow indicator */
+    align-items: center;               /* Vertically centers text and arrow */
+    justify-content: space-between;    /* Pushes arrow to the right side */
+    user-select: none;                 /* Prevents text from being highlighted on click */
+}
+
+/* Custom arrow indicator on the right side of the summary */
+/* ::after is a pseudo-element — it adds content without extra HTML */
+.patch-notes-title::after {
+    content: "▼";                      /* Down arrow when the section is closed */
+    font-size: 0.9rem;                 /* Slightly smaller than the heading text */
+    transition: transform 0.25s ease;  /* Smooth rotation animation when toggling */
+    color: var(--text-secondary);      /* Muted color so it doesn't compete with the title */
+}
+
+/* When the outer <details> is open, rotate the arrow to point up */
+/* [open] is a CSS attribute selector — it targets <details> when it's expanded */
+.patch-notes-outer[open] .patch-notes-title::after {
+    transform: rotate(180deg);         /* Flips the ▼ to become a ▲ */
+}
+
+/* Inner container that holds all the version entries */
+.patch-notes-list {
+    padding: 0 28px 20px 28px;        /* Indented padding so content doesn't touch the edges */
+    border-top: 1px solid rgba(255,255,255,0.07); /* Subtle divider line between title and content */
+}
+
+/* Each individual version entry (e.g. "Version 1.0") */
+/* Also a <details> element, nested inside the outer one */
+.patch-notes-version {
+    border-bottom: 1px solid rgba(255,255,255,0.06); /* Thin separator between versions */
+    padding: 4px 0;                    /* Small vertical breathing room around each version */
+}
+
+/* Remove the bottom border from the very last version entry */
+.patch-notes-version:last-child {
+    border-bottom: none;               /* Avoids a double-border at the bottom of the list */
+}
+
+/* The clickable version label (e.g. "Version 1.0") */
+.patch-notes-version-label {
+    font-family: var(--font-heading);  /* Heading font for version labels */
+    font-size: 1.1rem;                 /* Slightly smaller than the outer title */
+    letter-spacing: 1px;              /* Mild letter spacing */
+    color: var(--accent-red);          /* Red accent to make version labels stand out */
+    padding: 10px 4px;                 /* Click target padding */
+    cursor: pointer;                   /* Hand cursor */
+    list-style: none;                  /* Remove default triangle */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    /* Arrow pushed to the right */
+    user-select: none;                 /* No text highlight on click */
+}
+
+/* Arrow for each version label */
+.patch-notes-version-label::after {
+    content: "▼";                      /* Down arrow when version is collapsed */
+    font-size: 0.75rem;                /* Smaller arrow for the nested level */
+    transition: transform 0.2s ease;
+    color: var(--text-secondary);
+}
+
+/* Rotate the version arrow when that version is open */
+.patch-notes-version[open] .patch-notes-version-label::after {
+    transform: rotate(180deg);         /* Flips to ▲ when expanded */
+}
+
+/* The actual patch note text content inside each version */
+.patch-notes-content {
+    color: var(--text-secondary);      /* Muted secondary text color */
+    font-size: 1rem;                   /* Normal body text size */
+    padding: 6px 8px 12px 8px;        /* Indented padding so it reads as nested content */
+    margin: 0;                         /* Remove default paragraph margin */
+    line-height: 1.6;                  /* Comfortable line height for readability */
+}
+
+/* ===== END PATCH NOTES SECTION ===== */
+
 @media (max-width: 600px) {
     .patch-instructions {
-        padding: 18px 6px 18px 6px;
+        padding: 18px 6px 18px 6px;   /* Tighter padding on small screens */
+    }
+    /* On mobile, stack the two hero buttons vertically instead of side by side */
+    .patch-hero-buttons {
+        flex-direction: column;        /* Switches from row to column layout */
+        gap: 12px;                     /* Slightly less gap when stacked */
+        width: 100%;                   /* Full width so buttons stretch edge to edge */
+        padding: 0 16px;               /* Side padding so buttons don't touch screen edges */
     }
     .patch-btn {
-        font-size: 1.1rem;
-        padding: 16px 10px;
+        font-size: 1.1rem;             /* Slightly smaller text on mobile */
+        padding: 16px 10px;            /* Less padding on small screens */
+        width: 100%;                   /* Full-width buttons on mobile */
+    }
+    .patch-notes-section {
+        padding: 0 6px;                /* Tighter side padding on mobile */
     }
 }

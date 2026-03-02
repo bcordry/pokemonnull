@@ -26,26 +26,18 @@ let encounterData = {};
 let koData = {};
 let pokemonImageCache = {}; // Cache for loaded images
 
-// ────
-// SORT STATE
-// Tracks which sort mode is currently active.
-// 'game'  → original insertion order (default)
-// 'alpha' → A–Z by location name
-// ────
-let currentSort = 'game';
-
-// ────
+// ─────────────────────────────────────────────────────────────────────────────
 // LOCATION ENCOUNTER DATA
 // Each key is a location name (normalized: floors use "1F", "2F", "B1F", etc.)
 // Each value is an array of Pokémon name strings available at that location.
 // Order matches the encounters.json file exactly — no alphabetizing.
 // The "Starter" entry is manually added first with the three starter choices.
-// ────
+// ─────────────────────────────────────────────────────────────────────────────
 const locationEncounters = {
-    // ── Special: Starter selection ────
+    // ── Special: Starter selection ──────────────────────────────────────────
     "Starter": ["Fennekin", "Froakie", "Chespin"],
 
-    // ── Routes ────
+    // ── Routes ──────────────────────────────────────────────────────────────
     "Route 101": ["Aipom","Bidoof","Bunnelby","Helioptile","Litleo","Pidgey","Smoliv","Stantler","Wooloo","Zigzagoon-Galarian"],
     "Route 102": ["Ducklett","Finneon","Fletchling","Mantyke","Minior","Natu","Noibat","Piplup","Quaxly","Rookidee","Squirtle","Starly","Surskit","Swablu","Wattrel","Zubat"],
     "Route 103": ["Applin","Arctovish","Arctozolt","Avalugg","Avalugg-Hisuian","Budew","Capsakid","Exeggcute","Gossifleur","Lapras","Lotad","Ludicolo","Morelull","Seel","Sewaddle","Shellder","Shroomish","Smoliv","Sneasel","Spheal","Tangela"],
@@ -65,6 +57,7 @@ const locationEncounters = {
     "Granite Cave 1F": ["Aron","Bronzor","Cufant","Klefki","Mawile","Meowth-Galarian","Orthworm","Sandshrew-Alolan","Tinkatink","Varoom"],
     "Granite Cave B1F": ["Cubone","Gligar","Hippopotas","Mudbray","Numel","Onix","Phanpy","Rhyhorn","Sandile","Trapinch"],
     "Mt Pyre 1F": ["Alakazam","Armarouge","Bronzong","Gallade","Gardevoir","Hatterene","Malamar","Medicham","Metagross","Uxie"],
+    "Victory Road 1F": ["Absol","Aegislash","Blaziken","Darmanitan-Galarian","Hydreigon","Meowscarada","Mimikyu","Salamence","Scizor","Sneasler","Ursaluna"],
     "Safari Zone South": ["Azelf","Cresselia","Mesprit","Shaymin","Uxie"],
     "Underwater Route 126": ["Carracosta","Dondozo","Gorebyss","Huntail","Lanturn","Relicanth"],
     "Abandoned Ship Rooms B1F": ["Banette","Basculin","Cursola","Dhelmise","Drifloon","Frillish","Gastly","Poltchageist","Sableye","Skrelp"],
@@ -146,7 +139,6 @@ const locationEncounters = {
     "Navel Rock Up 1": ["Altaria","Avalugg","Avalugg-Hisuian","Coalossal","Corviknight","Excadrill","Gliscor","Toedscruel","Togekiss","Torkoal"],
     "Verdanturf Tunnel B1F Tiny Room": ["Geodude","Geodude-Alolan","Klawf","Nacli","Rhyhorn","Roggenrola","Rolycoly"],
     "Aqua Hideout 1F": ["Basculegion","Basculegion-Female","Corsola-Galarian","Crawdaunt","Dragalge","Muk-Alolan","Overqwil","Sharpedo","Tentacruel","Toxapex"],
-    "Victory Road 1F": ["Absol","Aegislash","Blaziken","Darmanitan-Galarian","Hydreigon","Meowscarada","Mimikyu","Salamence","Scizor","Sneasler","Ursaluna"],
     "Victory Finale": ["Aerodactyl","Altaria","Beedrill","Blastoise","Chandelure","Charizard","Crawdaunt","Excadrill","Gallade","Garchomp","Gardevoir","Gliscor","Goodra-Hisuian","Heracross","Honchkrow","Kecleon","Lanturn","Lopunny","Mamoswine","Pinsir","Poliwrath","Walrein"],
     "Southern Island Exterior": ["Buneary","Chimchar","Hawlucha","Mankey","Meditite","Pawmo","Riolu","Sneasel-Hisuian","Terrakion","Timburr","Torchic"],
     "Navel Rock Up 2": ["Avalugg","Avalugg-Hisuian","Bastiodon","Crustle","Donphan","Forretress","Golem","Golem-Alolan","Magnezone","Probopass","Steelix"],
@@ -159,18 +151,18 @@ const locationEncounters = {
     "Navel Rock Down 05": ["Armaldo","Cradily","Drapion","Escavalier","Falinks","Klawf","Meganium","Perrserker","Pupitar","Sliggoo-Hisuian","Torterra","Turtonator"]
 };
 
-// ────
+// ─────────────────────────────────────────────────────────────────────────────
 // LOCATIONS LIST
 // Derived from the keys of locationEncounters so order is always preserved.
 // Object.keys() in modern JS preserves insertion order for string keys.
-// ────
+// ─────────────────────────────────────────────────────────────────────────────
 const locations = Object.keys(locationEncounters);
 
-// ────
+// ─────────────────────────────────────────────────────────────────────────────
 // POKEMON NAME → POKEAPI ID LOOKUP
 // Used to fetch sprites. Names are lowercased for matching.
 // Pokémon not in this map will still appear in dropdowns but won't show a sprite.
-// ────
+// ─────────────────────────────────────────────────────────────────────────────
 const pokemonIdMap = {
     "absol":1359,"aegislash":681,"aerodactyl":142,"aggron":306,"aipom":190,
     "alakazam":65,"alcremie":869,"altaria":334,"amaura":698,"ambipom":424,
@@ -326,7 +318,7 @@ function getPokemonIcon(pokemonId) {
 function findPokemonByName(name) {
     if (!name) return null;
     const id = pokemonIdMap[name.toLowerCase()]; // look up by lowercase key
-    if (!id) return null;                    // not found → no sprite
+    if (!id) return null;                         // not found → no sprite
     return { name: name, id: id };               // return same shape as before
 }
 
@@ -337,7 +329,7 @@ function preloadPokemonImage(pokemonId) {
             resolve(pokemonImageCache[pokemonId]);
             return;
         }
-
+        
         const img = new Image();
         img.crossOrigin = 'anonymous'; // Handle CORS for external images
         img.onload = function() {
@@ -363,163 +355,34 @@ function initializeEncounterTracker() {
     initializeGraphToggle();
 }
 
-// ────
-// SORT CONTROLS
-// Injects the sort button bar above the encounter grid.
-// Each button sets currentSort and re-renders the grid.
-// ────
-function buildSortControls() {
-    // Find the section that wraps the encounter grid
-    const section = document.querySelector('.encounter-tracker-section .container');
-    if (!section) return;
-
-    // Create the sort bar wrapper div
-    const sortBar = document.createElement('div');
-    sortBar.className = 'sort-controls'; // styled in CSS
-
-    // Label text so users know what the buttons do
-    const sortLabel = document.createElement('span');
-    sortLabel.className = 'sort-label';
-    sortLabel.textContent = 'Sort by:';
-    sortBar.appendChild(sortLabel);
-
-    // Define the two sort options: value used internally, label shown on button
-    const sortOptions = [
-        { value: 'game',  label: 'Game Order' },
-        { value: 'alpha', label: 'Alphabetical' }
-    ];
-
-    // Build one button per sort option
-    sortOptions.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'sort-btn'; // base style
-        btn.setAttribute('data-sort', opt.value); // used to identify active button
-        btn.textContent = opt.label;
-
-        // Mark the default active button on first render
-        if (opt.value === currentSort) btn.classList.add('sort-btn-active');
-
-        btn.addEventListener('click', function() {
-            // Skip if already on this sort
-            if (currentSort === opt.value) return;
-
-            // Update the active sort mode
-            currentSort = opt.value;
-
-            // Remove active class from all buttons, add to clicked one
-            document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('sort-btn-active'));
-            btn.classList.add('sort-btn-active');
-
-            // Re-render the grid with the new sort order
-            rebuildEncounterGrid();
-        });
-
-        sortBar.appendChild(btn);
-    });
-
-    // ── Hide Completed button ──
-    // Sits in the same toolbar row as the sort buttons.
-    // Clicking it hides any encounter-row that already has a Pokémon selected,
-    // leaving only the "empty" (not yet assigned) rows visible.
-    const hideCompletedBtn = document.createElement('button');
-    hideCompletedBtn.className = 'sort-btn hide-completed-btn'; // reuse sort-btn style
-    hideCompletedBtn.id = 'hideCompletedBtn';
-    hideCompletedBtn.textContent = 'Hide Completed';
-
-    // Track whether completed rows are currently hidden
-    let completedHidden = false;
-
-    hideCompletedBtn.addEventListener('click', function() {
-        completedHidden = !completedHidden; // flip the toggle state
-
-        // Update button label to reflect current state
-        hideCompletedBtn.textContent = completedHidden ? 'Show All' : 'Hide Completed';
-
-        // Toggle active styling so the button looks "pressed" when filtering is on
-        hideCompletedBtn.classList.toggle('sort-btn-active', completedHidden);
-
-        // Loop every encounter row and show/hide based on whether it has a selection
-        document.querySelectorAll('.encounter-row').forEach(row => {
-            const select = row.querySelector('.pokemon-select');
-            // A row is "completed" if its dropdown has a non-empty value selected
-            const isCompleted = select && select.value !== '';
-            if (completedHidden && isCompleted) {
-                row.style.display = 'none'; // hide completed rows
-            } else {
-                row.style.display = '';     // restore default display
-            }
-        });
-    });
-
-    // ── Row 2: Hide Completed button on its own centered line ──
-    // We create a separate wrapper div (.sort-controls-row2) for the Hide Completed button
-    // so it sits on its own line below the Sort By buttons, both centered independently.
-    // If we appended it to sortBar, it would sit on the same flex row as the sort buttons.
-    const hideRow = document.createElement('div');
-    hideRow.className = 'sort-controls-row2'; // styled in CSS to be centered
-    hideRow.appendChild(hideCompletedBtn);     // move the button into this second row
-
-    // Insert both rows before the KO counter and grid
-    const totalKOTracker = document.getElementById('totalKOTracker');
-    if (totalKOTracker) {
-        section.insertBefore(sortBar, totalKOTracker);   // row 1: Sort By
-        section.insertBefore(hideRow, totalKOTracker);   // row 2: Hide Completed
-    } else {
-        section.prepend(hideRow);   // fallback: insert row 2 first (prepend reverses order)
-        section.prepend(sortBar);   // then row 1 goes above it
-    }
-}
-
-// ────
-// GET SORTED LOCATIONS
-// Returns the locations array in the order dictated by currentSort.
-// 'game'  → original Object.keys() order (insertion order)
-// 'alpha' → sorted A–Z by location name string
-// ────
-function getSortedLocations() {
-    if (currentSort === 'alpha') {
-        // Spread into a new array so we don't mutate the original, then sort A–Z
-        return [...locations].sort((a, b) => a.localeCompare(b));
-    }
-    // Default: game order (original insertion order)
-    return [...locations];
-}
-
-// ────
-// REBUILD ENCOUNTER GRID
-// Clears and re-renders only the grid rows (not the sort bar or KO counter).
-// Called on initial build and whenever the sort mode changes.
-// ────
-function rebuildEncounterGrid() {
+// Build the main encounter tracking interface
+function buildEncounterInterface() {
     const container = document.getElementById('encounterColumns');
     if (!container) return;
 
-    // Clear existing rows so we can re-render in new order
-    container.innerHTML = '';
+    // Split locations into two columns
+    const midpoint = Math.ceil(locations.length / 2);
+    const leftColumnLocations = locations.slice(0, midpoint);
+    const rightColumnLocations = locations.slice(midpoint);
+    const columns = [leftColumnLocations, rightColumnLocations];
 
-    // Get locations in the currently selected sort order
-    const sortedLocations = getSortedLocations();
+    columns.forEach((columnLocations, columnIndex) => {
+        const columnDiv = document.createElement('div');
+        columnDiv.className = 'encounter-column';
+        columnDiv.setAttribute('data-column', columnIndex);
 
-    // Render each location as a flat row directly into the grid container.
-    // CSS grid handles the 3-column left-to-right layout automatically.
-    sortedLocations.forEach(location => {
-        const encounterRow = createEncounterRow(location);
-        container.appendChild(encounterRow);
+        columnLocations.forEach((location) => {
+            const encounterRow = createEncounterRow(location);
+            columnDiv.appendChild(encounterRow);
+        });
+
+        container.appendChild(columnDiv);
     });
 
-    // Restore saved selections after the DOM is rebuilt
+    // Restore UI state after DOM is built
     setTimeout(() => {
         restoreUIState();
     }, 100);
-}
-
-// Build the main encounter tracking interface
-function buildEncounterInterface() {
-    // First, inject the sort controls above the grid
-    buildSortControls();
-
-    // Then render the initial grid in game order
-    rebuildEncounterGrid();
 }
 
 // Create a single encounter row with KO tracking
@@ -558,7 +421,7 @@ function createEncounterRow(locationName) {
     // We look up the PokéAPI ID using the lowercased name so sprites still work.
     availablePokemon.forEach(pokemonName => {
         const option = document.createElement('option');
-        option.value = pokemonName;                    // stored value
+        option.value = pokemonName;                          // stored value
         option.textContent = pokemonName;                    // shown in dropdown (no % shown)
         const pokeId = pokemonIdMap[pokemonName.toLowerCase()]; // look up sprite ID
         if (pokeId) option.setAttribute('data-pokemon-id', pokeId);
@@ -629,11 +492,9 @@ function createKOTracker(locationName) {
     koControls.appendChild(koCount);
     koControls.appendChild(increaseBtn);
 
-    // Build the tracker: label + buttons on one line, percent on its own line below.
-    // This prevents the percent from overflowing outside the card boundary.
-    koTracker.appendChild(koLabel);       // "KOs:" text
-    koTracker.appendChild(koControls);    // − 0 + buttons
-    koTracker.appendChild(koPercent);     // "0%" sits below on its own line
+    koControls.appendChild(koPercent);
+    koTracker.appendChild(koLabel);
+    koTracker.appendChild(koControls);
 
     return koTracker;
 }
@@ -713,59 +574,45 @@ function updateKOStatsUI() {
     });
 }
 
-// --- CHART.JS PLUGIN: draws location label + Pokémon sprite to the left of each bar ---
+// --- IMPROVED CHART.JS IMAGE AXIS LABELS PLUGIN ---
 const pokemonImagePlugin = {
     id: 'pokemonImagePlugin',
     afterDraw: function(chart) {
         const yAxis = chart.scales.y;
         const ctx = chart.ctx;
-
+        
         if (!yAxis || !chart.pokemonImages) return;
-
-        // imageSize: pixel dimensions of the square sprite
-        const imageSize = 40;
-        // gap between sprite and the y-axis line
-        const spriteGap = 8;
-        // gap between location text and the sprite
-        const textGap = 6;
-        // font for the location label
-        const fontSize = 11;
-
+        
+        // Get the chart data to determine positioning
+        const chartData = chart.data.datasets[0].data;
+        
         chart.pokemonImages.forEach((pokemonId, index) => {
-            // yPos is the vertical center of this bar
+            if (!pokemonId || !pokemonImageCache[pokemonId]) return;
+            
+            const img = pokemonImageCache[pokemonId];
+            
+            // Calculate Y position for this bar
+            const imageSize = 40; // size of pokemon sprite
+            const xPos = yAxis.left - imageSize - 12; // 12px padding from axis
             const yPos = yAxis.getPixelForValue(index);
 
-            // ── Draw the Pokémon sprite ──
-            // Place it just to the left of the y-axis
-            const spriteX = yAxis.left - imageSize - spriteGap;
-            const spriteY = yPos - imageSize / 2;
-
-            if (pokemonId && pokemonImageCache[pokemonId]) {
-                const img = pokemonImageCache[pokemonId];
-
-                // Clip to a circle so the sprite looks clean
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(spriteX + imageSize / 2, yPos, imageSize / 2, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.clip();
-                ctx.drawImage(img, spriteX, spriteY, imageSize, imageSize);
-                ctx.restore();
-            }
-
-            // ── Draw the location name text ──
-            // Retrieve the label stored in chart.data.labels for this bar index
-            const locationLabel = chart.data.labels[index] || '';
-
             ctx.save();
-            ctx.font = `bold ${fontSize}px sans-serif`; // bold small caps style
-            ctx.fillStyle = 'rgba(255,255,255,0.85)';   // light text on dark background
-            ctx.textAlign = 'right';                    // right-align so it ends just before the sprite
-            ctx.textBaseline = 'middle';                 // vertically center with the sprite
-
-            // x: leave a small gap to the left of the sprite
-            const textX = spriteX - textGap;
-            ctx.fillText(locationLabel, textX, yPos);
+            ctx.beginPath();
+            ctx.arc(xPos + imageSize/2, yPos, imageSize/2, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.clip();
+            ctx.drawImage(img, xPos, yPos - imageSize/2, imageSize, imageSize);
+            ctx.restore();
+            
+            // Draw the Pokémon image
+            ctx.drawImage(
+                img, 
+                xPos, 
+                yPos - imageSize/2, 
+                imageSize, 
+                imageSize
+            );
+            
             ctx.restore();
         });
     }
@@ -804,7 +651,7 @@ function initializeKOChart() {
             },
             layout: {
                 padding: {
-                    left: 140 // Make room for Pokémon images
+                    left: 60 // Make room for Pokémon images
                 }
             },
             plugins: {
@@ -838,7 +685,7 @@ function initializeKOChart() {
                 y: {
                     ticks: {
                     color: 'transparent', // Hide text labels completely
-                    callback: function() {
+                    callback: function() { 
                     return ""; // Return empty string for labels
                     }
                     },
@@ -898,7 +745,7 @@ async function updateKOChart() {
         if (i < 25) return RED;
         return BLUE;
     });
-
+    
     // Get Pokémon IDs for images
     const pokemonIds = [];
     for (const [location] of locationsWithKOs) {
@@ -920,18 +767,12 @@ async function updateKOChart() {
     // Update chart data
     koChart.data.labels = labels;
     koChart.data.datasets[0].data = data;
-    koChart.data.datasets[0].backgroundColor = barColors;
+    koChart.data.datasets[0].backgroundColor = barColors; 
     koChart.pokemonImages = pokemonIds;
 
-    // ── Fix: Chart.js can't measure a hidden element correctly.
-    // We set display:block above, but the browser hasn't painted yet.
-    // requestAnimationFrame defers the resize+update until AFTER the browser
-    // has actually rendered the section as visible, so Chart.js gets real dimensions.
-    requestAnimationFrame(() => {
-        koChart.resize();  // first resize: recalculate canvas dimensions now that it's visible
-        koChart.update();  // redraw with new data
-        koChart.resize();  // second resize: catches any leftover dimension mismatch after draw
-    });
+    // Resize and update
+    koChart.resize();
+    koChart.update();
 }
 
 // --- Data Persistence and Export (unchanged from previous version) ---

@@ -184,8 +184,201 @@
                     </div>
                 </div>
             </div>
+
+<!--UNCOMMENT THIS WHEN RACE LIVE-->
+                    <!-- <div class="tracker-live-banner"> !-->
+            <!-- Pulsing red dot to signal live status -->
+            <!-- <span class="live-dot"></span> -->
+            <!-- The main "live" label -->
+            <!-- <span class="live-label">The Race Is Live</span> -->
+            <!-- </div> --> 
+
+                <!-- Section heading -->
+        <br>
+                <h3 class="section-title">Race Progress</h3>
+        <p class="tracker-subtitle">
+            Tracking progress through the 13 fights of the Norman Split.
+            <strong>Fewest deaths wins.</strong>
+        </p>
+        
+        <!-- The 5 racing lanes -->
+        <div class="race-lanes">
+
+            <!-- === LANE: KINDLE === -->
+            <!-- data-runner-id is used by JS to find and update this row -->
+            <div class="race-lane" data-runner-id="kindle">
+
+                <!-- Left: Runner name + logo with their unique ring colour -->
+                <div class="lane-label">
+                    <!-- runner-ring-kindle applies the light-blue border, matching the runner card below -->
+                    <div class="lane-logo-wrap runner-ring-kindle">
+                        <img src="assets/images/logos/kindlelogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    </div>
+                    <span class="lane-name">Kindle</span>
+                </div>
+
+                <!-- Middle: The track rail with ticks, finish flag, and moving token -->
+                <div class="lane-track">
+                    <!-- The horizontal background line -->
+                    <div class="track-rail"></div>
+
+                    <!-- 13 tick marks. JS counts these to compute token position. -->
+                    <div class="track-ticks">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+
+                    <!-- Finish flag at the far right -->
+                    <div class="track-finish" aria-hidden="true">🏁</div>
+
+                    <!-- Moving token. JS sets its `left` % to slide it along the track. -->
+                    <!-- transform: translateX(-50%) keeps the icon CENTRED on the tick, not left-justified -->
+                    <div class="runner-token" id="token-kindle">
+                        <img src="assets/images/logos/kindlelogo.png" alt="Kindle" class="token-img runner-ring-kindle">
+                        <!-- Small label under the icon showing current fight number -->
+                        <span class="token-pos" id="pos-kindle">0/13</span>
+                    </div>
+                </div>
+
+                <!-- Right: Deaths counter -->
+                <div class="lane-deaths">
+                    <span class="death-label">Deaths</span>
+                    <!-- This number is updated by JS -->
+                    <span class="death-count" id="deaths-kindle">0</span>
+                </div>
+            </div>
+            <!-- === END LANE: KINDLE === -->
+
+
+            <!-- === LANE: FLYGONHG === -->
+            <div class="race-lane" data-runner-id="flygonhg">
+                <div class="lane-label">
+                    <!-- runner-ring-flygonhg applies the green border -->
+                    <div class="lane-logo-wrap runner-ring-flygonhg">
+                        <img src="assets/images/logos/flygonlogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    </div>
+                    <span class="lane-name">FlygonHG</span>
+                </div>
+                <div class="lane-track">
+                    <div class="track-rail"></div>
+                    <div class="track-ticks">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="track-finish" aria-hidden="true">🏁</div>
+                    <div class="runner-token" id="token-flygonhg">
+                        <img src="assets/images/logos/flygonlogo.png" alt="FlygonHG" class="token-img runner-ring-flygonhg">
+                        <span class="token-pos" id="pos-flygonhg">0/13</span>
+                    </div>
+                </div>
+                <div class="lane-deaths">
+                    <span class="death-label">Deaths</span>
+                    <span class="death-count" id="deaths-flygonhg">0</span>
+                </div>
+            </div>
+            <!-- === END LANE: FLYGONHG === -->
+
+
+            <!-- === LANE: KYACOLOSSEUM === -->
+            <div class="race-lane" data-runner-id="kyacolosseum">
+                <div class="lane-label">
+                    <!-- runner-ring-kya applies the orange border -->
+                    <div class="lane-logo-wrap runner-ring-kya">
+                        <img src="assets/images/logos/kyalogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    </div>
+                    <span class="lane-name">Kya</span>
+                </div>
+                <div class="lane-track">
+                    <div class="track-rail"></div>
+                    <div class="track-ticks">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="track-finish" aria-hidden="true">🏁</div>
+                    <div class="runner-token" id="token-kyacolosseum">
+                        <img src="assets/images/logos/kyalogo.png" alt="Kya" class="token-img runner-ring-kya">
+                        <span class="token-pos" id="pos-kyacolosseum">0/13</span>
+                    </div>
+                </div>
+                <div class="lane-deaths">
+                    <span class="death-label">Deaths</span>
+                    <span class="death-count" id="deaths-kyacolosseum">0</span>
+                </div>
+            </div>
+            <!-- === END LANE: KYACOLOSSEUM === -->
+
+
+            <!-- === LANE: DRAYANO === -->
+            <div class="race-lane" data-runner-id="drayano">
+                <div class="lane-label">
+                    <!-- runner-ring-drayano applies the purple border -->
+                    <div class="lane-logo-wrap runner-ring-drayano">
+                        <img src="assets/images/logos/drayanologo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    </div>
+                    <span class="lane-name">Drayano</span>
+                </div>
+                <div class="lane-track">
+                    <div class="track-rail"></div>
+                    <div class="track-ticks">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="track-finish" aria-hidden="true">🏁</div>
+                    <div class="runner-token" id="token-drayano">
+                        <img src="assets/images/logos/drayanologo.png" alt="Drayano" class="token-img runner-ring-drayano">
+                        <span class="token-pos" id="pos-drayano">0/13</span>
+                    </div>
+                </div>
+                <div class="lane-deaths">
+                    <span class="death-label">Deaths</span>
+                    <span class="death-count" id="deaths-drayano">0</span>
+                </div>
+            </div>
+            <!-- === END LANE: DRAYANO === -->
+
+
+            <!-- === LANE: BUHRITO === -->
+            <div class="race-lane" data-runner-id="buhrito">
+                <div class="lane-label">
+                    <!-- runner-ring-buhrito applies the yellow border -->
+                    <div class="lane-logo-wrap runner-ring-buhrito">
+                        <img src="assets/images/logos/buhritologo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    </div>
+                    <span class="lane-name">Buhrito</span>
+                </div>
+                <div class="lane-track">
+                    <div class="track-rail"></div>
+                    <div class="track-ticks">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="track-finish" aria-hidden="true">🏁</div>
+                    <div class="runner-token" id="token-buhrito">
+                        <img src="assets/images/logos/buhritologo.png" alt="Buhrito" class="token-img runner-ring-buhrito">
+                        <span class="token-pos" id="pos-buhrito">0/13</span>
+                    </div>
+                </div>
+                <div class="lane-deaths">
+                    <span class="death-label">Deaths</span>
+                    <span class="death-count" id="deaths-buhrito">0</span>
+                </div>
+            </div>
+            <!-- === END LANE: BUHRITO === -->
+
+        </div>
+        <!-- end .race-lanes -->
+
         </section>
         <!-- ---- END HERO BANNER ---- -->
+
+
+
+
 
 
         <!-- ---- TWITCH EMBED ---- -->
@@ -278,38 +471,37 @@
 
                 <div class="runners-grid">
 
-                    <!-- ---- RUNNER CARD: Moxi ---- -->
+                    <!-- ---- RUNNER CARD: Kindle ---- -->
                     <article class="runner-card">
                         <!-- Avatar image — replace src with actual avatar when available -->
                         <div class="runner-avatar-wrap">
                             <img
-                                src="assets/images/logos/moxilogo.png"
-                                alt="Moxi's avatar"
+                                src="assets/images/logos/kindlelogo.png"
+                                alt="KindleKos's avatar"
                                 class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Moxi'"
+                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Kindle'"
                             />
                             <!-- Coloured ring around avatar — colour set per-card in CSS -->
-                            <div class="runner-avatar-ring runner-ring-moxi"></div>
+                            <div class="runner-avatar-ring runner-ring-kindle"></div>
                         </div>
 
                         <!-- Runner name -->
-                        <h4 class="runner-name">Moxi</h4>
+                        <h4 class="runner-name">KindleKos</h4>
 
                         <!-- Short bio paragraph -->
                         <p class="runner-bio">
-                            A seasoned Nuzlocke veteran and voice actor known for clean, methodical play and
-                            deep game knowledge. Moxi's calm under pressure makes him a
-                            svelte choice to win.
+                            He's so powerful, we had to do it to him - we had to give him the resources late. KindleKos replaces Moxi
+                            as a late entrant, but we choose to believe this is actually an advantage for him. Put all your money on this guy!
                         </p>
 
                         <!-- Links to the runner's channels -->
                         <div class="runner-links">
-                            <a href="https://twitch.tv/moxi" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                            <a href="https://www.twitch.tv/kindlekos" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
                                 Twitch
                             </a>
                         </div>
                     </article>
-                    <!-- ---- END RUNNER CARD: Moxi ---- -->
+                    <!-- ---- END RUNNER CARD: KindleKos ---- -->
 
 
                     <!-- ---- RUNNER CARD: FlygonHG ---- -->

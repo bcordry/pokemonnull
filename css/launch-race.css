@@ -1,17 +1,17 @@
-/* ============================================================
+/* ====
    LAUNCH-RACE.CSS
    Page-specific styles for the Launch Event page (launch-race.html).
    This file only contains styles that are unique to this page.
    Global styles (header, footer, nav, buttons, etc.) live in
    styles.css and index.css.
-   ============================================================ */
+   ==== */
 
 
-/* ============================================================
+/* ====
    EVENT HERO SECTION
    The big banner at the top of the page with the title,
    description, date/time chips, and countdown timer.
-   ============================================================ */
+   ==== */
 
 /* Outer section — full-width dark gradient banner */
 .event-hero {
@@ -200,10 +200,10 @@
 }
 
 
-/* ============================================================
+/* ====
    STREAM SECTION
    The embedded Twitch player.
-   ============================================================ */
+   ==== */
 
 .stream-section {
     padding: 80px 0;             /* Generous vertical padding */
@@ -229,8 +229,8 @@
 /* The actual Twitch iframe — stretched to fill the wrapper */
 .stream-wrapper iframe {
     position: absolute;          /* Pulled out of flow to fill the padding-bottom box */
-    top: 0;                      /* Align to top of wrapper */
-    left: 0;                     /* Align to left of wrapper */
+    top: 0;                    /* Align to top of wrapper */
+    left: 0;                    /* Align to left of wrapper */
     width: 100%;                 /* Fill full width */
     height: 100%;                /* Fill full height */
     border: none;                /* Remove default iframe border */
@@ -258,10 +258,10 @@
 }
 
 
-/* ============================================================
+/* ====
    FORMAT SECTION
    Three cards explaining the event rules.
-   ============================================================ */
+   ==== */
 
 .format-section {
     padding: 80px 0;             /* Vertical padding */
@@ -327,10 +327,10 @@
 }
 
 
-/* ============================================================
+/* ====
    RUNNERS SECTION
    Five runner cards in a responsive grid.
-   ============================================================ */
+   ==== */
 
 .runners-section {
     padding: 80px 0;             /* Vertical padding */
@@ -419,7 +419,7 @@
 }
 
 /* Per-runner ring colours — each runner gets a unique accent */
-.runner-ring-moxi      { border-color: #4fc3f7; } /* Light blue */
+.runner-ring-kindle      { border-color: #4fc3f7; } /* Light blue */
 .runner-ring-flygonhg  { border-color: #81c784; } /* Green (Flygon colours) */
 .runner-ring-kya       { border-color: #ff8a65; } /* Orange */
 .runner-ring-drayano   { border-color: #ce93d8; } /* Purple */
@@ -446,7 +446,7 @@
     color: var(--text-secondary); /* Light gray */
     font-size: 0.88rem;          /* Smaller than body — lots of text in a small card */
     line-height: 1.6;            /* Comfortable reading */
-    flex: 1;                     /* Grow to fill available space so all cards are the same height */
+    flex: 1;                    /* Grow to fill available space so all cards are the same height */
     margin-bottom: 16px;         /* Space below before the links */
 }
 
@@ -500,10 +500,10 @@
 }
 
 
-/* ============================================================
+/* ====
    COMMENTATORS SECTION
    Two wider cards for Terra and pChal.
-   ============================================================ */
+   ==== */
 
 .commentators-section {
     padding: 80px 0;             /* Vertical padding */
@@ -564,11 +564,404 @@
     border-color: rgba(145, 70, 255, 0.35); /* Semi-transparent purple border */
 }
 
+/* ====
+   RACE TRACKER MODULE
+   Standalone section that replaces the countdown hero when the event goes live.
+   NOTE: The old duplicate tracker block that was here has been removed.
+         All tracker styles now live in the single block below.
+   ==== */
 
-/* ============================================================
+/* Outer section — dark background with overflow:hidden to clip the ember particles */
+.race-tracker-module {
+    position: relative;          /* Needed so the ember container can be positioned inside it */
+    padding: 60px 0 70px;        /* Generous vertical breathing room */
+    background: linear-gradient( /* Same gradient as the event hero for visual continuity */
+        135deg,
+        var(--bg-dark) 0%,
+        var(--primary-gray) 60%,
+        var(--secondary-gray) 100%
+    );
+    border-bottom: 2px solid var(--accent-red); /* Red accent line at the bottom */
+    overflow: hidden;            /* Clip ember particles so they don't scroll outside the section */
+}
+
+/* Ember particle container — fills the entire section behind all content */
+.tracker-embers {
+    position: absolute;          /* Pulled out of flow so it sits behind everything */
+    inset: 0;                    /* Fills the full section (top/right/bottom/left: 0) */
+    pointer-events: none;        /* Clicks pass straight through — embers are decorative only */
+    z-index: 0;                  /* Behind the .container content */
+    overflow: hidden;            /* Extra safety: clip any particles that drift outside */
+}
+
+/* All content inside the module sits above the embers */
+.race-tracker-module .container {
+    position: relative;          /* Creates a stacking context above z-index:0 embers */
+    z-index: 1;                  /* Explicitly above the ember layer */
+}
+
+/* ---- LIVE BANNER ---- */
+
+/* The "RACE IS LIVE" banner row — centred, with the pulsing dot, label, and compact timer */
+.tracker-live-banner {
+    display: flex;               /* Horizontal row: dot | label | timer */
+    align-items: center;         /* Vertically centre all three items */
+    justify-content: center;     /* Centre the whole row horizontally */
+    gap: 16px;                   /* Space between each element */
+    margin-bottom: 16px;         /* Space below before the section title */
+    flex-wrap: wrap;             /* Allow wrapping on narrow screens */
+}
+
+/* Pulsing red dot — signals "live" status */
+.live-dot {
+    width: 14px;                 /* Fixed size circle */
+    height: 14px;                /* Fixed size circle */
+    border-radius: 50%;          /* Circular */
+    background: var(--accent-red); /* Red fill */
+    box-shadow: 0 0 8px var(--accent-red); /* Red glow */
+    animation: pulse-dot 1.4s ease-in-out infinite; /* Continuous pulse animation */
+    flex-shrink: 0;              /* Don't let flexbox shrink the dot */
+}
+
+/* Keyframes for the pulsing dot — scales up and fades slightly, then back */
+@keyframes pulse-dot {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%       { transform: scale(1.5); opacity: 0.6; }
+}
+
+/* "The Race Is Live" text label */
+.live-label {
+    font-family: var(--font-heading); /* Bebas Neue — matches all other headings */
+    font-size: 2.2rem;           /* Large enough to be a clear statement */
+    color: var(--accent-red);    /* Red — matches the dot and the site's accent */
+    letter-spacing: 3px;         /* Wide tracking for the display font */
+    text-transform: uppercase;   /* All-caps */
+    line-height: 1;              /* No extra line height */
+}
+
+/* Compact timer container — sits to the right of the "LIVE" label */
+.live-timer {
+    display: flex;               /* Horizontal row of blocks */
+    align-items: center;         /* Vertically centre blocks and separators */
+    gap: 4px;                    /* Tight spacing between elements */
+    background: rgba(0, 0, 0, 0.35); /* Dark semi-transparent background */
+    border: 1px solid rgba(220, 53, 69, 0.35); /* Faint red border */
+    border-radius: 8px;          /* Rounded corners */
+    padding: 6px 14px;           /* Internal spacing */
+}
+
+/* Individual time block (hours / minutes / seconds) */
+.live-timer-block {
+    display: flex;               /* Number and unit side by side */
+    align-items: baseline;       /* Align on text baseline */
+    gap: 2px;                    /* Tiny gap between number and unit letter */
+}
+
+/* The number inside each timer block */
+.live-timer-num {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: 1.6rem;           /* Smaller than the main countdown but still readable */
+    color: var(--accent-red);    /* Red — matches the live label */
+    line-height: 1;              /* No extra height */
+    letter-spacing: 1px;         /* Slight tracking */
+    min-width: 2ch;              /* Always at least 2 characters wide so "09" doesn't jump */
+}
+
+/* The unit letter (h / m / s) */
+.live-timer-unit {
+    font-size: 0.7rem;           /* Small — subordinate to the number */
+    color: var(--text-muted);    /* Muted gray */
+    text-transform: lowercase;   /* Keep lowercase (h, m, s) */
+}
+
+/* The colon separator between timer blocks */
+.live-timer-sep {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: 1.4rem;           /* Slightly smaller than the numbers */
+    color: rgba(220, 53, 69, 0.5); /* Faint red */
+    line-height: 1;              /* No extra height */
+    padding-bottom: 2px;         /* Slight nudge to optically align with numbers */
+}
+
+/* ---- TRACKER SUBTITLE ---- */
+
+.tracker-subtitle {
+    text-align: center;          /* Centre the text */
+    color: var(--text-secondary); /* Light gray */
+    margin-top: -20px;           /* Pull up closer to the "Race Progress" heading above it */
+    margin-bottom: 28px;         /* Space below before the lanes */
+    font-size: 1rem;             /* Standard body size */
+    line-height: 1.6;            /* Comfortable reading */
+}
+
+.tracker-subtitle strong {
+    color: var(--white);         /* White for "Fewest deaths wins" emphasis */
+}
+
+/* ---- RACE LANES ---- */
+
+/* Container for all 5 runner lanes */
+.race-lanes {
+    display: flex;               /* Stack lanes vertically */
+    flex-direction: column;      /* One lane per row */
+    gap: 18px;                   /* Space between each lane */
+    max-width: 1000px;           /* Cap width on very wide screens */
+    margin: 0 auto;              /* Centre the lanes block */
+}
+
+/* A single runner's row */
+.race-lane {
+    display: grid;
+    /* Three columns: label (160px) | track (flexible) | deaths (110px) */
+    grid-template-columns: 160px 1fr 110px;
+    align-items: center;         /* Vertically centre all three columns */
+    gap: 20px;                   /* Space between columns */
+    background: rgba(255, 255, 255, 0.03); /* Very subtle white fill */
+    padding: 14px 18px;          /* Internal spacing */
+    border-radius: 10px;         /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.06); /* Faint border */
+    transition: border-color 0.3s ease; /* Smooth border colour change on hover */
+}
+
+.race-lane:hover {
+    border-color: rgba(255, 255, 255, 0.15); /* Slightly brighter border on hover */
+}
+
+/* ---- LANE LABEL (left column) ---- */
+
+.lane-label {
+    display: flex;               /* Logo and name side by side */
+    align-items: center;         /* Vertically centre */
+    gap: 10px;                   /* Space between logo and name */
+}
+
+/* Wrapper div that provides the coloured ring around the logo */
+.lane-logo-wrap {
+    width: 36px;                 /* Fixed size — same for all logos */
+    height: 36px;                /* Fixed size */
+    border-radius: 50%;          /* Circular */
+    flex-shrink: 0;              /* Don't let flexbox shrink the logo */
+    overflow: hidden;            /* Clip the image to the circle */
+    box-sizing: border-box;      /* Sizing includes padding */
+    /* NOTE: We do NOT use border here because overflow:hidden clips it.
+       Instead, the runner-ring-* classes apply box-shadow as the coloured ring.
+       box-shadow renders OUTSIDE the element and is not clipped by overflow:hidden. */
+}
+
+/* Per-runner ring colours on the lane logo wrappers.
+   We use box-shadow instead of border so overflow:hidden doesn't clip the ring.
+   The first value (0 0 0 3px) creates a solid 3px ring just outside the circle. */
+.lane-logo-wrap.runner-ring-kindle     { box-shadow: 0 0 0 3px #4fc3f7; } /* Light blue */
+.lane-logo-wrap.runner-ring-flygonhg { box-shadow: 0 0 0 3px #81c784; } /* Green */
+.lane-logo-wrap.runner-ring-kya      { box-shadow: 0 0 0 3px #ff8a65; } /* Orange */
+.lane-logo-wrap.runner-ring-drayano  { box-shadow: 0 0 0 3px #ce93d8; } /* Purple */
+.lane-logo-wrap.runner-ring-buhrito  { box-shadow: 0 0 0 3px #ffd54f; } /* Yellow */
+
+/* The logo image inside the wrapper */
+.lane-logo {
+    width: 100%;                 /* Fill the wrapper */
+    height: 100%;                /* Fill the wrapper */
+    object-fit: cover;           /* Cover without distortion */
+    display: block;              /* Remove inline-block gap */
+}
+
+/* Runner name text */
+.lane-name {
+    font-family: var(--font-heading); /* Bebas Neue */
+    font-size: 1.2rem;           /* Clear label size */
+    color: var(--silver);        /* Silver */
+    text-transform: uppercase;   /* All-caps */
+    letter-spacing: 1px;         /* Slight tracking */
+    white-space: nowrap;         /* Prevent name from wrapping */
+}
+
+/* ---- LANE TRACK (middle column) ---- */
+
+/* The track area — relative so the rail, ticks, flag, and token can all be positioned inside it */
+.lane-track {
+    position: relative;          /* Positioning context for all child elements */
+    height: 56px;                /* Fixed height — enough room for the token above the rail */
+    display: flex;               /* Flex so we can vertically centre the rail */
+    align-items: center;         /* Centre the rail vertically within the 56px height */
+}
+
+/* The horizontal background rail line */
+.track-rail {
+    position: absolute;          /* Positioned inside .lane-track */
+    left: 0;                    /* Start at the left edge */
+    right: 30px;                 /* Stop before the finish flag (leaves room for the 🏁) */
+    height: 4px;                 /* Thin line */
+    background: rgba(255, 255, 255, 0.12); /* Subtle white rail */
+    border-radius: 2px;          /* Slightly rounded ends */
+}
+
+/* Container for the 13 tick marks — spans the same width as the rail */
+.track-ticks {
+    position: absolute;          /* Positioned inside .lane-track */
+    left: 0;                    /* Align with rail start */
+    right: 30px;                 /* Align with rail end (before the flag) */
+    display: flex;               /* Spread ticks evenly */
+    justify-content: space-between; /* Even spacing between all 13 ticks */
+    align-items: center;         /* Vertically centre ticks on the rail */
+}
+
+/* Individual tick mark */
+.track-ticks span {
+    width: 2px;                  /* Thin vertical line */
+    height: 14px;                /* Taller than the rail so it's visible */
+    background: rgba(255, 255, 255, 0.25); /* Faint white */
+    border-radius: 1px;          /* Slightly rounded */
+    flex-shrink: 0;              /* Don't let flexbox compress the ticks */
+}
+
+/* Finish flag — anchored at the far right of the track */
+.track-finish {
+    position: absolute;          /* Positioned inside .lane-track */
+    right: 0;                    /* At the right edge */
+    font-size: 1.4rem;           /* Large enough to be clearly visible */
+    line-height: 1;              /* No extra height */
+    z-index: 2;                  /* Above the rail and ticks */
+}
+
+/* ---- RUNNER TOKEN ---- */
+
+/* The moving icon that slides along the track */
+.runner-token {
+    position: absolute;          /* Positioned inside .lane-track */
+    /* left: X% is set by JS — this is what moves the token */
+    transform: translateX(-50%); /* KEY: shifts the token LEFT by half its own width */
+                    /* This centres the token ON the tick mark, not left-justified */
+    z-index: 3;                  /* Above rail, ticks, and flag */
+    display: flex;               /* Stack image above position label */
+    flex-direction: column;      /* Vertical stack */
+    align-items: center;         /* Centre both horizontally */
+    transition: left 0.9s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth, slightly bouncy slide animation */
+}
+
+/* The avatar image inside the token */
+.token-img {
+    width: 38px;                 /* Fixed size */
+    height: 38px;                /* Fixed size */
+    border-radius: 50%;          /* Circular */
+    background: var(--bg-dark);  /* Dark background behind the image */
+    object-fit: cover;           /* Cover without distortion */
+    display: block;              /* Remove inline-block gap */
+    /* Ring colour is applied via runner-ring-* box-shadow rules below.
+       We use box-shadow so the ring renders outside the element boundary
+       and isn't clipped. The second shadow adds the depth drop-shadow. */
+}
+
+
+
+/* Small position label below the token ("3/13") */
+.token-pos {
+    font-size: 0.65rem;          /* Very small — subordinate to the icon */
+    color: var(--text-muted);    /* Muted gray */
+    font-weight: 700;            /* Bold so it's readable at small size */
+    margin-top: 2px;             /* Tiny gap between icon and label */
+    background: rgba(0, 0, 0, 0.7); /* Dark pill background for legibility */
+    padding: 1px 5px;            /* Compact padding */
+    border-radius: 4px;          /* Rounded corners */
+    white-space: nowrap;         /* Never wrap */
+    line-height: 1.4;            /* Comfortable height */
+}
+
+/* ---- DEATHS COLUMN (right column) ---- */
+
+/* The deaths counter column */
+.lane-deaths {
+    display: flex;               /* Stack label above number */
+    flex-direction: column;      /* Vertical stack */
+    align-items: center;         /* Centre both horizontally */
+    justify-content: center;     /* Centre vertically within the row */
+    border-left: 1px solid rgba(255, 255, 255, 0.08); /* Subtle divider from the track */
+    padding-left: 16px;          /* Space between divider and content */
+    gap: 2px;                    /* Tiny gap between label and number */
+}
+
+/* "Deaths" label above the number */
+.death-label {
+    font-size: 0.65rem;          /* Small — subordinate to the number */
+    text-transform: uppercase;   /* All-caps label style */
+    letter-spacing: 2px;         /* Wide tracking for a "label" feel */
+    color: var(--text-muted);    /* Muted gray */
+    font-weight: 600;            /* Semi-bold */
+}
+
+/* The death count number — this is the prominent element */
+.death-count {
+    font-family: var(--font-heading); /* Bebas Neue — big and bold */
+    font-size: 3rem;             /* Large — this is the key metric, make it readable at a glance */
+    color: var(--accent-red);    /* Red — danger/death colour */
+    line-height: 1;              /* No extra height */
+    letter-spacing: 1px;         /* Slight tracking */
+    text-shadow: 0 0 12px rgba(220, 53, 69, 0.4); /* Subtle red glow for drama */
+    transition: transform 0.2s ease, color 0.2s ease; /* Smooth pop animation when updated */
+}
+
+/* JS adds this class briefly when a death count changes — creates a "pop" effect */
+.death-count.updated {
+    transform: scale(1.3);       /* Briefly scale up */
+    color: #ff6b6b;              /* Brighter red flash */
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 768px) {
+    /* Shrink the label column on tablet */
+    .race-lane {
+        grid-template-columns: 120px 1fr 90px; /* Narrower label and deaths columns */
+        gap: 12px;               /* Tighter gaps */
+        padding: 12px 14px;      /* Tighter padding */
+    }
+
+    .lane-name {
+        font-size: 1rem;         /* Smaller name text */
+    }
+
+    .death-count {
+        font-size: 2.2rem;       /* Slightly smaller death number */
+    }
+
+    .live-label {
+        font-size: 1.8rem;       /* Smaller live label */
+    }
+}
+
+@media (max-width: 520px) {
+    /* On mobile, hide the text name and just show the logo */
+    .lane-name {
+        display: none;           /* Hide name — logo is enough at this size */
+    }
+
+    .race-lane {
+        grid-template-columns: 46px 1fr 80px; /* Tiny label column (just the logo) */
+        gap: 10px;               /* Very tight gaps */
+    }
+
+    .death-count {
+        font-size: 1.8rem;       /* Compact death number */
+    }
+
+    .live-label {
+        font-size: 1.4rem;       /* Compact live label */
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .race-lane {
+        grid-template-columns: 1fr 100px; /* Hide label on tiny screens or stack it */
+    }
+    .lane-label { display: none; }
+}
+
+
+
+/* ====
    RESPONSIVE DESIGN
    Adjustments for tablet and mobile screen sizes.
-   ============================================================ */
+   ==== */
 
 /* ---- Tablet (≤ 768px) ---- */
 @media (max-width: 768px) {

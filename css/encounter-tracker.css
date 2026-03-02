@@ -1,0 +1,415 @@
+/* ENCOUNTER TRACKER PAGE STYLES */
+/* Detailed styling for the encounter tracker interface with KO tracking */
+
+/* Page header section */
+.tracker-header {
+    padding: 40px 0 20px 0;
+    background: linear-gradient(135deg, var(--primary-gray) 0%, var(--secondary-gray) 100%);
+    text-align: center;
+}
+
+.tracker-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+/* KO Statistics Chart Section */
+.ko-stats-section {
+    padding: 30px 0;
+    background: var(--background-dark);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stats-title {
+    text-align: center;
+    color: var(--accent-red);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--primary-gray);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Main encounter tracking section */
+.encounter-tracker-section {
+    padding: 40px 0;
+}
+
+/* 3-column CSS grid for encounters */
+/* JS renders rows directly into #encounterColumns — no column wrapper divs needed. */
+/* grid-template-columns: 3 equal columns that shrink to fit the container. */
+/* auto-fill with minmax means it collapses gracefully on smaller screens. */
+.encounter-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns, left-to-right fill */
+    gap: 8px;                    /* tighter gap between cards */
+    width: 100%;                    /* fill the parent .container exactly — no more, no less */
+    overflow: hidden;                    /* safety net: clips any card that still tries to overflow */
+    /* The parent .container is max-width:1200px, margin:0 auto — so this grid is already */
+    /* centered and the same width as the chart above. No extra padding needed here. */
+}
+
+/* .encounter-column is no longer used by JS, but kept here in case */
+/* any legacy HTML references it — it won't break anything. */
+.encounter-column {
+    display: contents; /* makes children participate in the parent grid directly */
+}
+
+/* Individual encounter row styling */
+/* padding: 4px 8px keeps cards compact — just enough breathing room around the content. */
+/* min-width: 0 is CRITICAL for CSS Grid: without it, a flex container inside a grid cell */
+/* refuses to shrink below its content's natural width, causing the card to overflow its */
+/* column and push the right column off-screen. This one line fixes the overflow. */
+/* overflow: hidden clips anything that still tries to escape the card boundary. */
+.encounter-row {
+    display: flex;
+    align-items: center;
+    background: var(--primary-gray);
+    border-radius: var(--border-radius);
+    padding: 4px 8px;                    /* compact vertical padding — short card height */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    gap: 6px;                    /* tight horizontal spacing between elements */
+    transition: background 0.2s ease;
+    min-width: 0;                    /* CRITICAL: allows the card to shrink inside its grid column */
+    overflow: hidden;                    /* clips any content that still overflows */
+}
+
+.encounter-row:hover {
+    background: var(--secondary-gray);
+}
+
+/* Pokemon icon container */
+/* 28px is compact enough to fit the 3-column layout without crowding other elements. */
+.pokemon-icon {
+    width: 28px;                    /* compact icon size for 3-column layout */
+    height: 28px;
+    background: var(--background-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+/* Image inside the icon — slightly larger than the circle so it fills it edge-to-edge. */
+.pokemon-icon img {
+    width: 34px;                    /* slightly larger than the 28px box to fill it */
+    height: 34px;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+/* Location name styling */
+/* flex: 1 lets it grow to fill available space, but min-width: 0 (not 120px) allows */
+/* it to shrink when the column is narrow — removing min-width: 120px is what lets */
+/* the card fit inside a 1/3-width column without overflowing. */
+/* font-size reduced to 0.85rem and color muted to text-secondary so it's less dominant. */
+/* white-space: nowrap + text-overflow: ellipsis truncates long names gracefully. */
+.location-name {
+    flex: 1;
+    min-width: 0;                    /* allows text to shrink — no forced minimum width */
+    font-family: var(--font-heading);
+    font-size: 0.85rem;                  /* smaller, less dominant than before */
+    color: var(--text-secondary);        /* muted — location is secondary info */
+    letter-spacing: 0.3px;
+    white-space: nowrap;                 /* keep on one line */
+    overflow: hidden;                    /* hide overflow */
+    text-overflow: ellipsis;             /* show "..." if name is too long for the column */
+}
+
+.ko-percent {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: bold;
+  min-width: 40px;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+}
+
+/* Pokemon selection dropdown */
+/* width: 140px (fixed, not min-width) ensures every dropdown is exactly the same width */
+/* regardless of how long the longest Pokémon name inside it is. */
+/* Without this, the browser sizes each <select> to fit its longest <option>, */
+/* making dropdowns different widths across cards. */
+.pokemon-select {
+    width: 130px;                    /* narrower fixed width to fit 3-column layout */
+    /* 140px was too wide — at 3 columns, each card is ~380px wide, and 140px for the */
+    /* dropdown + 120px location name + 32px icon + 100px KO tracker = overflow. */
+    /* 110px keeps all elements fitting comfortably within the column. */
+    font-family: var(--font-body);
+    font-size: 0.85rem;                    /* slightly smaller to match compact card size */
+    padding: 4px 6px;                    /* less padding = shorter dropdown height */
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--background-dark);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.pokemon-select option {
+    color: black;
+    background: white;
+}
+
+
+.pokemon-select:focus {
+    outline: none;
+    border-color: var(--accent-red);
+    box-shadow: 0 0 0 2px rgba(220,53,69,0.2);
+}
+
+/* KO Tracker Controls */
+/* flex-direction: column stacks "KOs:" label, +/- buttons, and % on separate lines. */
+/* flex-shrink: 0 prevents the tracker from being squished by the dropdown or location name. */
+/* width: auto lets it size naturally to its content instead of clipping at a fixed px. */
+.ko-tracker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;            /* near-zero gap — removes space between label, buttons, and % */
+    margin-left: auto;   /* pushes tracker to the right edge of the row */
+    padding: 1px 8px;    /* 1px top/bottom removes almost all vertical breathing room */
+    background: var(--background-dark);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;      /* don't let it compress below its natural size */
+    width: auto;         /* size to content — no fixed width that clips text */
+}
+
+.ko-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ko-btn {
+    width: 19px;     /* 20% smaller than 24px — controls horizontal size */
+    height: 19px;    /* 20% smaller than 24px — controls vertical size */
+    border: none;
+    border-radius: 4px;
+    background: var(--accent-red);
+    color: white;
+    font-size: 11px; /* 20% smaller than 14px — keeps the +/− symbol proportional */
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.ko-btn:hover {
+    background: #c82333;
+}
+
+.ko-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.ko-count {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.ko-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+}
+
+/* ── Sort & Hide Controls ── */
+/* The bar injected by buildSortControls() above the encounter grid. */
+/* display: flex puts the label and all buttons in a single horizontal row. */
+/* flex-wrap: wrap lets them stack on narrow screens instead of overflowing. */
+.sort-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the sort label + buttons horizontally on the page */
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;      /* reduced — row 2 (.sort-controls-row2) sits just below */
+}
+
+/* Row 2: Hide Completed button on its own centered line below the sort buttons */
+/* The JS (buildSortControls) creates this div and appends the Hide Completed button into it. */
+/* justify-content: center keeps the single button horizontally centered. */
+/* margin-bottom: 16px gives breathing room between the controls and the encounter grid. */
+.sort-controls-row2 {
+    display: flex;
+    justify-content: center; /* centers the Hide Completed button horizontally */
+    margin-bottom: 16px;     /* space between row 2 and the encounter grid below */
+}
+
+/* "Sort by:" label text to the left of the buttons */
+.sort-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-secondary); /* muted so it doesn't compete with buttons */
+    margin-right: 4px;
+}
+
+/* Base style for every sort/hide button */
+/* Matches the site's existing .btn look but smaller and more compact. */
+.sort-btn {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 5px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--primary-gray);   /* dark card background */
+    color: var(--text-secondary);      /* muted text by default */
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover state: slightly lighter background so the button feels interactive */
+.sort-btn:hover {
+    background: var(--secondary-gray);
+    color: var(--text-primary);
+}
+
+/* Active/selected state: red accent to match the site's theme */
+/* Applied by JS when a sort mode is selected or Hide Completed is toggled on. */
+.sort-btn-active {
+    background: var(--accent-red);     /* site's red accent color */
+    color: white;
+    border-color: var(--accent-red);
+}
+
+.sort-btn-active:hover {
+    background: #c82333;               /* slightly darker red on hover */
+    border-color: #c82333;
+}
+
+/* Export section styling */
+.export-section {
+    padding: 40px 0;
+    background: var(--background-dark);
+    border-top: 1px solid var(--border-color);
+}
+
+.export-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.export-status {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    min-height: 24px;
+    color: var(--text-secondary);
+}
+
+.export-status.success {
+    color: #28a745;
+}
+
+.export-status.error {
+    color: var(--accent-red);
+}
+
+/* Button styling variations */
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .encounter-columns {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    .encounter-column {
+        max-width: 100%;
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .encounter-row {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 12px;
+    }
+
+    .pokemon-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .pokemon-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .location-name {
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    .pokemon-select {
+        min-width: 120px;
+        font-size: 0.9rem;
+    }
+
+    .ko-tracker {
+        margin-left: 0;
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    .export-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .encounter-column {
+        min-width: 280px;
+    }
+
+    .encounter-row {
+        padding: 8px 10px;
+    }
+
+    .pokemon-select {
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+}

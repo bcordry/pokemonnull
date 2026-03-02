@@ -61,10 +61,10 @@
                 <!-- nav-link-event applies the gold color and hover styles -->
                 <li class="nav-item-launch-event">
                     <a href="launch-race.html" class="nav-link nav-link-event">
-                        Launch Event
-                        <span class="nav-event-tooltip" id="launch-event-tooltip">
-                            Loading countdown...
-                        </span>
+                    Launch Event
+                    <span class="nav-event-tooltip" id="launch-event-tooltip">
+                    Loading countdown...
+                    </span>
                     </a>
                 </li>
 
@@ -78,32 +78,32 @@
                 <li class="nav-item-unavailable">
                     <!-- href="#" prevents navigation; JS/CSS will block clicks visually -->
                     <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Pokédex</s>
-                        <!-- Tooltip shown on hover explaining why this is unavailable -->
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    <s>Pokédex</s>
+                    <!-- Tooltip shown on hover explaining why this is unavailable -->
+                    <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
                     </a>
                 </li>
 
                 <!-- Tracker is not yet available, strikethrough for now-->
                 <li class="nav-item-unavailable">
                     <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Tracker</s>
-                        <!-- Tooltip shown on hover explaining why this is unavailable -->
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    <s>Tracker</s>
+                    <!-- Tooltip shown on hover explaining why this is unavailable -->
+                    <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
                     </a>
                 </li>
 
                 <li class="nav-item-unavailable">
                     <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Trainer Docs</s>
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    <s>Trainer Docs</s>
+                    <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
                     </a>
                 </li>
 
                 <li class="nav-item-unavailable">
                     <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Damage Calc</s>
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
+                    <s>Damage Calc</s>
+                    <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
                     </a>
                 </li>
             </ul>
@@ -113,10 +113,32 @@
     <!-- Main content area -->
     <main class="main">
         <section class="patch-hero">
-            <!-- Big patch button at the top -->
-            <a href="https://www.marcrobledo.com/RomPatcher.js/" target="_blank" rel="noopener" class="btn btn-primary patch-btn">
-                Apply Pokémon Null Patch
-            </a>
+            <!-- Container that holds both hero buttons side by side -->
+            <div class="patch-hero-buttons">
+
+                <!-- DOWNLOAD button: triggers a direct file download from the server -->
+                <!-- href points to the patch file in the assets/patches/ folder -->
+                <!-- The "download" attribute tells the browser to save the file instead of opening it -->
+                <!-- It also suggests the filename that will appear in the user's Save dialog -->
+                <!-- <a href="assets/patches/nullv1.0.gba"
+                   download="nullv1.0.gba"
+                   class="btn btn-primary patch-btn patch-btn-download">
+                    ⬇ Download the Patch
+                </a> -->
+
+                <!-- APPLY button: opens the external online ROM patcher tool in a new tab -->
+                <!-- target="_blank" opens a new browser tab so the user doesn't leave the site -->
+                <!-- rel="noopener" is a security best practice when using target="_blank" -->
+                <a href="https://www.marcrobledo.com/RomPatcher.js/"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn btn-primary patch-btn patch-btn-apply">
+                    ▶ Apply the Patch
+                </a>
+
+            </div>
+
+            <!-- Small note below the buttons reminding users what they need -->
             <p class="patch-note">
                 <strong>Note:</strong> You will need a clean Pokémon Emerald ROM (not included) and the Pokémon Null patch file.
             </p>
@@ -133,7 +155,12 @@
                 <li>
                     <strong>Download the Pokémon Null patch file.</strong>
                     <br>
-                    <span class="step-detail">You can get the latest patch from the <a href="https://discord.gg/DqxxC5KQ6r">Pokémon Null Discord server</a>.</span>
+                    <!-- Primary source: the Discord server -->
+                    <span class="step-detail">You can get the latest patch from the <a href="https://discord.gg/DqxxC5KQ6r">Pokémon Null Discord server</a>,</span>
+                    <!-- Secondary source: direct download from this website -->
+                    <!-- "or from" is plain text; "this link" is a clickable download anchor -->
+                    <!-- The download attribute prompts the browser to save the file directly -->
+                    <!-- <span class="step-detail">or from <a href="assets/patches/nullv1.0.gba" download="nullv1.0.gba">this link</a>.</span> -->
                 </li>
                 <li>
                     <strong>Go to the online patcher.</strong>
@@ -166,9 +193,48 @@
                 </ul>
             </div>
         </section>
+
+        <!-- ===== PATCH NOTES SECTION ===== -->
+        <!-- This section lives outside the instructions card but still inside <main> -->
+        <!-- It uses a <details>/<summary> pattern — no JS needed for basic open/close -->
+        <section class="patch-notes-section container">
+
+            <!-- The outer <details> element is the whole "Patch Notes" collapsible block -->
+            <!-- When clicked, it toggles open/closed automatically by the browser -->
+            <details class="patch-notes-outer">
+
+                <!-- <summary> is the visible clickable header for the outer block -->
+                <summary class="patch-notes-title">Patch Notes</summary>
+
+                <!-- Inner wrapper holds all individual version entries -->
+                <div class="patch-notes-list">
+
+                    <!-- Each version is its own nested <details> block -->
+                    <!-- This lets users expand only the version they care about -->
+                    <details class="patch-notes-version">
+
+                        <!-- The version label — clicking this expands the version's notes -->
+                        <summary class="patch-notes-version-label">Version 1.0</summary>
+
+                        <!-- The actual notes content for this version -->
+                        <!-- Shown only when the Version 1.0 block is expanded -->
+                        <p class="patch-notes-content">Release version.</p>
+
+                    </details>
+                    <!-- End Version 1.0 -->
+
+                </div>
+                <!-- End patch-notes-list -->
+
+            </details>
+            <!-- End outer Patch Notes collapsible -->
+
+        </section>
+        <!-- ===== END PATCH NOTES SECTION ===== -->
+
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
+    <!-- ==== FOOTER ==== -->
     <!-- Shared footer across all pages -->
     <footer class="footer">
         <div class="container">
@@ -182,19 +248,19 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="patch-applier.html">Download</a></li>
-                        <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
-                        <li><a href="about.html">Game Info</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="patch-applier.html">Download</a></li>
+                    <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
+                    <li><a href="about.html">Game Info</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 <!-- Community links column -->
                 <div class="footer-section">
                     <h4>Community</h4>
                     <ul class="footer-links">
-                        <li><a href="https://discord.gg/DqxxC5KQ6r" target="_blank">Discord</a></li>
-                        <li><a href="https://www.reddit.com/r/PokemonNull/" target="_blank">Reddit</a></li>
-                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T" target="_blank">YouTube</a></li>
+                    <li><a href="https://discord.gg/DqxxC5KQ6r" target="_blank" class="nav-link">Discord</a></li>
+                    <li><a href="https://www.reddit.com/r/PokemonNull/" target="_blank" class="nav-link">Reddit</a></li>
+                    <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T" target="_blank" class="nav-link">YouTube</a></li>
                     </ul>
                 </div>
             </div>
@@ -204,7 +270,7 @@
             </div>
         </div>
     </footer>
-    <!-- ===================== END FOOTER ===================== -->
+    <!-- ==== END FOOTER ==== -->
 
     <!-- Main and page-specific JS (update paths as per your structure) -->
     <script src="js/main.js"></script>
