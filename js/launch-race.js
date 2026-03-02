@@ -180,7 +180,7 @@ const raceData = {
     kindle:       { progress: 12, deaths: 1 },
     flygonhg:     { progress: 8, deaths: 0 },
     kyacolosseum: { progress: 10, deaths: 0 },
-    drayano:      { progress: 11, deaths: 0 },
+    drayano:      { progress: 11, deaths: 1 },
     buhrito:      { progress: 13, deaths: 1 }
 };
 
@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRaceTracker();   // Set all token positions and death counts from raceData
 
 });
+
 
 
 
