@@ -181,7 +181,7 @@ const raceData = {
     flygonhg:     { progress: 6, deaths: 0 },
     kyacolosseum: { progress: 8, deaths: 0 },
     drayano:      { progress: 7, deaths: 0 },
-    buhrito:      { progress: 12, deaths: 1 }
+    buhrito:      { progress: 13, deaths: 1 }
 };
 
 /**
@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRaceTracker();   // Set all token positions and death counts from raceData
 
 });
+
 
 
 
