@@ -179,9 +179,9 @@ if (cdDays && cdHours && cdMinutes && cdSeconds && cdWrapper) {
 const raceData = {
     kindle:       { progress: 0, deaths: 0 },
     flygonhg:     { progress: 0, deaths: 0 },
-    kyacolosseum: { progress: 0, deaths: 0 },
+    kyacolosseum: { progress: 1, deaths: 0 },
     drayano:      { progress: 0, deaths: 0 },
-    buhrito:      { progress: 0, deaths: 0 }
+    buhrito:      { progress: 1, deaths: 0 }
 };
 
 /**
@@ -344,4 +344,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initTrackerEmbers();   // Start the floating ember particles
     initLiveTimer();       // Start the elapsed race timer
     updateRaceTracker();   // Set all token positions and death counts from raceData
+
 });
