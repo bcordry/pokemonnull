@@ -35,10 +35,6 @@
     --transition: all 0.3s ease; /* Standard transition for smooth animations */
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 /* Custom Scrollbar Styling */
 /* Width of the scrollbar */
 ::-webkit-scrollbar {
@@ -82,12 +78,12 @@ body {
 }
 
 
-/* =========================================================
+/* ====
    GLOBAL LINK STYLING (NON-BUTTON LINKS)
    Goal: Stop default blue/purple links from clashing with the dark theme.
    IMPORTANT: We explicitly exclude button-like and nav links so their existing
    color behavior (ex: .btn-primary download buttons) stays intact.
-   ========================================================= */
+   ==== */
 
 /* Base link styling for normal content links (articles, FAQ answers, etc.) */
 a:link {
@@ -99,7 +95,7 @@ a:link {
 
 /* Visited link styling (replaces browser-default purple) */
 a:visited {
-    color: #888888; /* Medium grey: clearly "already clicked" but still readable on dark bg */
+    color: #8888; /* Medium grey: clearly "already clicked" but still readable on dark bg */
 }
 
 /* Hover styling: uses your accent color to feel "on theme" */
@@ -113,17 +109,25 @@ a:focus-visible {
     outline-offset: 3px; /* Move outline away from text so it doesn't overlap letters */
 }
 
-/* =========================================================
+/* ====
    EXCLUSIONS: DO NOT let the global link rules override "links that behave like buttons".
    We restate their text-decoration and colors so they keep the exact behavior you already designed.
-   ========================================================= */
+   ==== */
 
 /* Nav links already have their own color/hover rules; remove underline for a clean menu look */
+/* We also explicitly set color here for :link and :visited so the global a:link (white) and
+   a:visited (#8888 semi-transparent) rules don't bleed through and override the grey we want */
 .nav-link:link,
-.nav-link:visited,
+.nav-link:visited {
+    text-decoration: none; /* Nav items should look like UI buttons, not inline links */
+    color: var(--text-secondary); /* Force grey on both unvisited AND visited nav links */
+}
+
+/* Hover and focus states for nav links — white text to signal interactivity */
 .nav-link:hover,
 .nav-link:focus-visible {
-    text-decoration: none; /* Nav items should look like UI buttons, not inline links */
+    text-decoration: none; /* Keep no underline on hover/focus too */
+    color: var(--white); /* White on hover — this overrides the grey above intentionally */
 }
 
 /* Logo link: the "Pokémon Null" heading in the top-left should never show an underline */
@@ -255,6 +259,25 @@ a:focus-visible {
     background-color: rgba(220, 53, 69, 0.1); /* Light red background */
 }
 
+/* ====
+   EXTERNAL NAV LINK ARROW
+   Adds a small ↗ arrow after nav links that open in a new tab (external sites).
+   Uses the CSS ::after pseudo-element so we don't have to touch the HTML text.
+   Only applies to .nav-link elements — not body content links or buttons.
+   ==== */
+.nav-link[target="_blank"]::after {
+    content: ' ↗';              /* The arrow character inserted after the link text */
+    font-size: 0.65em;          /* Smaller than the nav text so it doesn't dominate */
+    vertical-align: super;      /* Floats slightly above the baseline like a superscript */
+    opacity: 0.5;               /* Dimmed by default so it's subtle, not distracting */
+    transition: opacity 0.2s ease; /* Smooth fade when hovering */
+}
+
+/* Make the arrow fully visible when the nav link is hovered */
+.nav-link[target="_blank"]:hover::after {
+    opacity: 1; /* Full opacity on hover so it's clearly visible */
+}
+
 /* Mobile navigation toggle button */
 .nav-toggle {
     display: none; /* Hidden by default (desktop) */
@@ -334,10 +357,6 @@ a:focus-visible {
     background-color: var(--accent-red); /* Red background */
     color: var(--white); /* White text */
     border-color: var(--accent-red); /* Red border */
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
-    transition: all 0.3s ease;
 }
 
 /* Primary button hover effect */
@@ -362,29 +381,6 @@ a:focus-visible {
     transform: translateY(-2px); /* Slight lift effect */
     box-shadow: 0 4px 15px rgba(192, 192, 192, 0.2); /* Silver glow shadow */
 }
-
-/* Adds a retro tech feel to screenshots on hover */
-.highlight-img-frame {
-    position: relative;
-    overflow: hidden;
-}
-
-.highlight-img-frame::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-    background-size: 100% 3px, 3px 100%;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.highlight-img-frame:hover::after {
-    opacity: 1;
-}
-
 
 /* FOOTER STYLES */
 .footer {
@@ -452,8 +448,6 @@ a:focus-visible {
     color: var(--text-muted); /* Muted text color */
     font-size: 0.9rem; /* Smaller font size */
 }
-
-
 
 /* RESPONSIVE DESIGN */
 /* Tablet styles */

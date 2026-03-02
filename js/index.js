@@ -453,21 +453,21 @@ function initBackgroundSlideshow() {
      * If queue is empty or exhausted, creates a new shuffled queue
      */
 
-//UN-COMMENT THIS FUNCTION TO ENABLE THE NO-REPEAT POKEMON SYSTEM
-    // function getNextPokemon() {
-    //     // If we need a new queue (first run or exhausted current queue)
-    //     if (pokemonQueue.length === 0 || pokemonQueueIndex >= pokemonQueue.length) {
-    //         const trainerNumber = currentTrainerIdx + 1; // convert to 1-based
-    //         pokemonQueue = createPokemonQueue(trainerNumber); // get shuffled pokemon
-    //         pokemonQueueIndex = 0; // reset queue position
-    //         console.log(`New pokemon queue for trainer ${trainerNumber}:`, pokemonQueue);
-    //     }
 
-    //     // Get the next pokemon from the queue
-    //     const nextPokemon = pokemonQueue[pokemonQueueIndex];
-    //     pokemonQueueIndex++; // advance queue position
-    //     return nextPokemon;
-    // }
+    function getNextPokemon() {
+        // If we need a new queue (first run or exhausted current queue)
+        if (pokemonQueue.length === 0 || pokemonQueueIndex >= pokemonQueue.length) {
+            const trainerNumber = currentTrainerIdx + 1; // convert to 1-based
+            pokemonQueue = createPokemonQueue(trainerNumber); // get shuffled pokemon
+            pokemonQueueIndex = 0; // reset queue position
+            console.log(`New pokemon queue for trainer ${trainerNumber}:`, pokemonQueue);
+        }
+
+        // Get the next pokemon from the queue
+        const nextPokemon = pokemonQueue[pokemonQueueIndex];
+        pokemonQueueIndex++; // advance queue position
+        return nextPokemon;
+    }
 
     /**
      * Picks the next trainer (cyclic) and triggers its cross-fade

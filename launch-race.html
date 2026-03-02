@@ -46,81 +46,45 @@
     <link rel="stylesheet" href="css/launch-race.css">
 </head>
 <body>
-
-    <!-- ===================== HEADER ===================== -->
-    <!-- Sticky header — identical markup to every other page so the nav works correctly -->
+    <!-- Sticky header with logo and navigation -->
     <header class="header">
         <div class="header-brand">
-            <!-- Clicking the logo always returns to the home page -->
+            <!-- Main site logo/title -->
             <a href="index.html" class="logo-link">
-                <h1 class="logo">Pokémon Null</h1>
+                <h1 class="logo">Pokémon Null
+                </h1>
             </a>
-            <!-- Tagline beneath the logo -->
+            <!-- Tagline, themed for Type: Null -->
             <span class="tagline">Null Protocol Activated</span>
         </div>
-
+        <!-- Navigation bar -->
         <nav class="nav">
-            <!-- Hamburger button — shown only on mobile, toggled by main.js -->
+            <!-- Hamburger menu for mobile -->
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
+            <!-- Navigation links to all main pages -->
             <ul class="nav-menu">
-                <!-- Home link — not marked active because we're on the Launch Event page -->
+                <!-- Standard nav links -->
                 <li><a href="index.html" class="nav-link">Home</a></li>
-
-                <!-- Launch Event link — marked active because this IS the launch event page -->
-                <!-- nav-item-launch-event gives position:relative so the countdown tooltip anchors here -->
+                <!-- LAUNCH RACE nav item — links to about.html but styled as the event button -->
                 <li class="nav-item-launch-event">
-                    <a href="launch-race.html" class="nav-link nav-link-event active">
-                        Launch Event
-                        <!-- Countdown tooltip — populated by main.js -->
-                        <span class="nav-event-tooltip" id="launch-event-tooltip">
-                            Loading countdown...
-                        </span>
+                    <a href="launch-race.html" class="nav-link nav-link-event">
+                    Launch Event
+                    <span class="nav-event-tooltip" id="launch-event-tooltip">
+                    Loading countdown...
+                    </span>
                     </a>
                 </li>
-
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <!-- News is commented out site-wide until ready -->
-                <!-- <li><a href="news.html" class="nav-link">News</a></li> -->
                 <li><a href="patch-applier.html" class="nav-link">Patch</a></li>
-
-                <!-- Pokédex — locked until after the Launch Event -->
-                <li class="nav-item-unavailable">
-                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Pokédex</s>
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
-                    </a>
-                </li>
-
-                <!-- Tracker is not yet available, strikethrough for now-->
-                <li class="nav-item-unavailable">
-                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Tracker</s>
-                        <!-- Tooltip shown on hover explaining why this is unavailable -->
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
-                    </a>
-                </li>
-
-                <!-- Trainer Docs — locked until after the Launch Event -->
-                <li class="nav-item-unavailable">
-                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Trainer Docs</s>
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
-                    </a>
-                </li>
-
-                <!-- Damage Calc — locked until after the Launch Event -->
-                <li class="nav-item-unavailable">
-                    <a href="#" class="nav-link nav-link-unavailable" onclick="return false;">
-                        <s>Damage Calc</s>
-                        <span class="nav-unavailable-tooltip">Available after the Launch Event</span>
-                    </a>
-                </li>
+                <li><a href="https://nulldex.vercel.app/" class="nav-link" target="_blank" rel="noopener noreferrer">Pokédex</a></li>
+                <li><a href="encounter-tracker.html" class="nav-link">Tracker</a></li>
+                <li><a href="https://drive.google.com/drive/u/0/folders/10H1Pm-1dhEgc0QmjsnA9A9PY6nNRXtoJ" class="nav-link" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                <li><a href="https://nullcalc.vercel.app/" class="nav-link" target="_blank" rel="noopener noreferrer">Damage Calc</a></li>
             </ul>
         </nav>
     </header>
@@ -200,12 +164,12 @@
             <!-- Pulsing red dot to signal live status -->
             <span class="live-dot"></span>
             <!-- The main "live" label -->
-            <span class="live-label">The Race Is Live</span>
+            <span class="live-label">The Race Is Over</span>
             </div>
 
                 <!-- Section heading -->
         <br>
-                <h3 class="section-title">Race Progress</h3>
+                <h3 class="section-title">Congratulations Buhrito!</h3>
         <p class="tracker-subtitle">
             Tracking progress through the 13 fights of the Norman Split.
             <strong>Fewest deaths wins.</strong>
@@ -741,9 +705,10 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="patch-applier.html">Download</a></li>
-                        <!-- <li><a href="encounter-tracker.html">Encounter Tracker</a></li> -->
+                        <<li><a href="encounter-tracker.html">Encounter Tracker</a></li>
                         <li><a href="about.html">Game Info</a></li>
                         <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="https://nullcalc.vercel.app/">Damage Calc</a></li>
                     </ul>
                 </div>
                 <!-- Community links column -->

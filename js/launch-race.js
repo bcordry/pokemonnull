@@ -344,33 +344,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initTrackerEmbers();   // Start the floating ember particles
     initLiveTimer();       // Start the elapsed race timer
     updateRaceTracker();   // Set all token positions and death counts from raceData
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

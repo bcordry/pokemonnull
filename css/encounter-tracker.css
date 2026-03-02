@@ -146,7 +146,7 @@
 /* Without this, the browser sizes each <select> to fit its longest <option>, */
 /* making dropdowns different widths across cards. */
 .pokemon-select {
-    width: 130px;                    /* narrower fixed width to fit 3-column layout */
+    width: 140px;                    /* narrower fixed width to fit 3-column layout */
     /* 140px was too wide — at 3 columns, each card is ~380px wide, and 140px for the */
     /* dropdown + 120px location name + 32px icon + 100px KO tracker = overflow. */
     /* 110px keeps all elements fitting comfortably within the column. */
