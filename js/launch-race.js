@@ -179,7 +179,7 @@ if (cdDays && cdHours && cdMinutes && cdSeconds && cdWrapper) {
 const raceData = {
     kindle:       { progress: 9, deaths: 0 },
     flygonhg:     { progress: 6, deaths: 0 },
-    kyacolosseum: { progress: 7, deaths: 0 },
+    kyacolosseum: { progress: 8, deaths: 0 },
     drayano:      { progress: 7, deaths: 0 },
     buhrito:      { progress: 12, deaths: 0 }
 };
@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRaceTracker();   // Set all token positions and death counts from raceData
 
 });
+
 
 
 
