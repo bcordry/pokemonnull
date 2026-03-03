@@ -177,7 +177,7 @@ const pokemonIdMap = {
     "darumaka":554,"dartrix":724,"decidueye":724,"decidueye-hisuian":724,
     "deino":633,"delcatty":301,"dewgong":87,"dewpider":751,"dhelmise":781,
     "diancie":719,"diggersby":660,"dipplin":1011,"dolliv":929,"donphan":232,
-    "dondozo":977,"doublade":680,"dracovish":882,"dracozolt":880,"dragalge":691,
+    "dondozo":977,"dottler":825,"doublade":680,"dracovish":882,"dracozolt":880,"dragalge":691,
     "dragonair":148,"dragonite":149,"drampa":780,"drapion":452,"drakloak":886,
     "dreepy":885,"drednaw":834,"drifblim":426,"drifloon":425,"drilbur":529,
     "druddigon":621,"dubwool":832,"dudunsparce":982,"dudunsparce-three-segment":982,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
