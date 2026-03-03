@@ -172,7 +172,7 @@ const pokemonIdMap = {
     "corsola":222,"corsola-galarian":222,"corviknight":823,"corvisquire":822,
     "cottonee":546,"crabrawler":739,"cradily":346,"cranidos":408,"crawdaunt":342,
     "cresselia":488,"crobat":169,"croagunk":453,"crustle":558,"cubchoo":613,
-    "cubone":104,"cufant":878,"cursola":864,"cutiefly":742,"cyclizar":1005,
+    "cubone":104,"cufant":878,"cursola":864,"cutiefly":742,"cyclizar":967,
     "cyndaquil":155,"dachsbun":927,"darmanitan":555,"darmanitan-galarian":555,
     "darumaka":554,"dartrix":724,"decidueye":724,"decidueye-hisuian":724,
     "deino":633,"delcatty":301,"dewgong":87,"dewpider":751,"dhelmise":781,
@@ -198,7 +198,7 @@ const pokemonIdMap = {
     "golem":76,"golem-alolan":76,"golisopod":768,"golurk":623,"goodra-hisuian":706,
     "goomy":704,"gossifleur":829,"grafaiai":960,"granbull":210,"graveler-alolan":75,
     "great-tusk":984,"greavard":1013,"grimmsnarl":861,"grimer-alolan":88,
-    "grotle":388,"grookey":810,"growlithe":58,"growlithe-hisui":58,"grubbin":736,"gurdurr":533,"gyarados":130,
+    "grotle":388,"grookey":810,"growlithe":58,"growlithe-hisui":58,"grubbin":736,"gulpin":316,"gurdurr":533,"gyarados":130,
     "hakamo-o":783,"happiny":440,"hariyama":297,"hatenna":856,"hatterene":858,
     "hawlucha":701,"haxorus":612,"helioptile":694,"heliolisk":695,"heracross":214,
     "herdier":507,"hippopotas":449,"hitmonchan":107,"hitmonlee":106,"hitmontop":237,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
