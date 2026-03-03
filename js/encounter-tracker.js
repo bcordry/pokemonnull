@@ -219,7 +219,7 @@ const pokemonIdMap = {
     "magikarp":129,"magneton":82,"magnezone":462,"makuhita":296,"malamar":687,
     "mamoswine":473,"mandibuzz":630,"manectric":310,"mankey":56,"mantine":226,
     "mantyke":458,"mareanie":747,"mareep":179,"marshadow":802,"marowak":105,
-    "masquerain":284,"maschiff":1013,"mawile":303,"medicham":308,"meditite":307,
+    "masquerain":284,"maschiff":942,"mawile":303,"medicham":308,"meditite":307,
     "meganium":154,"meowscarada":908,"meowth":52,"meowth-alolan":52,
     "meowth-galarian":52,"meowstic":678,"meowstic-female":678,"mesprit":481,
     "metang":375,"metagross":376,"mienfoo":619,"mienshao":620,"milcery":868,
@@ -250,7 +250,7 @@ const pokemonIdMap = {
     "samurott-hisuian":503,"sandile":551,"sandshrew":27,"sandshrew-alolan":27,
     "sandygast":769,"scizor":212,"scolipede":545,"scorbunny":813,"scrafty":560,
     "scraggy":559,"scream-tail":986,"sceptile":254,"scyther":123,"seadra":117,
-    "seismitoad":537,"seel":86,"serperior":497,"sewaddle":540,"sharpedo":319,
+    "seismitoad":537,"seedot":273,"seel":86,"serperior":497,"sewaddle":540,"sharpedo":319,
     "shaymin":492,"shellder":90,"shellos":422,"shelmet":616,"shieldon":410,
     "shiinotic":756,"shiftry":275,"shinx":403,"shroodle":944,"shroomish":285,"shuckle":213,
     "shuppet":353,"sigilyph":561,"sinistcha":1013,"sinistea":854,"sizzlipede":850,
@@ -260,7 +260,7 @@ const pokemonIdMap = {
     "smoliv":928,"snivy":495,"sneasel":215,"sneasel-hisuian":215,"sneasler":903,
     "snom":872,"snorlax":143,"snorunt":361,"snover":459,"snubbull":209,
     "sobble":816,"solrock":338,"spinda":327,"spiritomb":442,"spheal":363,
-    "sprigatito":906,"stakataka":805,"stantler":234,"staraptor":398,"starly":396,
+    "sprigatito":906,"squirtle":7,"stakataka":805,"stantler":234,"staraptor":398,"starly":396,
     "starmie":121,"staryu":120,"steelix":208,"stonjourner":874,"stoutland":508,
     "stufful":759,"stunfisk":618,"stunfisk-galarian":618,"stunky":434,
     "surskit":283,"swablu":333,"swadloon":541,"swampert":260,"swanna":581,
@@ -269,7 +269,7 @@ const pokemonIdMap = {
     "tapu-bulu":788,"tapu-koko":785,"tauros":128,"tauros-paldean":128,
     "tauros-paldean-aqua-breed":128,"tauros-paldean-blaze-breed":128,
     "teddiursa":216,"tentacool":72,"tentacruel":73,"tepig":498,"terrakion":639,
-    "timburr":532,"tinkatink":957,"tinkatuff":958,"tinkaton":959,"toedscool":1001,
+    "timburr":532,"tinkatink":957,"tinkatuff":958,"tinkaton":959,"toedscool":948,
     "toedscruel":1002,"togedemaru":777,"togepi":175,"togekiss":468,"togetic":176,
     "torchic":255,"torkoal":324,"tornadus":641,"torracat":726,"torterra":389,
     "totodile":158,"toxapex":748,"toxel":848,"trapinch":328,"treecko":252,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
