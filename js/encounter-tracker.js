@@ -159,7 +159,7 @@ const pokemonIdMap = {
     "bibarel":400,"bidoof":399,"binacle":688,"bisharp":625,"blastoise":9,
     "blaziken":257,"blipbug":824,"blitzle":522,"boldore":525,"boltund":836,
     "bombirdier":962,"bramblin":1005,"brambleghast":1006,"breloom":286,
-    "bronzong":437,"bronzor":436,"budew":406,"buizel":418,"bulbasaur":1,
+    "bronzong":437,"bronzor":436,"bruxish":779,"budew":406,"buizel":418,"bulbasaur":1,
     "buneary":427,"bunnelby":659,"butterfree":12,"buzzwole":794,"capsakid":951,
     "carbink":703,"camerupt":323,"carkol":838,"carracosta":565,"carvanha":318,
     "castform":351,"caterpie":10,"celesteela":797,"centiskorch":851,
@@ -188,7 +188,7 @@ const pokemonIdMap = {
     "excadrill":530,"exeggcute":102,"falinks":870,"farigiraf":981,"feebas":349,
     "fennekin":653,"feraligatr":160,"ferroseed":597,"ferrothorn":598,
     "fidough":926,"finizen":963,"finneon":456,"flabebe":669,"fletchinder":662,
-    "fletchling":661,"flittle":955,"floatzel":419,"floette":670,"flutter-mane":987,
+    "fletchling":661,"flittle":955,"floatzel":419,"floette":670,"florges":671,"flutter-mane":987,
     "flygon":330,"foongus":590,"forretress":205,"fortree":0,"froslass":478,
     "froakie":656,"frosmoth":873,"fraxure":611,"frigibax":996,"fuecoco":909,
     "gallade":475,"galvantula":596,"garchomp":445,"gardevoir":282,"garganacl":968,
@@ -272,7 +272,7 @@ const pokemonIdMap = {
     "timburr":532,"tinkatink":957,"tinkatuff":958,"tinkaton":959,"toedscool":948,
     "toedscruel":1002,"togedemaru":777,"togepi":175,"togekiss":468,"togetic":176,
     "torchic":255,"torkoal":324,"tornadus":641,"torracat":726,"torterra":389,
-    "totodile":158,"toxapex":748,"toxel":848,"trapinch":328,"treecko":252,
+    "totodile":158,"toxapex":748,"toxel":848,"toxtricity":10184,"trapinch":328,"treecko":252,
     "turtwig":387,"turtonator":776,"tympole":535,"tynamo":602,"typhlosion":157,
     "typhlosion-hisuian":157,"tyrogue":236,"tyrunt":696,"unown":201,"unown-e":201,
     "unown-emark":201,"unown-i":201,"unown-l":201,"unown-p":201,"unown-s":201,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
