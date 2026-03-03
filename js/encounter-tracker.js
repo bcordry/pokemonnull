@@ -191,7 +191,7 @@ const pokemonIdMap = {
     "fletchling":661,"flittle":955,"floatzel":419,"floette":670,"florges":671,"flutter-mane":987,
     "flygon":330,"foongus":590,"forretress":205,"fortree":0,"froslass":478,
     "froakie":656,"frosmoth":873,"fraxure":611,"frigibax":996,"fuecoco":909,
-    "gallade":475,"galvantula":596,"garchomp":445,"gardevoir":282,"garganacl":968,
+    "gallade":475,"galvantula":596,"garchomp":445,"gardevoir":282,"garganacl":934,
     "gastly":92,"gastrodon":423,"gengar":94,"geodude":74,"geodude-alolan":74,
     "gholdengo":1000,"gible":443,"gigalith":526,"gimmighoul":999,"girafarig":203,
     "glameow":431,"glimmora":970,"gliscor":472,"glimmet":969,"gloom":44,
@@ -228,7 +228,7 @@ const pokemonIdMap = {
     "minior-core-red":774,"misdreavus":200,"mismagius":429,"morpeko":877,
     "morelull":755,"morgrem":860,"mr-mime":122,"mr-mime-galarian":122,
     "mudkip":258,"mudbray":749,"muk-alolan":89,"munchlax":446,"murkrow":198,
-    "nacli":966,"naclstack":967,"naganadel":804,"natu":177,"nidoran-f":29,
+    "nacli":932,"naclstack":933,"naganadel":804,"natu":177,"nidoran-f":29,
     "nidoran-m":32,"nincada":290,"ninjask":291,"noibat":714,"noivern":715,
     "nosepass":299,"numel":322,"nuzleaf":274,"nymble":919,"obstagoon":862,
     "octillery":224,"oddish":43,"omanyte":138,"omastar":139,"onix":95,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
