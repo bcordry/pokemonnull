@@ -166,7 +166,7 @@ const pokemonIdMap = {
     "ceruledge":937,"cetitan":975,"cetoddle":974,"chandelure":609,"chansey":113,
     "charcadet":935,"charjabug":737,"charmander":4,"charmeleon":5,"charizard":6,
     "chespin":650,"chewtle":833,"chikorita":152,"chimchar":390,"chimecho":358,
-    "chinchou":170,"clamperl":366,"clauncher":692,"claydol":344,"clefable":36,
+    "chinchou":170,"chingling":433,"clamperl":366,"clauncher":692,"claydol":344,"clefable":36,
     "clefairy":35,"cleffa":173,"cloyster":91,"clodsire":980,"coalossal":839,
     "cobalion":638,"cofagrigus":563,"combee":415,"copperajah":879,"corphish":341,
     "corsola":222,"corsola-galarian":222,"corviknight":823,"corvisquire":822,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
