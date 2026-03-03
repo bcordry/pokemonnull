@@ -176,7 +176,7 @@ const pokemonIdMap = {
     "cyndaquil":155,"dachsbun":927,"darmanitan":555,"darmanitan-galarian":555,
     "darumaka":554,"dartrix":724,"decidueye":724,"decidueye-hisuian":724,
     "deino":633,"delcatty":301,"dewgong":87,"dewpider":751,"dhelmise":781,
-    "diancie":719,"diggersby":660,"dipplin":1011,"dolliv":1008,"donphan":232,
+    "diancie":719,"diggersby":660,"dipplin":1011,"dolliv":929,"donphan":232,
     "dondozo":977,"doublade":680,"dracovish":882,"dracozolt":880,"dragalge":691,
     "dragonair":148,"dragonite":149,"drampa":780,"drapion":452,"drakloak":886,
     "dreepy":885,"drednaw":834,"drifblim":426,"drifloon":425,"drilbur":529,
@@ -197,7 +197,7 @@ const pokemonIdMap = {
     "glameow":431,"glimmora":970,"gliscor":472,"glimmet":969,"gloom":44,
     "golem":76,"golem-alolan":76,"golisopod":768,"golurk":623,"goodra-hisuian":706,
     "goomy":704,"gossifleur":829,"grafaiai":960,"granbull":210,"graveler-alolan":75,
-    "great-tusk":984,"greavard":1013,"grimmsnarl":861,"grimer-alolan":88,
+    "great-tusk":984,"greavard":971,"grimmsnarl":861,"grimer-alolan":88,
     "grotle":388,"grookey":810,"growlithe":58,"growlithe-hisui":58,"grubbin":736,"gulpin":316,"gurdurr":533,"gyarados":130,
     "hakamo-o":783,"happiny":440,"hariyama":297,"hatenna":856,"hatterene":858,
     "hawlucha":701,"haxorus":612,"helioptile":694,"heliolisk":695,"heracross":214,
@@ -268,7 +268,7 @@ const pokemonIdMap = {
     "tatsugiri":978,"tatsugiri-droopy":978,"tatsugiri-stretchy":978,
     "tapu-bulu":788,"tapu-koko":785,"tauros":128,"tauros-paldean":128,
     "tauros-paldean-aqua-breed":128,"tauros-paldean-blaze-breed":128,
-    "teddiursa":216,"tentacool":72,"tentacruel":73,"tepig":498,"terrakion":639,
+    "teddiursa":216,"tentacool":72,"tentacruel":73,"tepig":498,"terrakion":639,"thundurus":642,
     "timburr":532,"tinkatink":957,"tinkatuff":958,"tinkaton":959,"toedscool":948,
     "toedscruel":1002,"togedemaru":777,"togepi":175,"togekiss":468,"togetic":176,
     "torchic":255,"torkoal":324,"tornadus":641,"torracat":726,"torterra":389,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
