@@ -194,7 +194,7 @@ const pokemonIdMap = {
     "gallade":475,"galvantula":596,"garchomp":445,"gardevoir":282,"garganacl":934,
     "gastly":92,"gastrodon":423,"gengar":94,"geodude":74,"geodude-alolan":74,
     "gholdengo":1000,"gible":443,"gigalith":526,"gimmighoul":999,"girafarig":203,
-    "glameow":431,"glimmora":970,"gligar":471,"gliscor":472,"glimmet":969,"gloom":44,
+    "glameow":431,"glimmora":970,"gligar":207,"gliscor":472,"glimmet":969,"gloom":44,
     "golem":76,"golem-alolan":76,"golisopod":768,"golurk":623,"goodra-hisuian":706,
     "goomy":704,"gossifleur":829,"grafaiai":960,"granbull":210,"graveler-alolan":75,
     "great-tusk":984,"greavard":971,"grimmsnarl":861,"grimer-alolan":88,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
