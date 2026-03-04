@@ -264,7 +264,7 @@ const pokemonIdMap = {
     "starmie":121,"staryu":120,"steelix":208,"stonjourner":874,"stoutland":508,
     "stufful":759,"stunfisk":618,"stunfisk-galarian":618,"stunky":434,
     "surskit":283,"swablu":333,"swadloon":541,"swampert":260,"swanna":581,
-    "swalot":317,"tadbulb":938,"tangela":114,"tangrowth":465,"talonflame":663,
+    "swalot":317,"swinub":220,"tadbulb":938,"tangela":114,"tangrowth":465,"talonflame":663,
     "tatsugiri":978,"tatsugiri-droopy":978,"tatsugiri-stretchy":978,
     "tapu-bulu":788,"tapu-koko":785,"tauros":128,"tauros-paldean":128,
     "tauros-paldean-aqua-breed":128,"tauros-paldean-blaze-breed":128,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
