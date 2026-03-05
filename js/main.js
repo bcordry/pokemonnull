@@ -358,4 +358,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+/**
+ * DROPDOWN MOBILE TOGGLE
+ * Allows dropdowns to open on click/tap for mobile devices
+ * where hover states don't exist.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        
+        toggle.addEventListener('click', function(e) {
+            // If we are on a mobile-sized screen (usually < 992px)
+            if (window.innerWidth < 992) {
+                e.preventDefault(); // Stop the link from navigating
+                dropdown.classList.toggle('active'); // Toggle a class to show/hide
+            }
+        });
+    });
+});
+
+
 

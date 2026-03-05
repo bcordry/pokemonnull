@@ -17,18 +17,18 @@
     <title>Pokémon Null - Launch Event</title>
     <link rel="icon" type="image/png" href="assets/images/logos/nfaviconEMPTY.png">
     <link rel="apple-touch-icon" href="assets/images/logos/nfaviconEMPTY.png">
-    <meta name="description" content="Watch the Pokémon Null Launch Event live — five elite Nuzlocke streamers compete through the Norman Split. Fewest deaths wins.">
+    <meta name="description" content="The Pokémon Null Launch Event has concluded. Congratulations to Buhrito for winning the Norman Split race!">
     <meta name="theme-color" content="#dc3545">
     <link rel="canonical" href="http://pokemonnull.com/launch-race.html">
-    <meta property="og:title" content="Launch Event — Pokémon Null">
-    <meta property="og:description" content="Five elite Nuzlocke streamers compete through the Norman Split. Fewest deaths wins. Live on March 2nd, 2026.">
+    <meta property="og:title" content="Launch Event Concluded — Pokémon Null">
+    <meta property="og:description" content="The race is over! Congratulations to Buhrito for winning the Pokémon Null Launch Event. View the final standings here.">
     <meta property="og:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
     <meta property="og:url" content="http://pokemonnull.com/launch-race.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Pokémon Null">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Launch Event — Pokémon Null">
-    <meta name="twitter:description" content="Five elite Nuzlocke streamers compete through the Norman Split. Fewest deaths wins. Live on March 2nd, 2026.">
+    <meta name="twitter:title" content="Launch Event Concluded — Pokémon Null">
+    <meta name="twitter:description" content="The race is over! Congratulations to Buhrito for winning the Pokémon Null Launch Event. View the final standings here.">
     <meta name="twitter:image" content="http://pokemonnull.com/assets/images/logos/fullbackground.gif">
 
     <!-- Google Fonts: Bebas Neue for headers, Manrope for body text -->
@@ -81,17 +81,32 @@
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="patch-applier.html" class="nav-link">Patch</a></li>
-                <li><a href="https://nulldex.vercel.app/" class="nav-link" target="_blank" rel="noopener noreferrer">Pokédex</a></li>
-                <li><a href="encounter-tracker.html" class="nav-link">Tracker</a></li>
                 <li><a href="https://drive.google.com/drive/u/0/folders/10H1Pm-1dhEgc0QmjsnA9A9PY6nNRXtoJ" class="nav-link" target="_blank" rel="noopener noreferrer">Documentation</a></li>
-                <li><a href="https://nullcalc.vercel.app/" class="nav-link" target="_blank" rel="noopener noreferrer">Damage Calc</a></li>
+                <!-- POKÉDEX DROPDOWN -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Pokédex <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://nulldex.vercel.app/" target="_blank" rel="noopener noreferrer">Official <span class="ext-arrow">↗</span></a></li>
+                        <li><a href="https://ddex-chi.vercel.app/?game=pokemonnull" target="_blank" rel="noopener noreferrer">Hzla <span class="ext-arrow">↗</span></a></li>
+                    </ul>
+                </li>
+
+                <!-- DAMAGE CALC DROPDOWN -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Damage Calc <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://nullcalc.vercel.app/" target="_blank" rel="noopener noreferrer">Official <span class="ext-arrow">↗</span></a></li>
+                        <li><a href="https://hzla.github.io/Dynamic-Calc-Decomps/?data=null" target="_blank" rel="noopener noreferrer">Hzla <span class="ext-arrow">↗</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="encounter-tracker.html" class="nav-link">Tracker</a></li>
             </ul>
         </nav>
     </header>
-    <!-- ===================== END HEADER ===================== -->
+    <!-- ==== END HEADER ==== -->
 
 
-    <!-- ===================== MAIN CONTENT ===================== -->
+    <!-- ==== MAIN CONTENT ==== -->
     <main class="main">
 
         <!-- ---- HERO BANNER ---- -->
@@ -116,21 +131,21 @@
                 <div class="event-meta">
                     <!-- Calendar icon + date -->
                     <div class="event-meta-item">
-                        <span class="event-meta-icon">📅</span>
-                        <span>March 2nd, 2026</span>
+                    <span class="event-meta-icon">📅</span>
+                    <span>March 2nd, 2026</span>
                     </div>
                     <!-- Clock icon + time -->
                     <div class="event-meta-item">
-                        <span class="event-meta-icon">🕑</span>
-                        <span>2:00 PM EST</span>
+                    <span class="event-meta-icon">🕑</span>
+                    <span>2:00 PM EST</span>
                     </div>
                     <!-- Twitch icon + platform -->
                     <div class="event-meta-item">
-                        <span class="event-meta-icon">📺</span>
-                        <!-- Opens pChal's Twitch in a new tab -->
-                        <a href="https://twitch.tv/pchal" target="_blank" rel="noopener" class="event-meta-link">
-                            twitch.tv/pchal
-                        </a>
+                    <span class="event-meta-icon">📺</span>
+                    <!-- Opens pChal's Twitch in a new tab -->
+                    <a href="https://twitch.tv/pchal" target="_blank" rel="noopener" class="event-meta-link">
+                    twitch.tv/pchal
+                    </a>
                     </div>
                 </div>
 
@@ -138,23 +153,23 @@
                 <div class="event-countdown" id="event-countdown">
 
                     <div class="countdown-block">
-                        <span class="countdown-number" id="cd-days">--</span>
-                        <span class="countdown-label">Days</span>
+                    <span class="countdown-number" id="cd-days">--</span>
+                    <span class="countdown-label">Days</span>
                     </div>
                     <div class="countdown-separator">:</div>
                     <div class="countdown-block">
-                        <span class="countdown-number" id="cd-hours">--</span>
-                        <span class="countdown-label">Hours</span>
+                    <span class="countdown-number" id="cd-hours">--</span>
+                    <span class="countdown-label">Hours</span>
                     </div>
                     <div class="countdown-separator">:</div>
                     <div class="countdown-block">
-                        <span class="countdown-number" id="cd-minutes">--</span>
-                        <span class="countdown-label">Minutes</span>
+                    <span class="countdown-number" id="cd-minutes">--</span>
+                    <span class="countdown-label">Minutes</span>
                     </div>
                     <div class="countdown-separator">:</div>
                     <div class="countdown-block">
-                        <span class="countdown-number" id="cd-seconds">--</span>
-                        <span class="countdown-label">Seconds</span>
+                    <span class="countdown-number" id="cd-seconds">--</span>
+                    <span class="countdown-label">Seconds</span>
                     </div>
                 </div>-->
             </div> 
@@ -186,7 +201,7 @@
                 <div class="lane-label">
                     <!-- runner-ring-kindle applies the light-blue border, matching the runner card below -->
                     <div class="lane-logo-wrap runner-ring-kindle">
-                        <img src="assets/images/logos/kindlelogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    <img src="assets/images/logos/kindlelogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
                     </div>
                     <span class="lane-name">Kindle</span>
                 </div>
@@ -198,9 +213,9 @@
 
                     <!-- 13 tick marks. JS counts these to compute token position. -->
                     <div class="track-ticks">
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
                     </div>
 
                     <!-- Finish flag at the far right -->
@@ -209,9 +224,9 @@
                     <!-- Moving token. JS sets its `left` % to slide it along the track. -->
                     <!-- transform: translateX(-50%) keeps the icon CENTRED on the tick, not left-justified -->
                     <div class="runner-token" id="token-kindle">
-                        <img src="assets/images/logos/kindlelogo.png" alt="Kindle" class="token-img runner-ring-kindle">
-                        <!-- Small label under the icon showing current fight number -->
-                        <span class="token-pos" id="pos-kindle">0/13</span>
+                    <img src="assets/images/logos/kindlelogo.png" alt="Kindle" class="token-img runner-ring-kindle">
+                    <!-- Small label under the icon showing current fight number -->
+                    <span class="token-pos" id="pos-kindle">0/13</span>
                     </div>
                 </div>
 
@@ -230,21 +245,21 @@
                 <div class="lane-label">
                     <!-- runner-ring-flygonhg applies the green border -->
                     <div class="lane-logo-wrap runner-ring-flygonhg">
-                        <img src="assets/images/logos/flygonlogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    <img src="assets/images/logos/flygonlogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
                     </div>
                     <span class="lane-name">FlygonHG</span>
                 </div>
                 <div class="lane-track">
                     <div class="track-rail"></div>
                     <div class="track-ticks">
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
                     </div>
                     <div class="track-finish" aria-hidden="true">🏁</div>
                     <div class="runner-token" id="token-flygonhg">
-                        <img src="assets/images/logos/flygonlogo.png" alt="FlygonHG" class="token-img runner-ring-flygonhg">
-                        <span class="token-pos" id="pos-flygonhg">0/13</span>
+                    <img src="assets/images/logos/flygonlogo.png" alt="FlygonHG" class="token-img runner-ring-flygonhg">
+                    <span class="token-pos" id="pos-flygonhg">0/13</span>
                     </div>
                 </div>
                 <div class="lane-deaths">
@@ -260,21 +275,21 @@
                 <div class="lane-label">
                     <!-- runner-ring-kya applies the orange border -->
                     <div class="lane-logo-wrap runner-ring-kya">
-                        <img src="assets/images/logos/kyalogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    <img src="assets/images/logos/kyalogo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
                     </div>
                     <span class="lane-name">Kya</span>
                 </div>
                 <div class="lane-track">
                     <div class="track-rail"></div>
                     <div class="track-ticks">
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
                     </div>
                     <div class="track-finish" aria-hidden="true">🏁</div>
                     <div class="runner-token" id="token-kyacolosseum">
-                        <img src="assets/images/logos/kyalogo.png" alt="Kya" class="token-img runner-ring-kya">
-                        <span class="token-pos" id="pos-kyacolosseum">0/13</span>
+                    <img src="assets/images/logos/kyalogo.png" alt="Kya" class="token-img runner-ring-kya">
+                    <span class="token-pos" id="pos-kyacolosseum">0/13</span>
                     </div>
                 </div>
                 <div class="lane-deaths">
@@ -290,21 +305,21 @@
                 <div class="lane-label">
                     <!-- runner-ring-drayano applies the purple border -->
                     <div class="lane-logo-wrap runner-ring-drayano">
-                        <img src="assets/images/logos/drayanologo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    <img src="assets/images/logos/drayanologo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
                     </div>
                     <span class="lane-name">Drayano</span>
                 </div>
                 <div class="lane-track">
                     <div class="track-rail"></div>
                     <div class="track-ticks">
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
                     </div>
                     <div class="track-finish" aria-hidden="true">🏁</div>
                     <div class="runner-token" id="token-drayano">
-                        <img src="assets/images/logos/drayanologo.png" alt="Drayano" class="token-img runner-ring-drayano">
-                        <span class="token-pos" id="pos-drayano">0/13</span>
+                    <img src="assets/images/logos/drayanologo.png" alt="Drayano" class="token-img runner-ring-drayano">
+                    <span class="token-pos" id="pos-drayano">0/13</span>
                     </div>
                 </div>
                 <div class="lane-deaths">
@@ -320,21 +335,21 @@
                 <div class="lane-label">
                     <!-- runner-ring-buhrito applies the yellow border -->
                     <div class="lane-logo-wrap runner-ring-buhrito">
-                        <img src="assets/images/logos/buhritologo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
+                    <img src="assets/images/logos/buhritologo.png" alt="" class="lane-logo" onerror="this.style.opacity='0'">
                     </div>
                     <span class="lane-name">Buhrito</span>
                 </div>
                 <div class="lane-track">
                     <div class="track-rail"></div>
                     <div class="track-ticks">
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
                     </div>
                     <div class="track-finish" aria-hidden="true">🏁</div>
                     <div class="runner-token" id="token-buhrito">
-                        <img src="assets/images/logos/buhritologo.png" alt="Buhrito" class="token-img runner-ring-buhrito">
-                        <span class="token-pos" id="pos-buhrito">0/13</span>
+                    <img src="assets/images/logos/buhritologo.png" alt="Buhrito" class="token-img runner-ring-buhrito">
+                    <span class="token-pos" id="pos-buhrito">0/13</span>
                     </div>
                 </div>
                 <div class="lane-deaths">
@@ -355,37 +370,27 @@
 
 
 
-        <!-- ---- TWITCH EMBED ---- -->
-        <!-- Embeds pChal's live Twitch stream so viewers can watch without leaving the page -->
+        <!-- ---- TWITCH EMBED (HIDDEN AFTER EVENT) ---- -->
+        <!-- 
         <section class="stream-section">
             <div class="container">
                 <h3 class="section-title">Watch Live</h3>
-
-                <!-- Responsive wrapper — padding-bottom trick keeps 16:9 ratio at any width -->
                 <div class="stream-wrapper">
-                    <!--
-                        Twitch embed iframe.
-                        - "channel=pchal"  → which channel to show
-                        - "parent=" must match the domain this page is served from.
-                          Replace "yourdomain.com" with your actual domain before deploying.
-                        - allowfullscreen → lets viewers go fullscreen
-                    -->
                     <iframe
-                        src="https://player.twitch.tv/?channel=pchal&parent=localhost&parent=pokemonnull.com"
-                        allowfullscreen
-                        title="pChal's Twitch Stream — Pokémon Null Launch Event">
+                    src="https://player.twitch.tv/?channel=pchal&parent=localhost&parent=pokemonnull.com"
+                    allowfullscreen
+                    title="pChal's Twitch Stream — Pokémon Null Launch Event">
                     </iframe>
                 </div>
-
-                <!-- Small note reminding visitors they can also watch directly on Twitch -->
                 <p class="stream-note">
                     Stream not loading?
                     <a href="https://twitch.tv/pchal" target="_blank" rel="noopener">
-                        Watch directly on Twitch →
+                    Watch directly on Twitch →
                     </a>
                 </p>
             </div>
         </section>
+        -->
         <!-- ---- END TWITCH EMBED ---- -->
 
 
@@ -398,35 +403,35 @@
                 <div class="format-grid">
                     <!-- Card 1: What the split is -->
                     <div class="format-card">
-                        <div class="format-icon">🗺️</div>
-                        <h4>Norman Split</h4>
-                        <p>
-                            Each runner starts with a pre-set Box and resources, then fights through
-                            the Norman Split: a specially-curated section of Pokémon Null ending with
-                            <strong>Gym Leader Norman</strong> as the final boss.
-                        </p>
+                    <div class="format-icon">🗺️</div>
+                    <h4>Norman Split</h4>
+                    <p>
+                    Each runner starts with a pre-set Box and resources, then fights through
+                    the Norman Split: a specially-curated section of Pokémon Null ending with
+                    <strong>Gym Leader Norman</strong> as the final boss.
+                    </p>
                     </div>
 
                     <!-- Card 2: How the winner is decided -->
                     <div class="format-card">
-                        <div class="format-icon">💀</div>
-                        <h4>Fewest Deaths Wins</h4>
-                        <p>
-                            The winner is whoever defeats Norman with the <strong>fewest Pokémon deaths</strong>.
-                            This is a strategy event, not a speedrun. We're here for the lines, not the clock.
-                            Time is only used as a tiebreaker.
-                        </p>
+                    <div class="format-icon">💀</div>
+                    <h4>Fewest Deaths Wins</h4>
+                    <p>
+                    The winner is whoever defeats Norman with the <strong>fewest Pokémon deaths</strong>.
+                    This is a strategy event, not a speedrun. We're here for the lines, not the clock.
+                    Time is only used as a tiebreaker.
+                    </p>
                     </div>
 
                     <!-- Card 3: What they're given -->
                     <div class="format-card">
-                        <div class="format-icon">📦</div>
-                        <h4>Equal Resources</h4>
-                        <p>
-                            All five runners receive the same Box of Pokémon, the same items,
-                            and the same preparation time. They'll get to choose their own Starter, but
-                            the only variables are skill and decision-making.
-                        </p>
+                    <div class="format-icon">📦</div>
+                    <h4>Equal Resources</h4>
+                    <p>
+                    All five runners receive the same Box of Pokémon, the same items,
+                    and the same preparation time. They'll get to choose their own Starter, but
+                    the only variables are skill and decision-making.
+                    </p>
                     </div>
                 </div>
             </div>
@@ -447,149 +452,149 @@
 
                     <!-- ---- RUNNER CARD: Kindle ---- -->
                     <article class="runner-card">
-                        <!-- Avatar image — replace src with actual avatar when available -->
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/kindlelogo.png"
-                                alt="KindleKos's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Kindle'"
-                            />
-                            <!-- Coloured ring around avatar — colour set per-card in CSS -->
-                            <div class="runner-avatar-ring runner-ring-kindle"></div>
-                        </div>
+                    <!-- Avatar image — replace src with actual avatar when available -->
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/kindlelogo.png"
+                    alt="KindleKos's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Kindle'"
+                    />
+                    <!-- Coloured ring around avatar — colour set per-card in CSS -->
+                    <div class="runner-avatar-ring runner-ring-kindle"></div>
+                    </div>
 
-                        <!-- Runner name -->
-                        <h4 class="runner-name">KindleKos</h4>
+                    <!-- Runner name -->
+                    <h4 class="runner-name">KindleKos</h4>
 
-                        <!-- Short bio paragraph -->
-                        <p class="runner-bio">
-                            He's so powerful, we had to do it to him - we had to give him the resources late. KindleKos replaces Moxi
-                            as a late entrant, but we choose to believe this is actually an advantage for him. Put all your money on this guy!
-                        </p>
+                    <!-- Short bio paragraph -->
+                    <p class="runner-bio">
+                    He's so powerful, we had to do it to him - we had to give him the resources late. KindleKos replaces Moxi
+                    as a late entrant, but we choose to believe this is actually an advantage for him. Put all your money on this guy!
+                    </p>
 
-                        <!-- Links to the runner's channels -->
-                        <div class="runner-links">
-                            <a href="https://www.twitch.tv/kindlekos" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                Twitch
-                            </a>
-                        </div>
+                    <!-- Links to the runner's channels -->
+                    <div class="runner-links">
+                    <a href="https://www.twitch.tv/kindlekos" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    Twitch
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END RUNNER CARD: KindleKos ---- -->
 
 
                     <!-- ---- RUNNER CARD: FlygonHG ---- -->
                     <article class="runner-card">
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/flygonlogo.png"
-                                alt="FlygonHG's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=FlygonHG'"
-                            />
-                            <div class="runner-avatar-ring runner-ring-flygonhg"></div>
-                        </div>
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/flygonlogo.png"
+                    alt="FlygonHG's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=FlygonHG'"
+                    />
+                    <div class="runner-avatar-ring runner-ring-flygonhg"></div>
+                    </div>
 
-                        <h4 class="runner-name">FlygonHG</h4>
+                    <h4 class="runner-name">FlygonHG</h4>
 
-                        <p class="runner-bio">
-                            Ultra-popular challenge Nuzlocke Youtuber FlygonHG brings
-                            encyclopaedic knowledge of Pokémon mechanics and a reputation for
-                            calculated routing that always pays off. Plus he's from Boston!
-                        </p>
+                    <p class="runner-bio">
+                    Ultra-popular challenge Nuzlocke Youtuber FlygonHG brings
+                    encyclopaedic knowledge of Pokémon mechanics and a reputation for
+                    calculated routing that always pays off. Plus he's from Boston!
+                    </p>
 
-                        <div class="runner-links">
-                            <a href="https://twitch.tv/flygonhg" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                Twitch
-                            </a>
-                        </div>
+                    <div class="runner-links">
+                    <a href="https://twitch.tv/flygonhg" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    Twitch
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END RUNNER CARD: FlygonHG ---- -->
 
 
                     <!-- ---- RUNNER CARD: KyaColosseum ---- -->
                     <article class="runner-card">
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/kyalogo.png"
-                                alt="KyaColosseum's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Kya'"
-                            />
-                            <div class="runner-avatar-ring runner-ring-kya"></div>
-                        </div>
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/kyalogo.png"
+                    alt="KyaColosseum's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Kya'"
+                    />
+                    <div class="runner-avatar-ring runner-ring-kya"></div>
+                    </div>
 
-                        <h4 class="runner-name">KyaColosseum</h4>
+                    <h4 class="runner-name">KyaColosseum</h4>
 
-                        <p class="runner-bio">
-                            A queen of yapping while playing, Kya thrives in high-stakes
-                            environments. Her experience with difficult ROM hacks
-                            and previous event victories give her an edge in this competition!
-                        </p>
+                    <p class="runner-bio">
+                    A queen of yapping while playing, Kya thrives in high-stakes
+                    environments. Her experience with difficult ROM hacks
+                    and previous event victories give her an edge in this competition!
+                    </p>
 
-                        <div class="runner-links">
-                            <a href="https://twitch.tv/kyacolosseum" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                Twitch
-                            </a>
-                        </div>
+                    <div class="runner-links">
+                    <a href="https://twitch.tv/kyacolosseum" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    Twitch
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END RUNNER CARD: KyaColosseum ---- -->
 
 
                     <!-- ---- RUNNER CARD: Drayano ---- -->
                     <article class="runner-card">
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/drayanologo.png"
-                                alt="Drayano's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Drayano'"
-                            />
-                            <div class="runner-avatar-ring runner-ring-drayano"></div>
-                        </div>
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/drayanologo.png"
+                    alt="Drayano's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Drayano'"
+                    />
+                    <div class="runner-avatar-ring runner-ring-drayano"></div>
+                    </div>
 
-                        <h4 class="runner-name">Drayano</h4>
+                    <h4 class="runner-name">Drayano</h4>
 
-                        <p class="runner-bio">
-                            A legendary name in the ROM hack community, Drayano has designed
-                            some of the most well-loved hacks ever made. Competing in Pokémon Null
-                            as a player is a rare treat, and expectations are sky-high.
-                        </p>
+                    <p class="runner-bio">
+                    A legendary name in the ROM hack community, Drayano has designed
+                    some of the most well-loved hacks ever made. Competing in Pokémon Null
+                    as a player is a rare treat, and expectations are sky-high.
+                    </p>
 
-                        <div class="runner-links">
-                            <a href="https://twitch.tv/drayano" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                Twitch
-                            </a>
-                        </div>
+                    <div class="runner-links">
+                    <a href="https://twitch.tv/drayano" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    Twitch
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END RUNNER CARD: Drayano ---- -->
 
 
                     <!-- ---- RUNNER CARD: Buhrito ---- -->
                     <article class="runner-card">
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/buhritologo.png"
-                                alt="Buhrito's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Buhrito'"
-                            />
-                            <div class="runner-avatar-ring runner-ring-buhrito"></div>
-                        </div>
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/buhritologo.png"
+                    alt="Buhrito's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/c0c0c0?text=Buhrito'"
+                    />
+                    <div class="runner-avatar-ring runner-ring-buhrito"></div>
+                    </div>
 
-                        <h4 class="runner-name">Buhrito</h4>
+                    <h4 class="runner-name">Buhrito</h4>
 
-                        <p class="runner-bio">
-                            Known for entertaining commentary and sharp play,
-                            Buhrito is the wildcard of the group. He's guaranteed
-                            to make the most entertaining plays, and they might even pay off!
-                        </p>
+                    <p class="runner-bio">
+                    Known for entertaining commentary and sharp play,
+                    Buhrito is the wildcard of the group. He's guaranteed
+                    to make the most entertaining plays, and they might even pay off!
+                    </p>
 
-                        <div class="runner-links">
-                            <a href="https://twitch.tv/buhrito" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                Twitch
-                            </a>
-                        </div>
+                    <div class="runner-links">
+                    <a href="https://twitch.tv/buhrito" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    Twitch
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END RUNNER CARD: Buhrito ---- -->
 
@@ -614,69 +619,69 @@
 
                     <!-- ---- COMMENTATOR CARD: Terra ---- -->
                     <article class="commentator-card">
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/terrralogo.png"
-                                alt="Terra's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/dc3545?text=Terra'"
-                            />
-                            <!-- Red ring for Terra — the game's creator -->
-                            <div class="runner-avatar-ring runner-ring-terra"></div>
-                        </div>
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/terrralogo.png"
+                    alt="Terra's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/dc3545?text=Terra'"
+                    />
+                    <!-- Red ring for Terra — the game's creator -->
+                    <div class="runner-avatar-ring runner-ring-terra"></div>
+                    </div>
 
-                        <h4 class="runner-name">Terra</h4>
+                    <h4 class="runner-name">Terra</h4>
 
-                        <!-- Gold "Creator" badge -->
-                        <span class="commentator-badge">🎮 Game Creator</span>
+                    <!-- Gold "Creator" badge -->
+                    <span class="commentator-badge">🎮 Game Creator</span>
 
-                        <p class="runner-bio">
-                            Terra is the sole creator of Pokémon Null. Every trainer team,
-                            every encounter table, every mechanic was hand-crafted by him. Nobody knows the game better,
-                            and Terra will be on commentary to explain exactly why each decision
-                            the runners make is right or catastrophically wrong.
-                        </p>
+                    <p class="runner-bio">
+                    Terra is the sole creator of Pokémon Null. Every trainer team,
+                    every encounter table, every mechanic was hand-crafted by him. Nobody knows the game better,
+                    and Terra will be on commentary to explain exactly why each decision
+                    the runners make is right or catastrophically wrong.
+                    </p>
 
-                        <div class="runner-links">
-                            <!-- Add Terra's actual links here when known -->
-                            <a href="https://www.twitch.tv/terrra" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                twitch.tv/terrra
-                            </a>
-                        </div>
+                    <div class="runner-links">
+                    <!-- Add Terra's actual links here when known -->
+                    <a href="https://www.twitch.tv/terrra" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    twitch.tv/terrra
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END COMMENTATOR CARD: Terra ---- -->
 
 
                     <!-- ---- COMMENTATOR CARD: pChal ---- -->
                     <article class="commentator-card">
-                        <div class="runner-avatar-wrap">
-                            <img
-                                src="assets/images/logos/pchallogo.png"
-                                alt="pChal's avatar"
-                                class="runner-avatar"
-                                onerror="this.src='https://placehold.co/120x120/2a2a2a/9146ff?text=pChal'"
-                            />
-                            <!-- Purple ring for pChal — Twitch brand colour -->
-                            <div class="runner-avatar-ring runner-ring-pchal"></div>
-                        </div>
+                    <div class="runner-avatar-wrap">
+                    <img
+                    src="assets/images/logos/pchallogo.png"
+                    alt="pChal's avatar"
+                    class="runner-avatar"
+                    onerror="this.src='https://placehold.co/120x120/2a2a2a/9146ff?text=pChal'"
+                    />
+                    <!-- Purple ring for pChal — Twitch brand colour -->
+                    <div class="runner-avatar-ring runner-ring-pchal"></div>
+                    </div>
 
-                        <h4 class="runner-name">pChal</h4>
+                    <h4 class="runner-name">pChal</h4>
 
-                        <!-- Purple "Host" badge -->
-                        <span class="commentator-badge commentator-badge-host">📡 Host & Commentator</span>
+                    <!-- Purple "Host" badge -->
+                    <span class="commentator-badge commentator-badge-host">📡 Host & Commentator</span>
 
-                        <p class="runner-bio">
-                            pChal is the biggest Nuzlocke streamer on Twitch, renowned for
-                            in-depth analysis, hype commentary, and bashing his community that lives and
-                            breathes Pokémon Nuzlocke runs. The event airs on pChal's channel, so be sure to
-                            tune in for the full experience!
-                        </p>
+                    <p class="runner-bio">
+                    pChal is the biggest Nuzlocke streamer on Twitch, renowned for
+                    in-depth analysis, hype commentary, and bashing his community that lives and
+                    breathes Pokémon Nuzlocke runs. The event airs on pChal's channel, so be sure to
+                    tune in for the full experience!
+                    </p>
 
-                        <div class="runner-links">
-                            <a href="https://twitch.tv/pchal" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
-                                twitch.tv/pchal
-                            </a>
-                        </div>
+                    <div class="runner-links">
+                    <a href="https://twitch.tv/pchal" target="_blank" rel="noopener" class="runner-link runner-link-twitch">
+                    twitch.tv/pchal
+                    </a>
+                    </div>
                     </article>
                     <!-- ---- END COMMENTATOR CARD: pChal ---- -->
 
@@ -687,10 +692,10 @@
         <!-- ---- END COMMENTATORS SECTION ---- -->
 
     </main>
-    <!-- ===================== END MAIN CONTENT ===================== -->
+    <!-- ==== END MAIN CONTENT ==== -->
 
 
-    <!-- ===================== FOOTER ===================== -->
+    <!-- ==== FOOTER ==== -->
     <!-- Shared footer across all pages -->
     <footer class="footer">
         <div class="container">
@@ -704,20 +709,20 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="patch-applier.html">Download</a></li>
-                        <li><a href="encounter-tracker.html">Encounter Tracker</a></li>
-                        <li><a href="about.html">Game Info</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="https://nullcalc.vercel.app/">Damage Calc</a></li>
+                    <li><a href="patch-applier.html">Download</a></li>
+                    <li><a href="encounter-tracker.html">Encounter Tracker</a></li>
+                    <li><a href="about.html">Game Info</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="https://nullcalc.vercel.app/">Damage Calc</a></li>
                     </ul>
                 </div>
                 <!-- Community links column -->
                 <div class="footer-section">
                     <h4>Community</h4>
                     <ul class="footer-links">
-                        <li><a href="https://discord.gg/DqxxC5KQ6r" target="_blank">Discord</a></li>
-                        <li><a href="https://www.reddit.com/r/PokemonNull/" target="_blank">Reddit</a></li>
-                        <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T" target="_blank">YouTube</a></li>
+                    <li><a href="https://discord.gg/DqxxC5KQ6r" target="_blank">Discord</a></li>
+                    <li><a href="https://www.reddit.com/r/PokemonNull/" target="_blank">Reddit</a></li>
+                    <li><a href="https://youtube.com/@pokemonnull-i7y?si=Midpr-BR4eoGoW2T" target="_blank">YouTube</a></li>
                     </ul>
                 </div>
             </div>
@@ -727,18 +732,17 @@
             </div>
         </div>
     </footer>
-    <!-- ===================== END FOOTER ===================== -->
+    <!-- ==== END FOOTER ==== -->
 
 
-    <!-- ===================== SCRIPTS ===================== -->
+    <!-- ==== SCRIPTS ==== -->
     <!-- main.js handles: hamburger nav toggle, countdown tooltip in the header -->
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
 
     <!-- launch-race.js handles: the big on-page countdown timer -->
     <script src="js/launch-race.js"></script>
-    <!-- ===================== END SCRIPTS ===================== -->
+    <!-- ==== END SCRIPTS ==== -->
 
 </body>
-
 </html>

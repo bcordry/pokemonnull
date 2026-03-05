@@ -130,6 +130,80 @@ a:focus-visible {
     color: var(--white); /* White on hover — this overrides the grey above intentionally */
 }
 
+/* ── NAV DROPDOWN STYLES ──── */
+
+/* The parent container needs 'relative' positioning so the 
+   dropdown menu knows where to anchor itself (at the bottom of this item) */
+.nav-item.dropdown {
+    position: relative;
+}
+
+/* The actual menu list */
+.dropdown-menu {
+    position: absolute;           /* Takes it out of the normal flow so it floats */
+    top: 100%;                    /* Positions it exactly at the bottom of the header link */
+    left: 0;                      /* Aligns it to the left edge of the link */
+    background-color: #1a1a1a;    /* Dark background to match the theme */
+    min-width: 160px;             /* Ensures it's wide enough for the text */
+    list-style: none;             /* Removes bullet points */
+    padding: 10px 0;              /* Vertical spacing inside the menu */
+    margin: 0;
+    border-top: 3px solid var(--accent-red); /* Red accent line at the top */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);  /* Shadow for depth */
+    
+    /* Hiding logic */
+    opacity: 0;                   /* Invisible by default */
+    visibility: hidden;           /* Prevents clicking it while invisible */
+    transform: translateY(10px);  /* Starts 10px lower for a slide-up effect */
+    transition: all 0.3s ease;    /* Smooth transition for all properties */
+    z-index: 1000;                /* Ensures it stays on top of hero content */
+}
+
+/* Show the menu when hovering over the parent list item */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;                   /* Make it visible */
+    visibility: visible;          /* Make it clickable */
+    transform: translateY(0);     /* Slide it up to its final position */
+}
+
+/* Small superscript-style arrow indicating an external link */
+.ext-arrow {
+    font-size: 0.75rem;   /* Smaller than the surrounding text */
+    opacity: 0.7;         /* Slightly faded so it doesn't compete with the label */
+    vertical-align: super; /* Raises it up like a superscript */
+}
+
+
+/* Styling the links inside the dropdown */
+.dropdown-menu li a {
+    display: block;               /* Makes the whole row clickable */
+    padding: 10px 20px;           /* Spacing inside each option */
+    color: #fff;                  /* White text */
+    text-decoration: none;        /* No underline */
+    font-family: 'Manrope', sans-serif; /* Clean body font */
+    font-size: 0.9rem;            /* Slightly smaller than main nav */
+    transition: background 0.2s;  /* Smooth hover background change */
+}
+
+/* Hover effect for individual dropdown items */
+.dropdown-menu li a:hover {
+    background-color: #333;       /* Dark grey highlight */
+    color: var(--accent-red);     /* Text turns red on hover */
+}
+
+/* Small arrow icon styling */
+.dropdown-toggle i {
+    font-size: 0.7rem;            /* Make the arrow small */
+    margin-left: 5px;             /* Space between text and arrow */
+    transition: transform 0.3s;   /* Smooth rotation */
+}
+
+/* Rotate the arrow when hovering */
+.nav-item.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);    /* Flip the arrow upside down */
+}
+
+
 /* Logo link: the "Pokémon Null" heading in the top-left should never show an underline */
 /* It's a heading styled as a brand mark, not a content link */
 .logo-link:link,

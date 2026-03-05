@@ -612,7 +612,7 @@ function initLaunchEventCountdown() {
 
         if (remaining <= 0) {
             // The event has started — show a celebration message instead of a countdown
-            tooltip.textContent = '🎉 Event is LIVE!';
+            tooltip.textContent = 'Event has concluded';
         } else {
             // Event hasn't started yet — show the formatted countdown
             tooltip.textContent = '⏳ ' + formatCountdown(remaining);
