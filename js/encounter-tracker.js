@@ -204,7 +204,7 @@ const pokemonIdMap = {
     "herdier":507,"hippopotas":449,"hitmonchan":107,"hitmonlee":106,"hitmontop":237,
     "honchkrow":430,"honedge":679,"horsea":116,"houndoom":229,"houndour":228,
     "houndstone":1014,"huntail":367,"hydapple":1019,"hydrapple":1019,
-    "hydreigon":635,"impidimp":859,"incineroar":727,"infernape":392,"inteleon":818,
+    "hydreigon":635,"impidimp":859,"incineroar":727,"infernape":392,"inkay":686,"inteleon":818,
     "iron-bundle":991,"iron-jugulis":994,"iron-thorns":993,"iron-treads":990,
     "iron-valiant":996,"jangmo-o":782,"jellicent":593,"joltik":595,"kabuto":140,
     "kabutops":141,"kadabra":64,"kangaskhan":115,"karrablast":588,"kartana":798,
@@ -1052,6 +1052,7 @@ function restoreUIState() {
     });
 
 }
+
 
 
 
