@@ -160,7 +160,7 @@ const pokemonIdMap = {
     "blaziken":257,"blipbug":824,"blitzle":522,"boldore":525,"boltund":836,
     "bombirdier":962,"bramblin":1005,"brambleghast":1006,"breloom":286,
     "bronzong":437,"bronzor":436,"bruxish":779,"budew":406,"buizel":418,"bulbasaur":1,
-    "buneary":427,"bunnelby":659,"butterfree":12,"buzzwole":794,"capsakid":951,
+    "buneary":427,"bunnelby":659,"butterfree":12,"buzzwole":794,"capsakid":951,"calyrex":898,
     "carbink":703,"camerupt":323,"carkol":838,"carracosta":565,"carvanha":318,
     "castform":351,"caterpie":10,"celesteela":797,"centiskorch":851,
     "ceruledge":937,"cetitan":975,"cetoddle":974,"chandelure":609,"chansey":113,
@@ -1050,4 +1050,5 @@ function restoreUIState() {
         }
         updateKOStatsUI();
     });
+
 }
