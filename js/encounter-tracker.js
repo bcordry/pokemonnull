@@ -242,7 +242,7 @@ const pokemonIdMap = {
     "popplio":728,"probopass":476,"pupitar":247,"purugly":432,"pyroar":668,
     "pyukumuku":771,"qwilfish":211,"qwilfish-hisuian":211,"quagsire":195,
     "quaquaval":914,"quaxly":912,"quaxwell":913,"quilava":156,"raichu":26,
-    "raichu-alolan":26,"ralts":280,"relicanth":369,"reuniclus":579,"revavroom":966,
+    "raichu-alolan":26,"ralts":280,"relicanth":369,"remoraid":233,"reuniclus":579,"revavroom":966,
     "ribombee":743,"rhydon":112,"rhyhorn":111,"rhyperior":464,"riolu":447,
     "rillaboom":812,"rockruff":744,"roggenrola":524,"rolycoly":837,"rookidee":821,
     "roselia":315,"roserade":407,"rotom":479,"rufflet":627,"runerigus":867,
@@ -1052,3 +1052,4 @@ function restoreUIState() {
     });
 
 }
+
