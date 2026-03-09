@@ -239,7 +239,7 @@ const pokemonIdMap = {
     "pidgey":16,"pikachu":25,"pineco":204,"pinsir":127,"piplup":393,
     "poliwag":60,"poliwhirl":61,"politoed":186,"poliwrath":62,"poltchageist":1012,
     "polteageist":855,"ponyta-galarian":77,"porygon":137,"porygon2":233,
-    "popplio":728,"probopass":476,"pupitar":247,"purugly":432,"pyroar":668,
+    "popplio":728,"probopass":476,"pupitar":247,"purrloin":509,"purugly":432,"pyroar":668,
     "pyukumuku":771,"qwilfish":211,"qwilfish-hisuian":211,"quagsire":195,
     "quaquaval":914,"quaxly":912,"quaxwell":913,"quilava":156,"raichu":26,
     "raichu-alolan":26,"ralts":280,"relicanth":369,"remoraid":233,"reuniclus":579,"revavroom":966,
@@ -1052,4 +1052,5 @@ function restoreUIState() {
     });
 
 }
+
 
