@@ -118,10 +118,10 @@
                     ⬇ Download the Patch
                 </a> -->
 
-                <a href="https://www.mediafire.com/file/4skxbuy3sgfzfoe/PokemonNullV1.bps/file"
+                <a href="https://www.mediafire.com/file/1ptugqwaeie0zd0/PokemonNullV1.1.bps/file"
                    target="_blank"
                     class="btn btn-primary patch-btn patch-btn-download">
-                    ⬇ Download the Patch
+                    ⬇ Download Patch v1.1
                 </a>
 
                 <!-- APPLY button: opens the external online ROM patcher tool in a new tab -->
@@ -206,7 +206,105 @@
 
                 <!-- Inner wrapper holds all individual version entries -->
                 <div class="patch-notes-list">
+                <!-- Version 1.1 -->
+                <details class="patch-notes-version">
 
+                <!-- The version label — clicking this expands the version's notes -->
+                <summary class="patch-notes-version-label">Version 1.1</summary>
+
+                <!-- The actual notes content for this version -->
+                <div class="patch-notes-content">
+
+                    <h4>Balance</h4>
+
+                    <h5>Move changes:</h5>
+                    <ul>
+                    <li><strong>Baton Pass:</strong> 40 PP → 5 PP</li>
+                    <li><strong>Teleport:</strong> 20 PP → 5 PP</li>
+                    <li><strong>Flip Turn, Volt Switch, U-Turn, Parting Shot:</strong> 20 PP → 5 PP</li>
+                    <li><strong>Reversal:</strong> 15 PP → 5 PP</li>
+                    <li><strong>Wish, Strength Sap, Spiky Shield, Fake Out, Chilly Reception:</strong> 10 PP → 5 PP</li>
+                    <li><strong>Obstruct, Recycle:</strong> 10 PP → 1 PP</li>
+                    <li><strong>Baneful Bunker:</strong> 5 PP → 1 PP</li>
+                    </ul>
+
+                    <h5>Encounter changes:</h5>
+                    <ul>
+                    <li>Rockruff now holds a guaranteed Sun Stone</li>
+                    <li>Morelull now holds a guaranteed Moon Stone</li>
+                    <li>Slightly tweaked Game Corner</li>
+                    </ul>
+
+                    <h5>Fight changes:</h5>
+                    <ul>
+                    <li>Slightly adjusted Root Academy pools to decrease the amount of auto-lose Pokémon</li>
+                    </ul>
+
+                    <h5>AI fixes: Slight tweaks to unintentional behaviors, among others:</h5>
+                    <ul>
+                    <li>Moves with added effects (like Lunge) could still be considered as a status move if the attacker has Sheer Force</li>
+                    <li>AI being able to use some status moves against a Pokémon with Purifying Salt</li>
+                    <li>AI being able to switch when having any stats raised or when seeing KOs</li>
+                    <li>Discharge AI mistaking Volt Absorb for Motor Drive</li>
+                    <li>Trap AI trying to trap Ghost-types</li>
+                    <li>AI seeing Retaliate boost delayed</li>
+                    </ul>
+
+                    <h5>Misc:</h5>
+                    <ul>
+                    <li>Route 104 Grandma now gives one Leppa Berry</li>
+                    <li>Max Elixirs are now available in all Marts</li>
+                    <li>Changed Leppa Berry yields from 20 to 5</li>
+                    <li>Added a Sitrus tree in Route 123</li>
+                    <li>Increased starting money</li>
+                    </ul>
+
+                    <h4>Fixes</h4>
+                    <ul>
+                    <li>Fixed Volt Switch effect happening on the target if the target activated its Berserk and consumed a Berry</li>
+                    <li>Fixed Copycat and Mirror Move crashing if both Player and AI have these moves respectively</li>
+                    <li>Fixed crit message being able to be displayed for fixed damage moves like Dragon Rage</li>
+                    <li>Fixed Magic Guard Pokémon getting freed immediately from trapping moves</li>
+                    <li>Fixed Salt Cure's strengthened effect against Water and Steel types</li>
+                    <li>Fixed Encore locked Pokémon sometimes targeting themselves</li>
+                    <li>Fixed Magic Guard not protecting from Powder damage</li>
+                    <li>Fixed Alluring Voice not being Sheer Force boosted</li>
+                    <li>Fixed Rocky Payload having the wrong multiplier</li>
+                    <li>Fixed healing moves when hitting a Substitute</li>
+                    <li>Fixed Slow Start not restoring Speed</li>
+                    </ul>
+
+                    <h4>Additional fixes / adjustments</h4>
+                    <ul>
+                    <li>Fixed wrong orders in Level up learnsets causing Pokémon to skip moves (Shellder, Nidoran line)</li>
+                    <li>Fixed weird behaviors and crashes when putting Common Candy and Candy Jar in the select-list</li>
+                    <li>Slightly adjusted Guitarist Shawn &amp; Guitarist Kirk to prevent soloing with 1 Pokémon</li>
+                    <li>Fixed Petalburg City Mart Water Stone disappearing once you progress the story</li>
+                    <li>Fixed giving Pokémon abilities they don't have, creating various doc issues</li>
+                    <li>Fixed Syrup Bomb speed drop sometimes happening on the user of Syrup Bomb</li>
+                    <li>Fixed Rustboro City Mart items disappearing once you progress the story</li>
+                    <li>Fixed Moody not being updated to modern generation behavior</li>
+                    <li>Fixed some IVs on enemy Pokémon not being properly read</li>
+                    <li>Fixed grass appearing mid-gauntlet in Verdanturf Tunnel</li>
+                    <li>Fixed order of Triathlete Maria &amp; Triathlete Dylan</li>
+                    <li>Fixed Snap Trap having the wrong BP (90 BP → 80 BP)</li>
+                    <li>Fixed some move descriptions to be more accurate</li>
+                    <li>Fixed one Sitrus tree not appearing on Route 112</li>
+                    <li>Fixed the map of Granite Cave Mach Bike section</li>
+                    <li>Fixed Ice Face regenerating every turn in hail</li>
+                    <li>Fixed wild Pichus not holding Light Ball</li>
+                    <li>Fixed unsurfable tiles in Granite Cave</li>
+                    <li><strong>Slightly adjusted some learnsets:</strong>
+                        <ul>
+                        <li>Uncaught “reading check delays” were removed.</li>
+                        <li>Unintentional delays were removed.</li>
+                        </ul>
+                    </li>
+                    </ul>
+
+                </div>
+                </details>
+                <!-- End Version 1.1 -->
                     <!-- Each version is its own nested <details> block -->
                     <!-- This lets users expand only the version they care about -->
                     <details class="patch-notes-version">
@@ -217,6 +315,8 @@
                         <!-- The actual notes content for this version -->
                         <!-- Shown only when the Version 1.0 block is expanded -->
                         <p class="patch-notes-content">Release version.</p>
+
+
 
                     </details>
                     <!-- End Version 1.0 -->
