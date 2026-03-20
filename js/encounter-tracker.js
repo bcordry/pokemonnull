@@ -160,7 +160,7 @@ const pokemonIdMap = {
     "blaziken":257,"blipbug":824,"blitzle":522,"boldore":525,"boltund":836,
     "bombirdier":962,"bramblin":1005,"brambleghast":1006,"breloom":286,
     "bronzong":437,"bronzor":436,"bruxish":779,"budew":406,"buizel":418,"bulbasaur":1,
-    "buneary":427,"bunnelby":659,"butterfree":12,"buzzwole":794,"capsakid":951,"calyrex":898,
+    "buneary":427,"bunnelby":659,"butterfree":12,"buzzwole":794,"calyrex":898,"capsakid":951,
     "carbink":703,"camerupt":323,"carkol":838,"carracosta":565,"carvanha":318,
     "castform":351,"caterpie":10,"celesteela":797,"centiskorch":851,
     "ceruledge":937,"cetitan":975,"cetoddle":974,"chandelure":609,"chansey":113,
@@ -218,7 +218,7 @@ const pokemonIdMap = {
     "lycanroc-dusk":745,"lycanroc-midnight":745,"magby":240,"magcargo":219,
     "magikarp":129,"magneton":82,"magnezone":462,"makuhita":296,"malamar":687,
     "mamoswine":473,"mandibuzz":630,"manectric":310,"mankey":56,"mantine":226,
-    "mantyke":458,"mareanie":747,"mareep":179,"marshadow":802,"marowak":105,
+    "mantyke":458,"mareanie":747,"mareep":179,"marill":183,"marshadow":802,"marowak":105,
     "masquerain":284,"maschiff":942,"mawile":303,"medicham":308,"meditite":307,
     "meganium":154,"meowscarada":908,"meowth":52,"meowth-alolan":52,
     "meowth-galarian":52,"meowstic":678,"meowstic-female":678,"mesprit":481,
@@ -259,7 +259,7 @@ const pokemonIdMap = {
     "slowking-galarian":199,"slowpoke":79,"slowpoke-galarian":79,"slugma":218,
     "smoliv":928,"snivy":495,"sneasel":215,"sneasel-hisuian":215,"sneasler":903,
     "snom":872,"snorlax":143,"snorunt":361,"snover":459,"snubbull":209,
-    "sobble":816,"solrock":338,"spinda":327,"spiritomb":442,"spheal":363,
+    "sobble":816,"solosis":577,"solrock":338,"spinda":327,"spiritomb":442,"spheal":363,
     "sprigatito":906,"squirtle":7,"stakataka":805,"stantler":234,"staraptor":398,"starly":396,
     "starmie":121,"staryu":120,"steelix":208,"stonjourner":874,"stoutland":508,
     "stufful":759,"stunfisk":618,"stunfisk-galarian":618,"stunky":434,
@@ -1050,7 +1050,4 @@ function restoreUIState() {
         }
         updateKOStatsUI();
     });
-
 }
-
-
