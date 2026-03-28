@@ -148,7 +148,7 @@ const pokemonIdMap = {
     "absol":1359,"aegislash":681,"aerodactyl":142,"aggron":306,"aipom":190,
     "alakazam":65,"alcremie":869,"altaria":334,"amaura":698,"ambipom":424,
     "amoonguss":591,"annihilape":1065,"anorith":347,"applin":840,"araquanid":752,
-    "arboliva":1009,"arcanine":59,"arcanine-hisuian":59,"archaludon":1018,
+    "arboliva":930,"arcanine":59,"arcanine-hisuian":59,"archaludon":1018,
     "archen":566,"archeops":567,"arctovish":883,"arctozolt":881,"aron":304,
     "armaldo":348,"armarouge":936,"arrokuda":846,"articuno":144,"audino":531,
     "avalugg":713,"avalugg-hisuian":713,"axew":610,"azelf":482,"azumarill":184,
