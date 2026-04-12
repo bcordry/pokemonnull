@@ -41,7 +41,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/patch-applier.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Sticky header with logo and navigation -->
@@ -77,8 +76,8 @@
                     </a>
                 </li> -->
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="patch-applier.html" class="nav-link active">Patch</a></li>
+                <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+                <li><a href="patch-applier.html" class="nav-link">Patch</a></li>
                 <li><a href="https://drive.google.com/drive/u/0/folders/10H1Pm-1dhEgc0QmjsnA9A9PY6nNRXtoJ" class="nav-link" target="_blank" rel="noopener noreferrer">Documentation</a></li>
                 <!-- POKÉDEX DROPDOWN -->
                 <li class="nav-item dropdown">
@@ -118,10 +117,10 @@
                     ⬇ Download the Patch
                 </a> -->
 
-                <a href="https://www.mediafire.com/file/1ptugqwaeie0zd0/PokemonNullV1.1.bps/file"
+                <a href="https://www.mediafire.com/file/89ttz7hb941cl62/PokemonNullV1.2.bps/file"
                    target="_blank"
                     class="btn btn-primary patch-btn patch-btn-download">
-                    ⬇ Download the Patch
+                    ⬇ Download the Patch (v1.2)
                 </a>
 
                 <!-- APPLY button: opens the external online ROM patcher tool in a new tab -->
@@ -192,7 +191,7 @@
             </div>
         </section>
 
-        <!-- ===== PATCH NOTES SECTION ===== -->
+        <!-- ==== PATCH NOTES SECTION ==== -->
         <!-- This section lives outside the instructions card but still inside <main> -->
         <!-- It uses a <details>/<summary> pattern — no JS needed for basic open/close -->
         <section class="patch-notes-section container">
@@ -205,108 +204,421 @@
                 <summary class="patch-notes-title">Patch Notes</summary>
 
                 <!-- Inner wrapper holds all individual version entries -->
+                <!-- Versions are listed newest-first so players see the latest changes first -->
                 <div class="patch-notes-list">
-                <!-- Version 1.1 -->
-                <details class="patch-notes-version">
 
-                <!-- The version label — clicking this expands the version's notes -->
-                <summary class="patch-notes-version-label">Version 1.1</summary>
-
-                <!-- The actual notes content for this version -->
-                <div class="patch-notes-content">
-
-                    <h4>Balance</h4>
-
-                    <h5>Move changes:</h5>
-                    <ul>
-                    <li><strong>Baton Pass:</strong> 40 PP → 5 PP</li>
-                    <li><strong>Teleport:</strong> 20 PP → 5 PP</li>
-                    <li><strong>Flip Turn, Volt Switch, U-Turn, Parting Shot:</strong> 20 PP → 5 PP</li>
-                    <li><strong>Reversal:</strong> 15 PP → 5 PP</li>
-                    <li><strong>Wish, Strength Sap, Spiky Shield, Fake Out, Chilly Reception:</strong> 10 PP → 5 PP</li>
-                    <li><strong>Obstruct, Recycle:</strong> 10 PP → 1 PP</li>
-                    <li><strong>Baneful Bunker:</strong> 5 PP → 1 PP</li>
-                    </ul>
-
-                    <h5>Encounter changes:</h5>
-                    <ul>
-                    <li>Rockruff now holds a guaranteed Sun Stone</li>
-                    <li>Morelull now holds a guaranteed Moon Stone</li>
-                    <li>Slightly tweaked Game Corner</li>
-                    </ul>
-
-                    <h5>Fight changes:</h5>
-                    <ul>
-                    <li>Slightly adjusted Root Academy pools to decrease the amount of auto-lose Pokémon</li>
-                    </ul>
-
-                    <h5>AI fixes: Slight tweaks to unintentional behaviors, among others:</h5>
-                    <ul>
-                    <li>Moves with added effects (like Lunge) could still be considered as a status move if the attacker has Sheer Force</li>
-                    <li>AI being able to use some status moves against a Pokémon with Purifying Salt</li>
-                    <li>AI being able to switch when having any stats raised or when seeing KOs</li>
-                    <li>Discharge AI mistaking Volt Absorb for Motor Drive</li>
-                    <li>Trap AI trying to trap Ghost-types</li>
-                    <li>AI seeing Retaliate boost delayed</li>
-                    </ul>
-
-                    <h5>Misc:</h5>
-                    <ul>
-                    <li>Route 104 Grandma now gives one Leppa Berry</li>
-                    <li>Max Elixirs are now available in all Marts</li>
-                    <li>Changed Leppa Berry yields from 20 to 5</li>
-                    <li>Added a Sitrus tree in Route 123</li>
-                    <li>Increased starting money</li>
-                    </ul>
-
-                    <h4>Fixes</h4>
-                    <ul>
-                    <li>Fixed Volt Switch effect happening on the target if the target activated its Berserk and consumed a Berry</li>
-                    <li>Fixed Copycat and Mirror Move crashing if both Player and AI have these moves respectively</li>
-                    <li>Fixed crit message being able to be displayed for fixed damage moves like Dragon Rage</li>
-                    <li>Fixed Magic Guard Pokémon getting freed immediately from trapping moves</li>
-                    <li>Fixed Salt Cure's strengthened effect against Water and Steel types</li>
-                    <li>Fixed Encore locked Pokémon sometimes targeting themselves</li>
-                    <li>Fixed Magic Guard not protecting from Powder damage</li>
-                    <li>Fixed Alluring Voice not being Sheer Force boosted</li>
-                    <li>Fixed Rocky Payload having the wrong multiplier</li>
-                    <li>Fixed healing moves when hitting a Substitute</li>
-                    <li>Fixed Slow Start not restoring Speed</li>
-                    </ul>
-
-                    <h4>Additional fixes / adjustments</h4>
-                    <ul>
-                    <li>Fixed wrong orders in Level up learnsets causing Pokémon to skip moves (Shellder, Nidoran line)</li>
-                    <li>Fixed weird behaviors and crashes when putting Common Candy and Candy Jar in the select-list</li>
-                    <li>Slightly adjusted Guitarist Shawn &amp; Guitarist Kirk to prevent soloing with 1 Pokémon</li>
-                    <li>Fixed Petalburg City Mart Water Stone disappearing once you progress the story</li>
-                    <li>Fixed giving Pokémon abilities they don't have, creating various doc issues</li>
-                    <li>Fixed Syrup Bomb speed drop sometimes happening on the user of Syrup Bomb</li>
-                    <li>Fixed Rustboro City Mart items disappearing once you progress the story</li>
-                    <li>Fixed Moody not being updated to modern generation behavior</li>
-                    <li>Fixed some IVs on enemy Pokémon not being properly read</li>
-                    <li>Fixed grass appearing mid-gauntlet in Verdanturf Tunnel</li>
-                    <li>Fixed order of Triathlete Maria &amp; Triathlete Dylan</li>
-                    <li>Fixed Snap Trap having the wrong BP (90 BP → 80 BP)</li>
-                    <li>Fixed some move descriptions to be more accurate</li>
-                    <li>Fixed one Sitrus tree not appearing on Route 112</li>
-                    <li>Fixed the map of Granite Cave Mach Bike section</li>
-                    <li>Fixed Ice Face regenerating every turn in hail</li>
-                    <li>Fixed wild Pichus not holding Light Ball</li>
-                    <li>Fixed unsurfable tiles in Granite Cave</li>
-                    <li><strong>Slightly adjusted some learnsets:</strong>
-                        <ul>
-                        <li>Uncaught “reading check delays” were removed.</li>
-                        <li>Unintentional delays were removed.</li>
-                        </ul>
-                    </li>
-                    </ul>
-
-                </div>
-                </details>
-                <!-- End Version 1.1 -->
+                    <!-- ==================== VERSION 1.2 ==================== -->
                     <!-- Each version is its own nested <details> block -->
                     <!-- This lets users expand only the version they care about -->
+                    <details class="patch-notes-version">
+
+                        <!-- The version label — clicking this expands the version's notes -->
+                        <summary class="patch-notes-version-label">Version 1.2</summary>
+
+                        <!-- All 1.2 patch note content lives inside this div -->
+                        <div class="patch-notes-content">
+
+                            <!-- ---- OVERALL CHANGES ---- -->
+                            <!-- High-level summary of sweeping changes that affect many areas -->
+                            <h4>Overall Changes</h4>
+                            <ul>
+                                <!-- Learnset adjustments: when Pokémon learn moves, and which moves -->
+                                <li>Adjusted several learnsets. These changes include Pokémon learning moves at an earlier/later level, some moves being added/removed from certain Pokémon and some moves only being available by using a Heart Scale.</li>
+                                <!-- Trainer adjustments: levels, held items, movesets, team composition -->
+                                <li>Adjusted several trainers. These changes include level adjustments, held item adjustments, moveset adjustments, added/replaced Pokémon on certain teams and previously separate trainer fights becoming consecutive. These adjustments affect fights from Wattson Split to League Split.</li>
+                                <!-- Ability adjustments: removals, replacements, new Hidden Abilities for AI -->
+                                <li>Adjusted certain abilities. These changes include Pokémon losing one of their possible abilities, some abilities being replaced by other abilities and AI gaining access to several new Hidden Abilities.</li>
+                                <!-- Wild encounter tables updated -->
+                                <li>Adjusted encounter tables.</li>
+                                <!-- New trainer battle added in Steven Split -->
+                                <li>Added one new Trainer battle (Old Couple John &amp; Jay) in Steven Split.</li>
+                                <!-- AI Pokémon now have full PP; 1-PP moves default to 8 PP for AI (except Revival Blessing) -->
+                                <li>AI Pokémon now have maxed PP in all moves. Moves with 1 base PP for the player default to 8 PP for the AI (except Revival Blessing).</li>
+                                <!-- Candy Jar and Common Candy can no longer be registered to the Select button -->
+                                <li>Candy Jar and Common Candy can no longer be registered.</li>
+                            </ul>
+                            <!-- Note directing players to documentation for full specifics -->
+                            <p class="patch-notes-note"><em>Due to the sheer amount of changes, specific cases are not introduced here. For updated information, please refer to the game's documentation.</em></p>
+
+                            <!-- ---- MOVE-RELATED CHANGES ---- -->
+                            <h4>Move-Related Changes</h4>
+
+                            <!-- Effect changes: how certain moves behave -->
+                            <h5>Effect Changes</h5>
+                            <ul>
+                                <!-- Obstruct now only drops Defense by 1 stage instead of 2 -->
+                                <li><strong>Obstruct</strong> effect: −2 Defense → −1 Defense</li>
+                                <!-- Tera Starstorm now has a 50% chance to inflict a random status -->
+                                <li><strong>Tera Starstorm:</strong> now has a 50% chance of either paralyzing, freezing, or burning the target.</li>
+                            </ul>
+
+                            <!-- Accuracy changes: moves that had their hit-chance adjusted -->
+                            <h5>Accuracy Changes</h5>
+                            <ul>
+                                <!-- Low-accuracy moves buffed slightly -->
+                                <li><strong>Zap Cannon, Inferno, Dynamic Punch:</strong> 50 Acc → 60 Acc</li>
+                                <!-- Storm moves slightly nerfed from perfect accuracy -->
+                                <li><strong>Wildbolt Storm, Bleakwind Storm, Springtide Storm, Sandsear Storm:</strong> 100 Acc → 95 Acc</li>
+                                <!-- Sizzly Slide and Buzzy Buzz buffed slightly -->
+                                <li><strong>Sizzly Slide, Buzzy Buzz:</strong> 90 Acc → 95 Acc</li>
+                            </ul>
+
+                            <!-- Base Power changes: moves that hit harder or softer -->
+                            <h5>Base Power Changes</h5>
+                            <ul>
+                                <!-- Attack Order and Rock Climb nerfed -->
+                                <li><strong>Attack Order, Rock Climb:</strong> 90 BP → 80 BP</li>
+                                <!-- Psystrike nerfed in both BP and PP -->
+                                <li><strong>Psystrike:</strong> 100 BP → 95 BP, 10 PP → 5 PP</li>
+                                <!-- Aeroblast nerfed slightly -->
+                                <li><strong>Aeroblast:</strong> 100 BP → 95 BP</li>
+                                <!-- Water Shuriken buffed in BP and priority, but loses guaranteed 5-hit for Greninja -->
+                                <li><strong>Water Shuriken:</strong> 15 BP → 20 BP, now has +2 priority, but is no longer guaranteed to hit 5 times when used by Greninja.</li>
+                            </ul>
+
+                            <!-- PP changes: how many times a move can be used -->
+                            <h5>PP Changes</h5>
+                            <ul>
+                                <!-- Photon Geyser buffed in PP -->
+                                <li><strong>Photon Geyser:</strong> 5 PP → 10 PP</li>
+                                <!-- Several support moves nerfed in PP -->
+                                <li><strong>Last Respects, Life Dew, Chilly Reception:</strong> 10 PP → 5 PP</li>
+                                <li><strong>Spotlight:</strong> 15 PP → 5 PP</li>
+                                <li><strong>Follow Me, Rage Powder:</strong> 20 PP → 5 PP</li>
+                                <li><strong>Baton Pass:</strong> 40 PP → 5 PP</li>
+                                <!-- Burn Up heavily nerfed in PP -->
+                                <li><strong>Burn Up:</strong> 5 PP → 1 PP</li>
+                            </ul>
+
+                            <!-- Tutor / TM changes: where moves can be learned -->
+                            <h5>Tutor &amp; TM Changes</h5>
+                            <ul>
+                                <!-- Focus Energy tutor removed from Petalburg City -->
+                                <li>Removed the Focus Energy Tutor from Petalburg City.</li>
+                                <!-- New Blizzard tutor added on Route 119 -->
+                                <li>Added a Blizzard Tutor on Route 119.</li>
+                                <!-- Grass Knot TM removed from Lilycove Department Store -->
+                                <li>Removed the Grass Knot TM from the Lilycove Department Store.</li>
+                            </ul>
+
+                            <!-- Miscellaneous move property changes -->
+                            <h5>Other Move Property Changes</h5>
+                            <ul>
+                                <!-- Hurricane no longer benefits from wind-related effects -->
+                                <li><strong>Hurricane:</strong> no longer considered a wind move.</li>
+                                <!-- Shadow Claw now interacts with slicing-move effects like Sharpness -->
+                                <li><strong>Shadow Claw:</strong> now classified as a slicing move.</li>
+                                <!-- Tera Shift now triggers Stellar form at level 80+ -->
+                                <li><strong>Tera Shift:</strong> now transforms into Stellar form if level 80 or above.</li>
+                                <!-- Trace can no longer copy terrain/weather-setting abilities -->
+                                <li><strong>Trace:</strong> can no longer trace abilities which set terrain or weather.</li>
+                            </ul>
+
+                            <!-- ---- ITEM-RELATED CHANGES ---- -->
+                            <h4>Item-Related Changes</h4>
+                            <ul>
+                                <!-- Resist berries now only yield 1 berry when harvested -->
+                                <li>All resist berries now yield 1.</li>
+                                <!-- PP Up removed from Meteor Falls -->
+                                <li>PP Up no longer available in Meteor Falls.</li>
+                                <!-- Tyranitarite moved to Sky Pillar -->
+                                <li>Tyranitarite location changed to Sky Pillar.</li>
+                                <!-- Mental Herb and Metronome locations swapped -->
+                                <li>Swapped the locations of Mental Herb and Metronome: Mental Herb can be obtained in Route 117, Metronome in Route 120.</li>
+                                <!-- Scanner trades (Choice items + Covert Cloak) now capped at 10 -->
+                                <li>Scanner item (Choice Band, Choice Scarf, Choice Specs and Covert Cloak) trades are now limited to a maximum of 10 trades.</li>
+                                <!-- Assault Vest, Leftovers, Life Orb, Rocky Helmet can't be held together; tradeable via a new system -->
+                                <li>Assault Vest, Leftovers, Life Orb and Rocky Helmet can no longer be held simultaneously, but can be traded between via a system similar to Scanner trades. The aforementioned trade restriction does not apply to this item pool.</li>
+                            </ul>
+
+                            <!-- ---- AI CHANGES ---- -->
+                            <h4>AI Changes</h4>
+
+                            <!-- Behavioral improvements to the AI's decision-making -->
+                            <h5>Behavioral Improvements</h5>
+                            <ul>
+                                <!-- AI now recognizes PP stalling and reacts to it -->
+                                <li>Adjusted mid-turn Switch AI to account for PP stalling strategies. The AI will now correctly identify being out of PP. Additional AI checks have been added to recognize possible attempted PP stalls, to which the AI will react accordingly.</li>
+                                <!-- Switch AI logic made more predictable -->
+                                <li>Additional conditions have been added to the existing Switch AI logic to improve the predictability.</li>
+                            </ul>
+
+                            <!-- Bug fixes specific to AI behavior -->
+                            <h5>AI Bug Fixes</h5>
+                            <ul>
+                                <!-- AI was trying to use No Retreat even when already locked in -->
+                                <li>Fixed AI attempting to use No Retreat multiple times.</li>
+                                <!-- AI was incorrectly avoiding First Impression against certain abilities -->
+                                <li>Fixed AI refusing to use First Impression against Pokémon with Inner Focus, Shield Dust, or Covert Cloak.</li>
+                                <!-- AI was not using Electro Shot in rain even though it charges instantly -->
+                                <li>Fixed AI refusing to use Electro Shot in rain.</li>
+                                <!-- AI was miscalculating Retaliate's power boost after a KO switch -->
+                                <li>Fixed AI not correctly calculating Retaliate in post-KO switch scenarios.</li>
+                                <!-- AI was being fooled by Illusion in cases it shouldn't be -->
+                                <li>Fixed AI being incorrectly affected by Illusion in unintended cases.</li>
+                                <!-- Catch-all for other undocumented AI behavior fixes -->
+                                <li>Fixed various other undocumented but unintended AI behaviors, which will not be specified at this moment.</li>
+                            </ul>
+
+                            <!-- ---- BUG FIXES ---- -->
+                            <h4>Bug Fixes</h4>
+
+                            <!-- Battle mechanics bugs -->
+                            <h5>Battle Mechanics</h5>
+                            <ul>
+                                <!-- Items (especially Mega Stones) were disappearing from the bag -->
+                                <li>Fixed issue causing items to disappear (primarily Mega Stones).</li>
+                                <!-- Teleport/Shed Tail caused a crash when the opponent fainted -->
+                                <li>Fixed Teleport, Shed Tail, and similar moves causing the game to crash when the opponent faints.</li>
+                                <!-- Substitute sprite lingered after pivot moves like U-Turn -->
+                                <li>Fixed Substitute graphics not disappearing after using pivot moves (e.g. U-Turn).</li>
+                                <!-- Defend Order was acting like Protect instead of raising defenses -->
+                                <li>Fixed Defend Order incorrectly behaving like Protect.</li>
+                                <!-- Mortal Spin was missing its contact flag, affecting abilities like Static -->
+                                <li>Fixed Mortal Spin missing its contact property.</li>
+                                <!-- Ability data was inconsistent between the game, docs, and calc -->
+                                <li>Fixed persistent ability mismatches between documentation, calculator and the game.</li>
+                                <!-- Pivot moves + Eject Button were interacting incorrectly -->
+                                <li>Fixed incorrect interactions between pivot moves (e.g. U-Turn) and Eject Button.</li>
+                                <!-- Berries were activating at the wrong time under Leech Seed or Yawn -->
+                                <li>Fixed incorrect berry activation timing when affected by Leech Seed or Yawn.</li>
+                                <!-- Big Root wasn't boosting Leech Seed healing as intended -->
+                                <li>Fixed Big Root not interacting correctly with Leech Seed.</li>
+                                <!-- Sheer Force moves were bypassing contact abilities like Static -->
+                                <li>Fixed Sheer Force affected moves bypassing abilities such as Static.</li>
+                                <!-- Sawsbuck's alternate form sprites had a broken second animation frame -->
+                                <li>Fixed Sawsbuck's alternate sprites not loading the second frame correctly.</li>
+                                <!-- Multiple bugs related to the Unnerve ability -->
+                                <li>Fixed various Unnerve-related issues.</li>
+                                <!-- Toxic's turn counter was sometimes incrementing too fast -->
+                                <li>Fixed Toxic counter occasionally increasing more than intended.</li>
+                                <!-- Hard Press damage formula was calculating incorrectly -->
+                                <li>Fixed incorrect Hard Press calculations.</li>
+                                <!-- Mirror Move was failing when the move it tried to copy had failed -->
+                                <li>Fixed Mirror Move failing when the previous move failed.</li>
+                                <!-- Mist's duration was inconsistent between uses -->
+                                <li>Fixed Mist duration inconsistencies.</li>
+                                <!-- Hazard damage was being applied twice in a specific Intimidate scenario -->
+                                <li>Fixed hazard damage (e.g. Stealth Rock) being applied twice when an opposing White Herb Pokémon is affected by Intimidate.</li>
+                                <!-- Sheer Force moves were bypassing contact abilities like Static -->
+                                <li>Fixed Thermal Exchange incorrectly blocking Yawn.</li>
+                                <!-- PP values for these moves were wrong in-game -->
+                                <li>Fixed incorrect PP values for Collision Course and Electro Drift.</li>
+                                <!-- Weight data for newer Pokémon was wrong, affecting weight-based moves -->
+                                <li>Fixed incorrect weight values for some modern generation Pokémon.</li>
+                                <!-- Zen Mode was activating at the start of battle instead of after taking damage -->
+                                <li>Fixed Zen Mode activating on lead when HP conditions are met.</li>
+                                <!-- Take Heart had multiple bugs affecting its stat boosts and status cure -->
+                                <li>Fixed multiple issues related to Take Heart.</li>
+                            </ul>
+
+                            <!-- Overworld / map bugs -->
+                            <h5>Overworld &amp; Map</h5>
+                            <ul>
+                                <!-- Happiny and Terrakion had wrong level ranges in their encounter areas -->
+                                <li>Fixed incorrect level ranges for Happiny in Artisan Cave and Terrakion in Southern Island.</li>
+                                <!-- Ninja Boy Hideo's battle was supposed to take place in rain -->
+                                <li>Fixed Ninja Boy Hideo battle not being in rain.</li>
+                                <!-- Psychic Kayla was incorrectly re-triggering Gauntlet Mode in Mt. Pyre -->
+                                <li>Fixed Psychic Kayla reactivating Gauntlet Mode in Mt. Pyre upon interaction.</li>
+                                <!-- Sky Pillar 2F was missing some encounter tiles -->
+                                <li>Fixed missing encounter tiles on Sky Pillar 2F.</li>
+                            </ul>
+
+                            <!-- ---- OTHER ---- -->
+                            <h4>Other</h4>
+                            <ul>
+                                <!-- Zinnia's battle theme updated to a higher-quality version -->
+                                <li>Updated Zinnia's theme to a more polished version (credits to IAGeezus).</li>
+                                <!-- Alakazite was placed in the wrong location -->
+                                <li>Fixed Alakazite's location to its intended placement in Mossdeep Gym.</li>
+                                <!-- Mr. Briney's script was broken in some locations -->
+                                <li>Improved Mr. Briney's script so he remains available at all locations.</li>
+                                <!-- Evolution stones added to account for post-Wattson story lockdown -->
+                                <li>Added evolution stones to Mauville City and Verdanturf Town marts to account for the post-Wattson lockdown.</li>
+                                <!-- Slowking-Galar's icon had a broken color palette -->
+                                <li>Fixed Slowking-Galar's icon palette.</li>
+                                <!-- Frostbite now clears after battle like Burn does -->
+                                <li>Frostbite Status is now healed after battle.</li>
+                                <!-- A Fly destination added to Mt. Chimney -->
+                                <li>Added a Fly location to Mt. Chimney.</li>
+                                <!-- Floette-Eternal trades now restricted to non-red Florges forms -->
+                                <li>Floette-Eternal trades now only accept non-red Florges forms, which remains exclusive to the Game Corner.</li>
+                                <!-- All Swablu and Altaria in the game are now female -->
+                                <li>All Swablus and Altarias are now female.</li>
+                            </ul>
+
+                        </div>
+                        <!-- End Version 1.2 content -->
+
+                    </details>
+                    <!-- End Version 1.2 -->
+
+                    <!-- ==================== VERSION 1.1 ==================== -->
+                    <details class="patch-notes-version">
+
+                        <!-- The version label — clicking this expands the version's notes -->
+                        <summary class="patch-notes-version-label">Version 1.1</summary>
+
+                        <!-- All 1.1 patch note content lives inside this div -->
+                        <div class="patch-notes-content">
+
+                            <!-- ---- BALANCE ---- -->
+                            <h4>Balance</h4>
+
+                            <!-- PP reductions to moves considered too spammable or abusable -->
+                            <h5>Move Changes</h5>
+                            <ul>
+                                <!-- Baton Pass heavily nerfed in PP to reduce stall/chain abuse -->
+                                <li><strong>Baton Pass:</strong> 40 PP → 5 PP</li>
+                                <!-- Teleport nerfed to reduce free switching -->
+                                <li><strong>Teleport:</strong> 20 PP → 5 PP</li>
+                                <!-- Pivot moves nerfed to reduce repeated free switching -->
+                                <li><strong>Flip Turn, Volt Switch, U-Turn, Parting Shot:</strong> 20 PP → 5 PP</li>
+                                <!-- Reversal nerfed in PP -->
+                                <li><strong>Reversal:</strong> 15 PP → 5 PP</li>
+                                <!-- Defensive/support moves nerfed in PP -->
+                                <li><strong>Wish, Strength Sap, Spiky Shield, Fake Out, Chilly Reception:</strong> 10 PP → 5 PP</li>
+                                <!-- Obstruct and Recycle heavily nerfed -->
+                                <li><strong>Obstruct, Recycle:</strong> 10 PP → 1 PP</li>
+                                <!-- Baneful Bunker nerfed to near-unusable PP count -->
+                                <li><strong>Baneful Bunker:</strong> 5 PP → 1 PP</li>
+                            </ul>
+
+                            <!-- Changes to which Pokémon appear in the wild and what they hold -->
+                            <h5>Encounter Changes</h5>
+                            <ul>
+                                <!-- Rockruff now always holds a Sun Stone when caught -->
+                                <li>Rockruff now holds a guaranteed Sun Stone</li>
+                                <!-- Morelull now always holds a Moon Stone when caught -->
+                                <li>Morelull now holds a guaranteed Moon Stone</li>
+                                <!-- Minor Game Corner adjustments -->
+                                <li>Slightly tweaked Game Corner</li>
+                            </ul>
+
+                            <!-- Adjustments to trainer team compositions -->
+                            <h5>Fight Changes</h5>
+                            <ul>
+                                <!-- Root Academy had some Pokémon that were nearly impossible to beat -->
+                                <li>Slightly adjusted Root Academy pools to decrease the amount of auto-lose Pokémon</li>
+                            </ul>
+
+                            <!-- Fixes to unintended AI decision-making -->
+                            <h5>AI Fixes</h5>
+                            <ul>
+                                <!-- Sheer Force was incorrectly flagging effect-moves as status moves -->
+                                <li>Moves with added effects (like Lunge) could still be considered as a status move if the attacker has Sheer Force</li>
+                                <!-- AI was using status moves against Purifying Salt, which blocks them -->
+                                <li>AI being able to use some status moves against a Pokémon with Purifying Salt</li>
+                                <!-- AI was switching out even when it had stat boosts or could KO -->
+                                <li>AI being able to switch when having any stats raised or when seeing KOs</li>
+                                <!-- Discharge AI was confusing Volt Absorb (immunity) with Motor Drive (speed boost) -->
+                                <li>Discharge AI mistaking Volt Absorb for Motor Drive</li>
+                                <!-- Trap moves like Mean Look don't work on Ghost-types -->
+                                <li>Trap AI trying to trap Ghost-types</li>
+                                <!-- AI was not correctly timing the Retaliate power boost -->
+                                <li>AI seeing Retaliate boost delayed</li>
+                            </ul>
+
+                            <!-- Miscellaneous balance and quality-of-life changes -->
+                            <h5>Misc</h5>
+                            <ul>
+                                <!-- Route 104 Grandma now gives a Leppa Berry as a reward -->
+                                <li>Route 104 Grandma now gives one Leppa Berry</li>
+                                <!-- Max Elixirs now purchasable at all Pokémon Marts -->
+                                <li>Max Elixirs are now available in all Marts</li>
+                                <!-- Leppa Berry tree yield reduced from 20 to 5 -->
+                                <li>Changed Leppa Berry yields from 20 to 5</li>
+                                <!-- New berry tree added to Route 123 -->
+                                <li>Added a Sitrus tree in Route 123</li>
+                                <!-- Players now start with more money -->
+                                <li>Increased starting money</li>
+                            </ul>
+
+                            <!-- ---- BATTLE MECHANIC FIXES ---- -->
+                            <h4>Battle Mechanic Fixes</h4>
+                            <ul>
+                                <!-- Volt Switch was incorrectly triggering on the target when Berserk activated -->
+                                <li>Fixed Volt Switch effect happening on the target if the target activated its Berserk and consumed a Berry</li>
+                                <!-- Copycat/Mirror Move caused a crash in a specific mirror scenario -->
+                                <li>Fixed Copycat and Mirror Move crashing if both Player and AI have these moves respectively</li>
+                                <!-- Fixed damage moves like Dragon Rage were showing a crit message incorrectly -->
+                                <li>Fixed crit message being able to be displayed for fixed damage moves like Dragon Rage</li>
+                                <!-- Magic Guard Pokémon were escaping traps immediately instead of staying -->
+                                <li>Fixed Magic Guard Pokémon getting freed immediately from trapping moves</li>
+                                <!-- Salt Cure's bonus damage against Water/Steel types wasn't applying correctly -->
+                                <li>Fixed Salt Cure's strengthened effect against Water and Steel types</li>
+                                <!-- Encore-locked Pokémon were sometimes targeting themselves -->
+                                <li>Fixed Encore locked Pokémon sometimes targeting themselves</li>
+                                <!-- Magic Guard was not blocking damage from powder moves like Powder -->
+                                <li>Fixed Magic Guard not protecting from Powder damage</li>
+                                <!-- Alluring Voice should be boosted by Sheer Force but wasn't -->
+                                <li>Fixed Alluring Voice not being Sheer Force boosted</li>
+                                <!-- Rocky Payload had the wrong damage multiplier for Rock-type moves -->
+                                <li>Fixed Rocky Payload having the wrong multiplier</li>
+                                <!-- Healing moves were behaving incorrectly when the target had a Substitute -->
+                                <li>Fixed healing moves when hitting a Substitute</li>
+                                <!-- Slow Start was not restoring Speed after 5 turns as intended -->
+                                <li>Fixed Slow Start not restoring Speed</li>
+                            </ul>
+
+                            <!-- ---- OVERWORLD & MISC FIXES ---- -->
+                            <h4>Overworld &amp; Misc Fixes</h4>
+                            <ul>
+                                <!-- Learnset order bugs caused some Pokémon to skip moves on level-up -->
+                                <li>Fixed wrong orders in Level up learnsets causing Pokémon to skip moves (Shellder, Nidoran line)</li>
+                                <!-- Common Candy and Candy Jar caused crashes/bugs in the select-list -->
+                                <li>Fixed weird behaviors and crashes when putting Common Candy and Candy Jar in the select-list</li>
+                                <!-- These trainers could be beaten with a single Pokémon, which was unintended -->
+                                <li>Slightly adjusted Guitarist Shawn &amp; Guitarist Kirk to prevent soloing with 1 Pokémon</li>
+                                <!-- Water Stone in Petalburg Mart was disappearing after story progression -->
+                                <li>Fixed Petalburg City Mart Water Stone disappearing once you progress the story</li>
+                                <!-- Pokémon were being given abilities they couldn't legitimately have -->
+                                <li>Fixed giving Pokémon abilities they don't have, creating various doc issues</li>
+                                <!-- Syrup Bomb's speed drop was sometimes hitting the user instead of the target -->
+                                <li>Fixed Syrup Bomb speed drop sometimes happening on the user of Syrup Bomb</li>
+                                <!-- Rustboro Mart items were disappearing after story progression -->
+                                <li>Fixed Rustboro City Mart items disappearing once you progress the story</li>
+                                <!-- Moody was using old generation behavior instead of the modern version -->
+                                <li>Fixed Moody not being updated to modern generation behavior</li>
+                                <!-- Some enemy Pokémon had IVs that weren't being read correctly -->
+                                <li>Fixed some IVs on enemy Pokémon not being properly read</li>
+                                <!-- Grass tiles were appearing in the middle of the Verdanturf Tunnel gauntlet -->
+                                <li>Fixed grass appearing mid-gauntlet in Verdanturf Tunnel</li>
+                                <!-- These two trainers were appearing in the wrong order -->
+                                <li>Fixed order of Triathlete Maria &amp; Triathlete Dylan</li>
+                                <!-- Snap Trap had 90 BP instead of the intended 80 BP -->
+                                <li>Fixed Snap Trap having the wrong BP (90 BP → 80 BP)</li>
+                                <!-- Some move descriptions were inaccurate or misleading -->
+                                <li>Fixed some move descriptions to be more accurate</li>
+                                <!-- A Sitrus tree on Route 112 was not appearing in the overworld -->
+                                <li>Fixed one Sitrus tree not appearing on Route 112</li>
+                                <!-- The Granite Cave Mach Bike section map had layout errors -->
+                                <li>Fixed the map of Granite Cave Mach Bike section</li>
+                                <!-- Ice Face was regenerating every hail turn instead of only once per battle -->
+                                <li>Fixed Ice Face regenerating every turn in hail</li>
+                                <!-- Wild Pichus were supposed to hold Light Ball but weren't -->
+                                <li>Fixed wild Pichus not holding Light Ball</li>
+                                <!-- Some tiles in Granite Cave were marked as unsurfable incorrectly -->
+                                <li>Fixed unsurfable tiles in Granite Cave</li>
+                                <!-- Learnset timing bugs that caused unintended delays -->
+                                <li><strong>Slightly adjusted some learnsets:</strong>
+                                    <ul>
+                                        <!-- "Reading check delays" are internal timing bugs in learnset processing -->
+                                        <li>Uncaught "reading check delays" were removed.</li>
+                                        <!-- Delays that weren't supposed to be there were removed -->
+                                        <li>Unintentional delays were removed.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- End Version 1.1 content -->
+
+                    </details>
+                    <!-- End Version 1.1 -->
+
+                    <!-- ==================== VERSION 1.0 ==================== -->
                     <details class="patch-notes-version">
 
                         <!-- The version label — clicking this expands the version's notes -->
@@ -315,8 +627,6 @@
                         <!-- The actual notes content for this version -->
                         <!-- Shown only when the Version 1.0 block is expanded -->
                         <p class="patch-notes-content">Release version.</p>
-
-
 
                     </details>
                     <!-- End Version 1.0 -->
@@ -328,7 +638,7 @@
             <!-- End outer Patch Notes collapsible -->
 
         </section>
-        <!-- ===== END PATCH NOTES SECTION ===== -->
+        <!-- ==== END PATCH NOTES SECTION ==== -->
 
     </main>
 
@@ -350,7 +660,7 @@
                     <li><a href="encounter-tracker.html">Encounter Tracker</a></li>
                     <li><a href="about.html">Game Info</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="https://nullcalc.pokemon0null.workers.dev/">Damage Calc</a></li>
+                    <li><a href="https://nullcalc.pokemon0null.workers.dev/" target="_blank" rel="noopener noreferrer">Damage Calc</a></li>
                     </ul>
                 </div>
                 <!-- Community links column -->
