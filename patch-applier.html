@@ -99,6 +99,8 @@
                     </ul>
                 </li>
                 <li><a href="encounter-tracker.html" class="nav-link">Tracker</a></li>
+                
+                
             </ul>
         </nav>
     </header>
@@ -119,10 +121,10 @@
                     ⬇ Download the Patch
                 </a> -->
 
-                <a href="https://www.mediafire.com/file/89ttz7hb941cl62/PokemonNullV1.2.bps/file"
+                <a href="https://www.mediafire.com/file/sw6cwamhkmyz7nm/PokemonNullV1.2.1.bps/file"
                    target="_blank"
                     class="btn btn-primary patch-btn patch-btn-download">
-                    ⬇ Download the Patch (v1.2)
+                    ⬇ Download the Patch (v1.2.1)
                 </a>
 
                 <!-- APPLY button: opens the external online ROM patcher tool in a new tab -->
@@ -208,6 +210,139 @@
                 <!-- Inner wrapper holds all individual version entries -->
                 <!-- Versions are listed newest-first so players see the latest changes first -->
                 <div class="patch-notes-list">
+
+                    <!-- ==================== VERSION 1.2.1 ==================== -->
+                    <!-- Newest patch always goes at the very top of the list -->
+                    <details class="patch-notes-version">
+
+                        <!-- The version label — clicking this expands the version's notes -->
+                        <summary class="patch-notes-version-label">Version 1.2.1</summary>
+
+                        <!-- All 1.2.1 patch note content lives inside this div -->
+                        <div class="patch-notes-content">
+
+                            <!-- ---- AESTHETICS ---- -->
+                            <!-- Visual/sprite improvements that don't affect gameplay -->
+                            <h4>Aesthetics</h4>
+                            <ul>
+                                <!-- List of Mega Evolution sprites that were updated for better quality -->
+                                <li>Updated the following sprites and/or icons for improved quality: Mega Greninja, Mega Delphox, Mega Chesnaught, Mega Barbaracle, Mega Baxcalibur, Mega Clefable, Mega Chimecho, Mega Crabominable, Mega Drampa, Mega Eelektross, Mega Excadrill, Mega Froslass, Mega Golisopod, Mega Lucario Z, Mega Heatran, Mega Meganium, Mega Scovillain, Mega Staraptor, Mega Starmie, Mega Zeraora, Mega Meowstic.</li>
+                                <!-- New shiny sprites added for Legends ZA Mega Evolutions -->
+                                <li>Added shiny sprites for the Mega Evolutions introduced in Pokémon Legends ZA.</li>
+                            </ul>
+
+                            <!-- ---- LEARNSET CHANGES ---- -->
+                            <!-- All learnset changes in this patch are buffs — nothing was taken away from the player -->
+                            <h4>Learnset Changes <em>(exclusively in favor of the player)</em></h4>
+                            <ul>
+                                <!-- Move repeats: these Pokémon can now learn a move they already had at a different level again -->
+                                <li><strong>Move repeats:</strong> Scrafty, Togedemaru, Falinks, Pawmot</li>
+                                <!-- Move swaps: a move was replaced with a different (usually better) move -->
+                                <li><strong>Move swaps:</strong> Tatsugiri, Poliwrath, Tornadus, Dusknoir, Minior</li>
+                                <!-- Move delay additions: a move was added but at a later level than it could have been -->
+                                <li><strong>Move delay additions:</strong> Flittle, Whirlipede</li>
+                                <!-- Move additions: these Pokémon gained a new move they didn't have before -->
+                                <li><strong>Move additions:</strong> Yanmega, Eelektross, Magcargo, Arbok</li>
+                                <!-- Other miscellaneous learnset adjustments -->
+                                <li><strong>Other:</strong> Infernape, Enamorus, Dragapult, Heatmor, Ampharos</li>
+                                <!-- Hidden Power added to all Gen 7+ Pokémon learnsets for consistency -->
+                                <li>Added Hidden Power to the learnset of all Pokémon from Generation 7 onwards, alongside other learnset inconsistencies.</li>
+                                <!-- Mirror adjustments: some Pokémon got minor changes to stay consistent with the above changes -->
+                                <li>Some additional Pokémon received minor move changes to mirror adjustments made to the Pokémon listed above, without being intended as significant balance changes (e.g. Archaludon receiving Roar of Time to mirror Tatsugiri gaining Spacial Rend).</li>
+                            </ul>
+
+                            <!-- ---- BUG FIXES ---- -->
+                            <h4>Bug Fixes</h4>
+
+                            <!-- AI-specific bugs -->
+                            <h5>AI Bugs</h5>
+                            <ul>
+                                <!-- AI was keeping stale Ability data after a KO during a pivot move -->
+                                <li>Fixed an issue where AI would retain Ability data after a Pivot Move KO, causing incorrect evaluations for the Pokémon switched in next.</li>
+                                <!-- AI was keeping stale Item data after an item was consumed on KO -->
+                                <li>Fixed an issue where AI would retain Item data after an item was consumed on KO, causing incorrect evaluations for the Pokémon switched in next.</li>
+                                <!-- AI was picking the wrong Pokémon to switch in after Eject Button triggered -->
+                                <li>Fixed AI choosing a wrong switch-in candidate after Eject Button activation.</li>
+                                <!-- AI could switch into a fainted Pokémon in rare edge cases -->
+                                <li>Fixed AI being able to mid-turn switch into a dead Pokémon in specific circumstances.</li>
+                                <!-- AI was using Shell Smash in situations where it shouldn't -->
+                                <li>Fixed AI using Shell Smash in unintended scenarios.</li>
+                                <!-- AI was miscalculating Water Shuriken damage for Ash-Greninja -->
+                                <li>Fixed an issue where AI calculates a higher Water Shuriken damage than intended, if the user is Ash-Greninja.</li>
+                            </ul>
+
+                            <!-- Battle mechanic bugs -->
+                            <h5>Battle Mechanics</h5>
+                            <ul>
+                                <!-- The last Surf encounter slot had a 0% chance of being selected -->
+                                <li>Fixed an issue where the final Surf encounter slot could never be selected.</li>
+                                <!-- Absorb, Recoil, and Rapid Spin effects weren't triggering against Substitutes -->
+                                <li>Fixed Absorb, Recoil, and Rapid Spin effects failing to trigger when hitting a Substitute.</li>
+                                <!-- Echoed Voice was gaining power even on turns it failed to execute -->
+                                <li>Fixed an issue where moves like Echoed Voice would increase in base power even if they failed.</li>
+                                <!-- Throat Chop's "can't use sound moves" effect was never expiring -->
+                                <li>Fixed Throat Chop effect lasting indefinitely.</li>
+                                <!-- Nature Power variants other than Tri Attack were incorrectly getting type-changed by abilities like Refrigerate -->
+                                <li>Fixed non-Tri Attack variants of Nature Power incorrectly being affected by abilities such as Refrigerate.</li>
+                                <!-- Mega Evolving while Transformed caused the Pokémon to get stuck in base form -->
+                                <li>Fixed an issue where attempting to Mega Evolve while transformed could cause the Pokémon to remain permanently transformed into its base form.</li>
+                                <!-- Pokémon that change form on faint (e.g. Wishiwashi) were getting stuck transformed -->
+                                <li>Fixed an issue where transformed Pokémon could remain permanently transformed after fainting while on a form that changes upon fainting.</li>
+                                <!-- Coaching was working even when the ally was in a semi-invulnerable state (e.g. using Fly) -->
+                                <li>Fixed Coaching succeeding if ally is in a semi-invulnerable state.</li>
+                                <!-- Status Immunity abilities like Limber weren't curing status if the attacker had Mold Breaker -->
+                                <li>Fixed Status Immunity abilities (e.g. Limber) failing to heal a user's status if the original attacker has a Mold Breaker-like ability.</li>
+                                <!-- Burning Bulwark wasn't being removed properly when hit by Feint -->
+                                <li>Fixed Burning Bulwark not being removed correctly after being hit by Feint.</li>
+                                <!-- Multiple bugs involving Mold Breaker ignoring or interacting with Ability Shield -->
+                                <li>Fixed various issues with Mold Breaker and Ability Shield.</li>
+                                <!-- Protect-family moves, Clear Amulet, and Protective Pads had several interaction bugs -->
+                                <li>Fixed various issues involving Protect effects (e.g. Baneful Bunker), Clear Amulet, and Protective Pads.</li>
+                                <!-- Population Bomb was triggering Iron Barbs one extra time incorrectly -->
+                                <li>Fixed an issue where Population Bomb triggering Iron Barbs would incorrectly cause an additional Iron Barbs activation.</li>
+                                <!-- Encore had bugs when the locked Pokémon was unable to move on a previous turn -->
+                                <li>Fixed issues with Encore interactions after a Pokémon was unable to move.</li>
+                            </ul>
+
+                            <!-- ---- OTHER ---- -->
+                            <h4>Other</h4>
+                            <ul>
+                                <!-- Blaziken's ability was changed back — it was accidentally set to Blaze instead of Speed Boost -->
+                                <li>Reverted Blaziken's Ability back to its previous version to avoid unwanted side-effects: Blaze → Speed Boost</li>
+                                <!-- New NPC tutor added to let Scolipede and Yanmega get Speed Boost — this is a one-way permanent change -->
+                                <li>Added a Speed Boost Tutor in the Lilycove City Contest Hall that can change Scolipede's and Yanmega's ability to Speed Boost. This change is permanent and cannot be reversed.</li>
+                                <!-- A trainer's Rotom had the wrong nature — corrected to Timid -->
+                                <li>Corrected the nature of Pyre Team Aqua Grunt #3's Rotom (Adamant → Timid)</li>
+                                <!-- Youngster Ben's Rotom-Frost IVs were slightly off after Patch 1.2 changes -->
+                                <li>Slightly adjusted the IVs of Youngster Ben's Rotom-Frost to better align with the changes from Patch 1.2</li>
+                                <!-- Probopass lost Sturdy in 1.2, so it was replaced in the Sturdy Table with Duraludon -->
+                                <li>Replaced Probopass with Duraludon in the Navel Rock Sturdy Table due to Probopass losing Sturdy in Patch 1.2</li>
+                                <!-- Focus Energy Tutor was removed from the L-Menu (quick-access menu) -->
+                                <li>Removed the Focus Energy Tutor from the L-Menu</li>
+                                <!-- The met location name for Jagged Pass was reverted to its original name -->
+                                <li>Reverted the Jagged Pass met location name: it is now listed as "Jagged Pass"</li>
+                                <!-- Wally's catching tutorial now uses Galarian Zigzagoon instead of regular Zigzagoon -->
+                                <li>Replaced Wally's Zigzagoon with Galarian Zigzagoon in the catching tutorial</li>
+                                <!-- The official Pokédex website's search feature was improved -->
+                                <li>Improved the search functionality in the official Pokédex</li>
+                            </ul>
+
+                            <!-- ---- AI CHANGES ---- -->
+                            <h4>AI Changes</h4>
+                            <ul>
+                                <!-- Support Pokémon were getting a switch score boost too often — reduced to 10% chance -->
+                                <li>Reduced the chance for support Pokémon to receive a switch score boost to 10%</li>
+                                <!-- Future Sight Switch-AI was causing bugs and was removed; affected trainer sets were adjusted as compensation -->
+                                <li>Removed Future Sight Switch-AI due to several bugs. As compensation, adjusted the Latios set used by Shelly in the Weather Institute and the Deoxys set used by Leaf on Route 123.</li>
+                                <!-- Mid-turn switch thresholds were loosened slightly; full details in the Switch AI Documentation -->
+                                <li>Changed some parameters for the midturn switch behavior to be slightly more lenient. For more information refer to the newly released Switch AI Documentation in the Documentations Drive.</li>
+                            </ul>
+
+                        </div>
+                        <!-- End Version 1.2.1 content -->
+
+                    </details>
+                    <!-- End Version 1.2.1 -->                        
 
                     <!-- ==================== VERSION 1.2 ==================== -->
                     <!-- Each version is its own nested <details> block -->
