@@ -121,10 +121,10 @@
                     ⬇ Download the Patch
                 </a> -->
 
-                <a href="https://www.mediafire.com/file/sw6cwamhkmyz7nm/PokemonNullV1.2.1.bps/file"
+                <a href="https://www.mediafire.com/file/5rvv3afrw9ocpb3/PokemonNullV1.2.3.bps/file"
                    target="_blank"
                     class="btn btn-primary patch-btn patch-btn-download">
-                    ⬇ Download the Patch (v1.2.1)
+                    ⬇ Download the Patch (v1.2.3)
                 </a>
 
                 <!-- APPLY button: opens the external online ROM patcher tool in a new tab -->
@@ -211,8 +211,57 @@
                 <!-- Versions are listed newest-first so players see the latest changes first -->
                 <div class="patch-notes-list">
 
+            <!-- ==================== VERSION 1.2.3 ==================== -->
+            <!-- Newest patch always goes at the very top of the list -->
+            <details class="patch-notes-version">
+
+                <!-- The version label — clicking this expands the version's notes -->
+                <summary class="patch-notes-version-label">Version 1.2.3</summary>
+
+                <!-- All 1.2.3 patch note content lives inside this div -->
+                <div class="patch-notes-content">
+
+                    <!-- ---- CHANGES ---- -->
+                    <!-- Trainer and tutor adjustments alongside bug fixes -->
+                    <h4>Changes</h4>
+                    <ul>
+                        <!-- Finizen in the Fanclub now only use Sonicboom so players can set up pre-damage more easily -->
+                        <li>Adjusted the three Finizen in the Finizen Fanclub so they now only use Sonicboom, allowing for easier pre-damage setup for Sailor MSPaint.</li>
+                        <!-- Two move tutors were broken and not teaching moves correctly -->
+                        <li>Fixed an issue where the Air Slash and Signal Beam tutors were not functioning as intended.</li>
+                    </ul>
+
+                    <!-- ---- BUG FIXES ---- -->
+                    <h4>Bug Fixes</h4>
+                    <ul>
+                        <!-- A placeholder/dummy species was appearing in the fishing encounter table on Route 124 -->
+                        <li>Fixed a bug where a placeholder species could be encountered while fishing on Route 124.</li>
+                        <!-- Belly Drum AI was miscalculating whether it could survive after halving its own HP -->
+                        <li>Fixed an issue in Belly Drum AI logic where the AI incorrectly evaluated post-Belly Drum survival.</li>
+                        <!-- Covert Cloak and Shield Dust were incorrectly blocking trapping, Obstruct/Silk Trap, and hazard effects -->
+                        <li>Fixed various Covert Cloak and Shield Dust interactions. Trapping effects, Obstruct/Silk Trap, and hazard effects are no longer incorrectly prevented.</li>
+                        <!-- Stomping Tantrum's power boost wasn't triggering when a stat-raising immunity ability (e.g. Motor Drive) blocked the previous move -->
+                        <li>Fixed Stomping Tantrum not receiving its power boost when a move failed due to an immunity-granting Ability that raises stats (e.g. Motor Drive).</li>
+                        <!-- Protean/Libero type-change calculations had a rounding error affecting damage -->
+                        <li>Fixed a rounding error affecting Protean and Libero.</li>
+                        <!-- Sticky Barb was being duplicated under certain conditions -->
+                        <li>Fixed an issue with Sticky Barb being duplicated.</li>
+                        <!-- Me First was only copying the first hit instead of the full multi-hit move -->
+                        <li>Fixed Me First only copying the first hit of multi-hit moves.</li>
+                        <!-- Several bugs related to Mycelium Might's ability to ignore ability-based immunities -->
+                        <li>Fixed various issues involving Mycelium Might.</li>
+                        <!-- Dipplin's Pokédex/party icon was static instead of animated -->
+                        <li>Fixed Dipplin's icon missing its animation.</li>
+                    </ul>
+
+                </div>
+                <!-- End Version 1.2.3 content -->
+
+            </details>
+            <!-- End Version 1.2.3 -->      
+                    
                     <!-- ==================== VERSION 1.2.1 ==================== -->
-                    <!-- Newest patch always goes at the very top of the list -->
+
                     <details class="patch-notes-version">
 
                         <!-- The version label — clicking this expands the version's notes -->
