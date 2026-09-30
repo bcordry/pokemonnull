@@ -213,6 +213,10 @@
     flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
+.hero-buttons + .hero-buttons {
+    margin-top: 16px;
+}
+
 
 .trailer {
     padding: 80px 0; /* Vertical padding for section */
